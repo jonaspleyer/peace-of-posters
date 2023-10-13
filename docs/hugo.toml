@@ -3,3 +3,29 @@ languageCode = 'en-us'
 title = 'My New Hugo Site'
 theme = "docs"
 
+[[menus.main]]
+name = 'Home'
+pageRef = '/'
+weight = 10
+
+[[menus.main]]
+name = "Documentation"
+pageRef = '/documentation'
+weight = 20
+
+[[menus.main]]
+parent = "Documentation"
+name = "Boxes"
+pageRef = '/boxes'
+weight = 22
+
+[[menus.main]]
+parent = "Documentation"
+name = "Themes"
+pageRef = "/themes"
+weight = 25
+
+[[menus.main]]
+name = 'Showcase'
+pageRef = '/showcase'
+weight = 30
