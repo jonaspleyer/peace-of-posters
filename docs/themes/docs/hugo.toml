@@ -8,16 +8,11 @@ pageRef = '/'
 weight = 10
 
 [[menus.main]]
-name = 'Posts'
-pageRef = '/posts'
+name = "Documentation"
+pageRef = '/documentation'
 weight = 20
 
 [[menus.main]]
-name = 'Tags'
-pageRef = '/tags'
+name = 'Showcase'
+pageRef = '/showcase'
 weight = 30
-
-[module]
-  [module.hugoVersion]
-    extended = false
-    min = "0.116.0"

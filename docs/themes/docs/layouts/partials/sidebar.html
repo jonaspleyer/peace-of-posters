@@ -1,0 +1,75 @@
+{{- $page := . }}
+{{- $menuID := "main" }}
+
+{{- with index site.Menus $menuID }}
+<div class="sidenav">
+  <a href="#contact">Search</a>
+  {{- partial "inline/sidebar/walk.html" (dict "page" $page "menuEntries" .) }}
+</div>
+{{ end }}
+
+
+<script>
+/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content.
+This allows the user to have multiple dropdowns without any conflict */
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+    dropdown[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var dropdownContent = this.nextElementSibling;
+        if (dropdownContent.style.display === "block") {
+        dropdownContent.style.display = "none";
+        } else {
+        dropdownContent.style.display = "block";
+        }
+    });
+}
+
+var j;
+for (j = 0; j < dropdown.length; j++) {
+    console.log(dropdown[j]);
+    console.log(dropdown[j].childNodes);
+    if (dropdown[j].ariaCurrent!=null) {
+        console.log("dropdown button is activated");
+        dropdownContent = this.nextElementSibling;
+        dropdownContent.style.display = "block";
+    }
+}
+</script>
+
+{{- define "partials/inline/sidebar/walk.html" }}
+  {{- $page := .page }}
+  {{- range .menuEntries }}
+    {{- $attrs := dict "href" .URL }}
+    {{- if $page.IsMenuCurrent .Menu . }}
+      {{- $attrs = merge $attrs (dict "class" "active" "aria-current" "page") }}
+    {{- else if $page.HasMenuCurrent .Menu .}}
+      {{- $attrs = merge $attrs (dict "class" "ancestor" "aria-current" "true") }}
+    {{- end }}
+    {{- $identifier := or (T .Identifier) .Name | safeHTML }}
+    {{- with .Children }}
+        <button class="dropdown-btn"
+        {{- range $k, $v := $attrs }}
+                {{- with $v }}
+                    {{- printf " %s=%q" $k $v | safeHTMLAttr }}
+                {{- end }}
+            {{- end -}}>
+            {{ $identifier }}
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+          {{- partial "inline/sidebar/walk.html" (dict "page" $page "menuEntries" .) }}
+        </div>
+    {{- else }}
+    <a
+      {{- range $k, $v := $attrs }}
+        {{- with $v }}
+          {{- printf " %s=%q" $k $v | safeHTMLAttr }}
+        {{- end }}
+      {{- end -}}
+    >{{ or (T .Identifier) .Name | safeHTML }}</a>
+    {{- end }}
+  {{- end }}
+{{- end }}
