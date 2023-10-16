@@ -1,8 +1,4 @@
-# Some boxes here and there
-
-<div style="background: linear-gradient(83deg,#7cd5ff,#a6fbca 33%,#fff37c 66%,#ffa49d)">
-Test
-</div>
+# Boxes
 
 ## Common Box
 This box is mostly meant as a shared template for other functions to be calling.
