@@ -22,12 +22,12 @@ _common_box(
 
 | Argument | Type | Description |
 | --- | --- | --- |
-| `heading` | [content] | The upper rectangle which defines the heading of the box.
-| `body` | [content] | The lower rectangle containing the body of the box. |
-| `body_color` | [none],[color] | Text color of the body. |
-| `body_background` | [none],[color] | Background color of the body. |
-| `heading_color` | [none],[color] | Text color of the heading. |
-| `heading_background` | [none],[color] | Background color of the heading. |
+| `heading` | [none] [content] | The upper rectangle which defines the heading of the box.
+| `body` | [none] [content] | The lower rectangle containing the body of the box. |
+| `body_color` | [none] [color] | Text color of the body. |
+| `body_background` | [none] [color] | Background color of the body. |
+| `heading_color` | [none] [color] | Text color of the heading. |
+| `heading_background` | [none] [color] | Background color of the heading. |
 | `stretch_to_bottom` | [bool] | The vertical size of the box is stretched such that it fills out the remainder of the vertical space. |
 | `bottom_box` | [bool] | The box should be aligned towards the bottom of the page. |
 
@@ -45,11 +45,11 @@ column_box(
 	..args
 ) --> [content]
 ```
-| Argument | Type | Description |
-| --- | --- | --- |
-| `body` | [content] | 
+All arguments align with `_common_box` but the `column_box` requires at least a body.
 
 ## Bottom Box
+A box that will be placed at the bottom of the page.
+It is also possible to specify a logo and text-width of the remaining content.
 ```typst
 bottom_box(
     content,
