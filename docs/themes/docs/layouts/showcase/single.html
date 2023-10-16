@@ -1,0 +1,8 @@
+{{ define "main" }}
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+  Find the Code <a href="{{ .Params.code_path }}">here</a>.
+  <div style="width: 100%; aspect-ratio: 0.7071;">
+    <object width="100%" height="100%" data="{{ printf "%s/%s" .RelPermalink .Params.file_path }}"></object>
+  </div>
+{{ end }}

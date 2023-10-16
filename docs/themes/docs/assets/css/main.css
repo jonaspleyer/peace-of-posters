@@ -1,6 +1,8 @@
 :root {
   --content-max-width: 1000px;
-  --sidebar-width: 210px;
+  --showcase-min-width: 350px;
+  --sidebar-left-width: 210px;
+  --sidebar-right-width: 0px;
 
   --transition-time: 0.5s;
 
@@ -170,4 +172,24 @@ pre {
   padding: 0.5em;
   color: rgb(226, 226, 226);
   background: rgb(47, 57, 63);
+}
+
+.showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--showcase-min-width), 1fr));
+  gap: 36px;
+}
+
+.showcase-single {
+  background-color: var(--color-active-bg);
+  padding: 1em;
+}
+
+.showcase-single h2 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.showcase-single-date {
+  float: right;
 }
