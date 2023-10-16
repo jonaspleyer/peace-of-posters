@@ -1,4 +1,4 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://jonaspleyer.github.io/typst-posters/'
 languageCode = 'en-us'
 title = 'typst-posters'
 theme = "docs"
