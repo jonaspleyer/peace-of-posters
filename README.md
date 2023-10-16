@@ -6,8 +6,8 @@ To see what is possible look at some real-world [examples](https://github.com/jo
 of posters that I did.
 
 ## Documentation
-So far there is no external [documentation](https://jonaspleyer.github.io/typst-posters/) of the package.
-Please have a look at the code and critique.
+The external [documentation](https://jonaspleyer.github.io/typst-posters/) is coming along slowly.
+Most notably, there are examples and showcases missing but I hope to be adding them over the coming months.
 
 ## License
 Download the [MIT License](https://www.mit.edu/~amini/LICENSE.md)
