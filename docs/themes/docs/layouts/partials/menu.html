@@ -3,8 +3,8 @@
 
 {{- with index site.Menus $menuID }}
   <nav>
-    <div class="topnav" id="myTopnav">
-        Test
+    <div class="topnav">
+      {{ $page.Site.Title }}
     </div>
   </nav>
 {{- end }}
