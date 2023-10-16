@@ -265,3 +265,27 @@ td {
 .code-type-bool {
   background: #ffedc1;
 }
+
+.code-type-relative {
+  background: #e7d9ff;
+}
+
+.code-type-dictionary {
+  background: #eff0f3;
+}
+
+.code-type-length {
+  background: #e7d9ff;
+}
+
+.code-type-str {
+  background: #d1ffe2;
+}
+
+.code-value-false {
+  color: #d73a49;
+}
+
+.code-value-true {
+  color: #d73a49;
+}
