@@ -201,3 +201,18 @@ pre {
 .showcase-single-date {
   float: right;
 }
+
+table {
+  border-collapse: collapse;
+}
+
+th {
+  text-align: left;
+  padding: 3px;
+  border-bottom: 1px solid black;
+}
+
+td {
+  padding: 3px;
+  border-bottom: 1px solid rgb(200, 200, 200);
+}
