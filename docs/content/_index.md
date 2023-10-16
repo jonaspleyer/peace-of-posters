@@ -1,9 +1,11 @@
 # Overview
 `typst-posters` allows to create simple but elegant posters.
 It does not make any assumptions about layout (eg. 2/3 column), size of the poster (eg. a0, a1) or orientation.
-Its main functionality is provided by a handful of functions that create boxes with optional titles.
+Its main functionality is provided by a handful of functions that create [boxes](boxes) with optional titles.
 There are specific functions for defining title boxes and bottom boxes.
-It provides predefined stylesheets which can be adjusted to customize the design of the boxes.
+It provides predefined [themes](themes) which can be adjusted to customize the design of the boxes.
+
+To find out what you can do today with `typst-posters`, have a look at the [showcased examples](showcase).
 
 ## Example
 We begin by importing the `typst-posters` package
