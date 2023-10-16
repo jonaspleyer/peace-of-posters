@@ -4,25 +4,27 @@
   {{ partial "head.html" . }}
 </head>
 <body>
-  <header>
-    <div class="content">
-      {{ partial "header.html" . }}
+  <div class="page-container">
+    <header>
+      <div class="content">
+        {{ partial "header.html" . }}
+      </div>
+    </header>
+    <div class="main-grid">
+      <div class="sidebar">
+        {{ partial "sidebar.html" . }}
+      </div>
+      <div class="content">
+        <main>
+          {{ block "main" . }}{{ end }}
+        </main>
+      </div>
     </div>
-  </header>
-  <div class="main-grid">
-    <div class="sidebar">
-      {{ partial "sidebar.html" . }}
-    </div>
-    <div class="content">
-      <main>
-        {{ block "main" . }}{{ end }}
-      </main>
-    </div>
+    <footer>
+      <div class="content">
+        {{ partial "footer.html" . }}
+      </div>
+    </footer>
   </div>
-  <footer>
-    <div class="content">
-      {{ partial "footer.html" . }}
-    </div>
-  </footer>
 </body>
 </html>

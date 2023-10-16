@@ -107,6 +107,12 @@ body {
   justify-content: start;
 }
 
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 code {
   font-family: 'Cascadia Code',Courier New,Courier,monospace;
 }
@@ -131,9 +137,7 @@ header {
 }
 
 footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
+  margin-top: auto;
   width: 100%;
   background-color: var(--color-bg);
   color: white;
