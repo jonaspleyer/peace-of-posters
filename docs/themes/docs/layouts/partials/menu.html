@@ -3,8 +3,11 @@
 
 {{- with index site.Menus $menuID }}
   <nav>
+    <div class="top-menu">
+      <!-- TODO {{- partial "inline/sidebar/walk.html" (dict "page" $page "menuEntries" .) }}-->
+    </div>
     <div class="topnav">
-      {{ $page.Site.Title }}
+      <a href="{{ $page.Site.BaseURL }}">{{ $page.Site.Title }}</a>
     </div>
   </nav>
 {{- end }}
