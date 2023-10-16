@@ -27,16 +27,6 @@ for (i = 0; i < dropdown.length; i++) {
       }*/
     });
 }
-
-var j;
-for (j = 0; j < dropdown.length; j++) {
-  dd = dropdown[j]
-  if (dd.classList.contains("expanded")) {
-      var dropdownContent = dd.nextElementSibling;
-      dropdownContent.style.display = "block";
-      dropdownContent.classList.toggle("hidden");
-  }
-}
 </script>
 
 {{- define "partials/inline/sidebar/walk.html" }}
@@ -45,14 +35,17 @@ for (j = 0; j < dropdown.length; j++) {
     {{- $attrs := dict "href" .URL}}
     {{- $attrs_button := dict "class" "dropdown-btn" }}
     {{- $attrs_image := dict "class" "arrow-menu" }}
+    {{- $attrs_container := dict "class" "dropdown-container hidden" }}
     {{- if $page.IsMenuCurrent .Menu . }}
       {{- $attrs = merge $attrs (dict "class" "active" "aria-current" "page") }}
       {{- $attrs_button = merge $attrs_button (dict "class" "dropdown-btn ancestor expanded") }}
       {{- $attrs_image = merge $attrs_image (dict "class" "arrow-menu expanded")}}
+      {{- $attrs_container = merge $attrs_container (dict "class" "dropdown-container") }}
     {{- else if $page.HasMenuCurrent .Menu .}}
       {{- $attrs = merge $attrs (dict "class" "ancestor" "aria-current" "true") }}
       {{- $attrs_button = merge $attrs_button (dict "class" "dropdown-btn expanded") }}
       {{- $attrs_image = merge $attrs_image (dict "class" "arrow-menu expanded")}}
+      {{- $attrs_container = merge $attrs_container (dict "class" "dropdown-container") }}
     {{- end }}
 
     
@@ -78,7 +71,13 @@ for (j = 0; j < dropdown.length; j++) {
             {{- end -}}
           src="/arrow-menu.svg">
         </button>
-        <div class="dropdown-container hidden">
+        <div
+          {{- range $k, $v := $attrs_container }}
+            {{- with $v }}
+                {{- printf " %s=%q" $k $v | safeHTMLAttr }}
+            {{- end }}
+          {{- end -}}
+        >
           {{- partial "inline/sidebar/walk.html" (dict "page" $page "menuEntries" .) }}
         </div>
     {{- end }}
