@@ -151,19 +151,19 @@
 	})
 }
 
-#let bottom_box(content, text_relative_width: 70%, logo: none, ..args) = {
-	let content = [
+#let bottom_box(body, text_relative_width: 70%, logo: none, ..args) = {
+	let body = [
         #set align(top+left)
 		#if logo==none {
-			box(width: 100%, content)
+			box(width: 100%, body)
 		} else {
 			stack(dir: ltr,
-				box(width: text_relative_width, content),
+				box(width: text_relative_width, body),
 				align(right+horizon, logo),
 			)
 		}
 	]
-	let r = _common_box(heading: content, bottom_box: true, ..args)
+	let r = _common_box(heading: body, bottom_box: true, ..args)
 	align(bottom, r)
 }
 
