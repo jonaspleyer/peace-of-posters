@@ -15,21 +15,21 @@ _common_box(
 	body_background: [none] [color],
 	heading_color: [none] [color],
 	heading_background: [none] [color],
-	stretch_to_bottom: false,
-	bottom_box: false,
+	stretch_to_bottom: [bool],
+	bottom_box: [bool],
 ) --> [content]
 ```
 
-| Argument | Type | Description |
-| --- | --- | --- |
-| `heading` | [none] [content] | The upper rectangle which defines the heading of the box.
-| `body` | [none] [content] | The lower rectangle containing the body of the box. |
-| `body_color` | [none] [color] | Text color of the body. |
-| `body_background` | [none] [color] | Background color of the body. |
-| `heading_color` | [none] [color] | Text color of the heading. |
-| `heading_background` | [none] [color] | Background color of the heading. |
-| `stretch_to_bottom` | [bool] | The vertical size of the box is stretched such that it fills out the remainder of the vertical space. |
-| `bottom_box` | [bool] | The box should be aligned towards the bottom of the page. |
+| Argument | Type | Default Value | Description |
+| --- | --- | --- | --- |
+| `heading` | [none] [content] | [none] | The upper rectangle which defines the heading of the box.
+| `body` | [none] [content] | [none] | The lower rectangle containing the body of the box. |
+| `body_color` | [none] [color] | [none] | Text color of the body. |
+| `body_background` | [none] [color] | [none] | Background color of the body. |
+| `heading_color` | [none] [color] | [none] | Text color of the heading. |
+| `heading_background` | [none] [color] | [none] | Background color of the heading. |
+| `stretch_to_bottom` | [bool] | [false] | The vertical size of the box is stretched such that it fills out the remainder of the vertical space. |
+| `bottom_box` | [bool] | [false] | The box should be aligned towards the bottom of the page. |
 
 ### Example
 ```typst
@@ -41,7 +41,7 @@ _common_box(
 ## Column Box
 ```typst
 column_box(
-	body,
+	body: [content],
 	..args
 ) --> [content]
 ```
@@ -52,20 +52,33 @@ A box that will be placed at the bottom of the page.
 It is also possible to specify a logo and text-width of the remaining content.
 ```typst
 bottom_box(
-    content,
-    text_relative_width: 70%,
-    logo: none,
+    body: [content],
+    text_relative_width: [relative],
+    logo: [none] [content],
     ..args
 ) --> [content]
 ```
+| Argument | Type | Default Value | Description |
+| --- | --- | --- | --- |
+| `body` | [content] | | Body of the bottom box. |
+| `text_relative_width` | [relative] | `70%` | Space left of the logo where text can be displayed. |
+| `logo` | [none] [content] | [none] | The content which should be used as logo. Usually specified by an [image](https://typst.app/docs/reference/visualize/image/). It will be aligned towards the right side of the box. |
 
 ## Bibliography Box
 ```typst
 bibliography_box(
-    bib_file,
-    text_size: 24pt,
-    title: none,
-    style: "ieee",
-    stretch_to_bottom: false
+    bib_file: [str],
+    text_size: [length],
+    title: [none] [content],
+    style: [str],
+    stretch_to_bottom: [bool]
 ) --> [content]
 ```
+
+| Argument | Type | Default Value | Description |
+| --- | --- | --- | --- |
+| `bib_file` | [str] | | Path to the bibliography file. |
+| `text_size` | [length] | `24pt` | Font size of the bibliography. |
+| `title` | [none] [content] | [none] | Title of the Bibliography Box. |
+| `style` | [str] | `"ieee"` | Citation style. |
+| `stretch_to_bottom` | [bool] | [false] | The vertical size of the box is stretched such that it fills out the remainder of the vertical space. |
