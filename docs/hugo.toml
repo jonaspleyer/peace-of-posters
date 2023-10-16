@@ -34,7 +34,5 @@ name = 'Showcase'
 pageRef = '/showcase'
 weight = 30
 
-[markup]
-    [markup.goldmark]
-        [markup.goldmark.renderer]
-            unsafe = true
+[markup.goldmark.renderer]
+    unsafe = true
