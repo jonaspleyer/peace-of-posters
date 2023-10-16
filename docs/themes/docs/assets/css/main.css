@@ -13,7 +13,7 @@
 /* Fixed sidenav, full height */
 .sidenav {
   height: 100%;
-  width: var(--sidebar-width);
+  width: var(--sidebar-left-width);
   z-index: 1;
   overflow-x: hidden;
   padding-top: 20px;
@@ -79,7 +79,7 @@
 
 /* Main content */
 .main {
-  margin-left: var(--sidebar-width); /* Same as the width of the sidenav */
+  margin-left: var(--sidebar-left-width); /* Same as the width of the sidenav */
   font-size: 20px; /* Increased text to enable scrolling */
   padding: 0px 32px;
 }
@@ -101,10 +101,27 @@ body {
 .main-grid {
   padding: 32px;
   display: grid;
-  grid-template-columns: minmax(auto, var(--sidebar-width)) minmax(auto, var(--content-max-width)) minmax(auto, 144px);
-  align-items: first_baseline;
+  grid-template-columns: minmax(auto, var(--sidebar-left-width)) minmax(auto, var(--content-max-width)) minmax(auto, var(--sidebar-right-width));
   gap: 36px;
   justify-content: start;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (max-width: 1000px) {
+  .sidebar-left {
+    width: 0%;
+    display: none;
+  }
+
+  .main-grid {
+    display: block;
+  }
+
+  .sidebar-right {
+    width: 0%;
+    display: none;
+  }
 }
 
 .page-container {

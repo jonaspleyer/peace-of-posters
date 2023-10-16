@@ -11,7 +11,7 @@
       </div>
     </header>
     <div class="main-grid">
-      <div class="sidebar">
+      <div class="sidebar-left">
         {{ partial "sidebar.html" . }}
       </div>
       <div class="content">
@@ -19,6 +19,7 @@
           {{ block "main" . }}{{ end }}
         </main>
       </div>
+      <div class="sidebar-right"></div>
     </div>
     <footer>
       <div class="content">
