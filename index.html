@@ -1,6 +1,37 @@
-<!doctype html><html lang=en-us dir=ltr><head><meta name=generator content="Hugo 0.119.0"><meta charset=utf-8><meta name=viewport content="width=device-width,minimum-scale=1,initial-scale=1"><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Hanken+Grotesk"><link rel=stylesheet href=https://fonts.cdnfonts.com/css/cascadia-code><title>My New Hugo Site</title><link rel=stylesheet href=/css/main.min.ab3f97ba5ef0b8b0f40294f019f6ac32e6efe980dc33b1de4befb8e97f9e587f.css integrity="sha256-qz+Xul7wuLD0ApTwGfasMubv6YDcM7HeS++46X+eWH8=" crossorigin=anonymous><script src=/js/main.23cd0c7d837263b9eaeb96ee2d9ccfa2969daa3fa00fa1c1fe8701a9b87251a1.js integrity="sha256-I80MfYNyY7nq65buLZzPopadqj+gD6HB/ocBqbhyUaE=" crossorigin=anonymous></script></head><body><header><div class=content><nav><div class=topnav id=myTopnav>Test</div></nav></div></header><main><div class=sidebar><div class=sidenav><a href=#contact>Search</a>
-<a aria-current=page class=active href=/>Home</a>
-<button class=dropdown-btn href=/documentation/>
-Documentation
-<i class="fa fa-caret-down"></i></button><div class=dropdown-container><a href=/boxes/>Boxes</a>
-<a href=/themes/>Themes</a></div><a href=/showcase/>Showcase</a></div><script>var i,j,dropdown=document.getElementsByClassName("dropdown-btn");for(i=0;i<dropdown.length;i++)dropdown[i].addEventListener("click",function(){this.classList.toggle("active");var e=this.nextElementSibling;e.style.display==="block"?e.style.display="none":e.style.display="block"});for(j=0;j<dropdown.length;j++)console.log(dropdown[j]),console.log(dropdown[j].childNodes),dropdown[j].ariaCurrent!=null&&(console.log("dropdown button is activated"),dropdownContent=this.nextElementSibling,dropdownContent.style.display="block")</script></div><div class=content><h1 id=i-am-home>I am Home</h1></div></main><footer><div class=content><p>Copyright 2023. All rights reserved.</p></div></footer></body></html>
+<!doctype html><html lang=en-us dir=ltr><head><meta name=generator content="Hugo 0.119.0"><meta charset=utf-8><meta name=viewport content="width=device-width,minimum-scale=1,initial-scale=1"><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Hanken+Grotesk"><link rel=stylesheet href=https://fonts.cdnfonts.com/css/cascadia-code><title>typst-posters</title><link rel=stylesheet href=/css/main.min.5812d450092c47a5ba8528d4f27c6806e8af286cac3d2b5c8b699808babfa3f8.css integrity="sha256-WBLUUAksR6W6hSjU8nxoBuivKGysPStci2mYCLq/o/g=" crossorigin=anonymous><script src=/js/main.23cd0c7d837263b9eaeb96ee2d9ccfa2969daa3fa00fa1c1fe8701a9b87251a1.js integrity="sha256-I80MfYNyY7nq65buLZzPopadqj+gD6HB/ocBqbhyUaE=" crossorigin=anonymous></script></head><body><div class=page-container><header><div class=content><nav><div class=topnav>typst-posters</div></nav></div></header><div class=main-grid><div class=sidebar><div class=sidenav><div class=entry-formatter><a aria-current=page class=active href=/>Home</a></div><div class=entry-formatter><a href=/documentation/>Documentation</a>
+<button class=dropdown-btn><img class=arrow-menu src=/arrow-menu.svg></button><div class="dropdown-container hidden"><div class=entry-formatter><a href=/boxes/>Boxes</a></div><div class=entry-formatter><a href=/themes/>Themes</a></div></div></div><div class=entry-formatter><a href=/showcase/>Showcase</a></div></div><script>var i,dropdown=document.getElementsByClassName("dropdown-btn");for(i=0;i<dropdown.length;i++)dropdown[i].addEventListener("click",function(){this.classList.toggle("expanded"),this.attributes.expanded=!0;var e=this.nextElementSibling;e.classList.toggle("hidden")})</script></div><div class=content><main><h1 id=overview>Overview</h1><p><code>typst-posters</code> allows to create simple but elegant posters.
+It does not make any assumptions about layout (eg. 2/3 column), size of the poster (eg. a0, a1) or orientation.
+Its main functionality is provided by a handful of functions that create boxes with optional titles.
+There are specific functions for defining title boxes and bottom boxes.
+It provides predefined stylesheets which can be adjusted to customize the design of the boxes.</p><h2 id=example>Example</h2><p>We begin by importing the <code>typst-posters</code> package</p><pre tabindex=0><code>/// IMPORT THE POSTERS PACKAGE
+#import &#34;typst-posters/lib.typ&#34;: *
+</code></pre><p>Next, we specify some general settings formatting settings.</p><pre tabindex=0><code>#set page(&#34;a0&#34;, margin: 1.5cm,)
+#set text(font: &#34;Arial&#34;, size: 33pt)
+</code></pre><p>After that we choose a predefined theme.</p><pre tabindex=0><code>#set_theme(uni_fr)
+</code></pre><p>We can adjust any property of the theme via the <code>update_theme</code> method of the <a href=/themes>themes</a> module.
+The poster consists of multiple boxes which can be adjusted by specifying <a href=https://typst.app/docs/reference/layout/columns/>column layouts</a>.
+<code>typst-posters</code> provideds some predefiend methods for creating a title-box, regular column-boxes in between, a bottom box and bibliography to finish it of.</p><pre tabindex=0><code>#title_box(
+	[Writing typst is fun],
+	authors: [Jonas Pleyer#super(1)],
+	institutes: [#super(1)Freiburg],
+)
+
+#column_box()[
+	this box will have a 100% width by default.
+    If we do not specify otherwise, no heading
+    will be displayed.
+]
+
+#columns(2)[
+    #column_box()[This box will have 50% width and is left],
+    #column_box()[Again a 1/2 width box and left.]
+
+    #columnbreak()
+
+    #column_box()[We are moving towards the right-hand side.]
+]
+
+#bottom_box()[
+    Acknowledgements: Chili, Cara
+]
+</code></pre></main></div></div><footer><div class=content><p>Copyright 2023. All rights reserved.</p></div></footer></div></body></html>
