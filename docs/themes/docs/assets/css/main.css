@@ -79,7 +79,7 @@
 
 /* Main content */
 .main {
-  margin-left: 200px; /* Same as the width of the sidenav */
+  margin-left: var(--sidebar-width); /* Same as the width of the sidenav */
   font-size: 20px; /* Increased text to enable scrolling */
   padding: 0px 32px;
 }
@@ -101,7 +101,7 @@ body {
 .main-grid {
   padding: 32px;
   display: grid;
-  grid-template-columns: minmax(auto, var(--sidebar-width)) minmax(auto, 880px) minmax(auto, 144px);
+  grid-template-columns: minmax(auto, var(--sidebar-width)) minmax(auto, var(--content-max-width)) minmax(auto, 144px);
   align-items: first_baseline;
   gap: 36px;
   justify-content: start;
