@@ -16,13 +16,13 @@ weight = 20
 [[menus.main]]
 parent = "Documentation"
 name = "Boxes"
-pageRef = '/boxes'
+pageRef = '/documentation/boxes'
 weight = 22
 
 [[menus.main]]
 parent = "Documentation"
 name = "Themes"
-pageRef = "/themes"
+pageRef = "/documentation/themes"
 weight = 25
 
 [[menus.main]]
