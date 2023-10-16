@@ -3,6 +3,10 @@ languageCode = 'en-us'
 title = 'typst-posters'
 theme = "docs"
 
+[params]
+author = "Jonas Pleyer"
+author_mail = "jonas.sci@pleyer.org"
+
 [[menus.main]]
 name = 'Home'
 pageRef = '/'

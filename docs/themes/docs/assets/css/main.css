@@ -156,6 +156,22 @@ header {
   margin: 0px;
 }
 
+.header-author {
+  font-size: 15px;
+  font-weight: normal;
+  color: white;
+  display: float;
+  float: right;
+}
+
+.header-author:link {
+  color: white;
+}
+
+.header-author:visited {
+  color: white;
+}
+
 .topnav {
   font-size: 24px;
   font-weight: bold;
