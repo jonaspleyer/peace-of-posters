@@ -32,6 +32,11 @@
   outline: none;
 }
 
+.sidenav a.active {
+  color: var(--color-active-text);
+  font-weight: bold;
+}
+
 .sidenav .dropdown-btn {
   border-radius: 20px;
 }
@@ -133,10 +138,15 @@ footer {
   background-color: var(--color-bg);
   color: white;
   text-align: center;
-  margin-top: 1rem;
 }
 
 a {
   color: #00e;
   text-decoration: none;
+}
+
+pre {
+  padding: 0.5em;
+  color: rgb(226, 226, 226);
+  background: rgb(47, 57, 63);
 }
