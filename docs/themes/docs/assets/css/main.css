@@ -216,3 +216,36 @@ td {
   padding: 3px;
   border-bottom: 1px solid rgb(200, 200, 200);
 }
+
+/* CODE STYLING */
+.code-type-block {
+  display: inline-block;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+.code-type-block:link {
+  color: black;
+}
+
+.code-type-block:visited {
+  color: black;
+}
+
+.code-type-color {
+  background: linear-gradient(83deg,#7cd5ff,#a6fbca 33%,#fff37c 66%,#ffa49d);
+}
+
+.code-type-content {
+  background: #a6ebe6;
+}
+
+.code-type-none {
+  background: #ffcbc4;
+}
+
+.code-type-bool {
+  background: #ffedc1;
+}

@@ -1,0 +1,20 @@
+{{ define "main" }}
+    {{ $contentRE := .Content }}
+    <!-- REPLACE [color] BY A NICE SHINY INLINE DIV -->
+    {{ $contentRE := replaceRE `\[color\]` `<a href="https://typst.app/docs/reference/visualize/color/" class="code-type-color code-type-block">color</a>` $contentRE }}
+    
+    <!-- REPLACE [content] BY A COLORED BLOCK -->
+    {{ $contentRE := replaceRE `\[content\]` `<a href="https://typst.app/docs/reference/foundations/content/" class="code-type-content code-type-block">content</a>` $contentRE }}
+    
+    <!-- REPLACE [none] BY A COLORED BLOCK -->
+    {{ $contentRE := replaceRE `\[none\]` `<a href="https://typst.app/docs/reference/foundations/type/" class="code-type-none code-type-block">none</a>` $contentRE}}
+    
+    <!-- REPLACE [bool] BY A COLORED BLOCK -->
+    {{ $contentRE := replaceRE `\[bool\]` `<a href="https://typst.app/docs/reference/foundations/bool/" class="code-type-bool code-type-block">bool</a>` $contentRE}}
+
+    <!-- TODO REPLACE typst CODE BLOCKS -->
+    <!-- {{ $contentRE := replaceRE 'a' 'a' $contentRE}} -->
+
+    <!-- RENDER THE FINAL RESULT -->
+    {{ .RenderString $contentRE }}
+{{ end }}
