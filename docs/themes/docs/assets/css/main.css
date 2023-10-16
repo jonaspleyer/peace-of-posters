@@ -12,6 +12,14 @@
   --color-active-text: #111;
 }
 
+a:link {
+  color: var(--color-typst);
+}
+
+a:visited {
+  color: var(--color-typst);
+}
+
 /* Fixed sidenav, full height */
 .sidenav {
   height: 100%;
