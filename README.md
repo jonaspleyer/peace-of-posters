@@ -2,8 +2,7 @@
 
 [Posters](https://github.com/jonaspleyer/posters) is a Typst package to help creating scientific posters.
 It is flexible and can be used for different sizes and layouts.
-To see what is possible look at some real-world [examples](https://github.com/jonaspleyer/posters/examples)
-of posters that I did.
+To see what is possible have a look at some of my own real-world examples in the [showcase](https://jonaspleyer.github.io/typst-posters/showcase/) section of the documentation.
 
 ## Documentation
 The external [documentation](https://jonaspleyer.github.io/typst-posters/) is coming along slowly.
