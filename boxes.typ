@@ -1,7 +1,7 @@
 #import "themes.typ": *
 #import "layouts.typ": *
 
-#let stretch_rectangle_to_bottom(..r, spacing: 1.2em) = locate(loc => {
+#let stretch_box_to_bottom(box_function, spacing: 1.2em, ..r) = locate(loc => {
     // Get current y location
     let m_loc = loc.position()
 	// [My location: #m_loc#linebreak()]
@@ -15,7 +15,7 @@
 
 	// If none was found we create one which is empty instead
 	let n = 0
-	let r1 = rect(..r)
+	let r1 = box_function(..r)
 	for c_box in elems {
 		r1 = style(styles => {
 			let c_box_width = measure(c_box, styles).width
@@ -25,9 +25,9 @@
 			let bottom_y = c_box_position.y
 			let dist = c_box_position.y - m_loc.y - spacing
 			if c_box_width==0pt {
-				rect(..r, height: dist)
+				box_function(..r, height: dist)
 			} else if int(m_loc.x <= c_box_position.x + c_box_width)*int(c_box_position.x <= m_loc.x)==1 {
-				rect(..r, height: dist)
+				box_function(..r, height: dist)
 			} else {
 				r1
 			}
@@ -100,18 +100,32 @@
 			body_box = body_box_function(
 				body,
 				width: 100%,
-				inset: 18pt,
+				..body_box_args,
+				..body_box_args_with_heading,
 			)
 		}
 
 		/// IF THIS BOX SHOULD BE STRETCHED TO THE NEXT POSSIBLE POINT WE HAVE TO ADJUST ITS SIZE
-		if stretch_to_bottom!=false {
-			body_box = stretch_rectangle_to_bottom(
-				body,
-				width: 100%,
-				inset: 18pt,
-				spacing: stretch_to_bottom,
-			)
+		if stretch_to_bottom==true {
+			if body!=none {
+				body_box = stretch_box_to_bottom(
+					body_box_function,
+					spacing: spacing,
+					body,
+					width: 100%,
+					..body_box_args,
+					..body_box_args_with_heading,
+				)
+			} else {
+				heading_box = stretch_box_to_bottom(
+					heading_box_function,
+					spacing: spacing,
+					heading,
+					width: 100%,
+					..heading_box_args,
+					..heading_box_args_with_body,
+				)
+			}
 		}
 		box([#stack(dir:ttb,
 			heading_box,
@@ -130,7 +144,24 @@
 }
 
 // Function to display the title of the document
-#let title_box(title, heading_color: none, heading_background: none, subtitle: none, authors: none, institutes: none, keywords: none, image: none, text_relative_width: 80%, spacing: 5%, inset: 20pt) = {
+#let title_box(
+	title,
+	heading_color: none,
+	heading_background: none,
+	subtitle: none,
+	authors: none,
+	institutes: none,
+	keywords: none,
+	image: none,
+	text_relative_width: 80%,
+	spacing: 5%,
+	/// TODO set this based on layout
+	inset: 0.6em,
+	title_size: none,
+	subtitle_size: none,
+	authors_size: none,
+	keywords_size: none,
+) = {
 	locate(loc => {
 		let text_relative_width = text_relative_width
 		/// Get theme and layout state
@@ -158,20 +189,18 @@
 				#keywords
 			]}
 		]
+
+		/// Expand to full width of no image is specified
 		if image==none {
 			text_relative_width=100%
 		}
-		rect(
-			fill: heading_background,
-			width: 100%,
-			inset: inset,
-			stroke: heading_background,
-		)[
-			#stack(dir: ltr,
-				box(content, width: text_relative_width),
+
+		/// Finally construct the main rectangle
+		_common_box(heading:
+			stack(dir: ltr,
+				box(text_content, width: text_relative_width),
 				align(right, box(image, width: 100% - spacing - text_relative_width))
-			)
-		]
+			))
 	})
 }
 
@@ -191,12 +220,13 @@
 	align(bottom, r)
 }
 
-#let bibliography_box(bib_file, text_size: 24pt, title: none, style: "ieee", stretch_to_bottom: false) = {
+/// TODO
+#let bibliography_box(bib_file, body_size: 24pt, title: none, style: "ieee", stretch_to_bottom: false) = {
 	if title==none {
 		title = "References"
 	}
 	column_box(heading: title, stretch_to_bottom: stretch_to_bottom)[
-		#set text(size: text_size)
+		#set text(size: body_size)
 		#bibliography(bib_file, title: none, style: style)
 	]
 }
