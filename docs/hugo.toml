@@ -30,9 +30,20 @@ pageRef = "/documentation/themes"
 weight = 25
 
 [[menus.main]]
+parent = "Documentation"
+name = "Layouts"
+pageRef = "/documentation/layouts"
+weight = 27
+
+[[menus.main]]
 name = 'Showcase'
 pageRef = '/showcase'
 weight = 30
+
+[[menus.main]]
+name = 'Tips and Tricks'
+pageref = 'tips_and_tricks'
+weight = 40
 
 [markup.goldmark.renderer]
     unsafe = true
