@@ -10,13 +10,13 @@ To find out what you can do today with `typst-posters`, have a look at the [show
 ## Example
 We begin by importing the `typst-posters` package
 ```
-/// IMPORT THE POSTERS PACKAGE
 #import "typst-posters/lib.typ": *
 ```
 Next, we specify some general settings formatting settings.
 ```
-#set page("a0", margin: 1.5cm,)
-#set text(font: "Arial", size: 33pt)
+#set page("a0", margin: 1cm)
+#set_layout(layout_a0)
+#set text(font: "Arial", size: layout_a0.at("body_size"))
 ```
 After that we choose a predefined theme.
 ```
@@ -27,27 +27,50 @@ The poster consists of multiple boxes which can be adjusted by specifying [colum
 `typst-posters` provideds some predefiend methods for creating a title-box, regular column-boxes in between, a bottom box and bibliography to finish it of.
 ```
 #title_box(
-	[Writing typst is fun],
-	authors: [Jonas Pleyer#super(1)],
-	institutes: [#super(1)Freiburg],
+    [`typst-posters`],
+    subtitle: [Scientific Posters for any Occasion],
+    authors: [Jonas Pleyer#super("1")],
+    institutes: [#super("1")Freiburg Center for Data-Analysis and Modelling],
+    keywords: [Science, Poster, Typesetting, `typst`],
 )
 
+#columns(2, [
+    #column_box(
+        heading: [Left Column],
+    )[
+        Multi-Column layouts are supported out of the box by typsts `columns()` method.
+    ]
+
+    #colbreak()
+
+    #column_box()[
+        We can also choose to not have a title for our boxes.
+    ]
+])
+
 #column_box()[
-	this box will have a 100% width by default.
-    If we do not specify otherwise, no heading
-    will be displayed.
+    We can update the layout of the boxes in the middle of the document.
 ]
 
-#columns(2)[
-    #column_box()[This box will have 50% width and is left],
-    #column_box()[Again a 1/2 width box and left.]
+#_common_box(heading: [only heading])
 
-    #columnbreak()
-
-    #column_box()[We are moving towards the right-hand side.]
-]
+#columns(2, [
+    #colbreak()
+    #column_box(
+        heading: [Stretching],
+        stretch_to_bottom: true
+    )[
+        And stretch boxes to the next lowest box (or bottom of the page)
+    ]
+])
 
 #bottom_box()[
-    Acknowledgements: Chili, Cara
+    Align them to the bottom.
 ]
+
 ```
+
+## Final Result
+<div class="showcase-single" style="text-align: center; padding: 1em;">
+<a href="examples/getting_started/main.pdf"><img src="examples/getting_started/main.png" width=100%></a>
+</div>

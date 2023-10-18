@@ -1,8 +1,8 @@
 // We begin by importing the `typst-posters` package
-#import "../../lib.typ": *
+#import "../../../../lib.typ": *
 
 // Next, we specify some general settings formatting settings.
-#set page("a0", margin: 1em)
+#set page("a0", margin: 1cm)
 #set_layout(layout_a0)
 #set text(font: "Arial", size: layout_a0.at("body_size"))
 
