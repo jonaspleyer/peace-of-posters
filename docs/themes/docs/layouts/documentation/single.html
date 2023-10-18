@@ -24,6 +24,9 @@
     <!-- REPLACE [str] BY A COLORED BLOCK -->
     {{ $contentRE := replaceRE `\[str\]` `<a href="https://typst.app/docs/reference/foundations/str/" class="code-type-str code-type-block">str</a>` $contentRE }}
 
+    <!-- REPLACE [function] BY A COLORED BLOCK -->
+    {{ $contentRE := replaceRE `\[function\]` `<a href="https://typst.app/docs/reference/foundations/function/" class="code-type-function code-type-block">function</a>` $contentRE }}
+
     <!-- REPLACE [false] BY A COLORED BLOCK -->
     {{ $contentRE := replaceRE `\[false\]` `<p class="code-value-false">false</p>` $contentRE }}
 

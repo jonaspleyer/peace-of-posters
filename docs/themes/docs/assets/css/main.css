@@ -282,6 +282,10 @@ td {
   background: #d1ffe2;
 }
 
+.code-type-function {
+  background: #eff0f3;
+}
+
 .code-value-false {
   color: #d73a49;
 }
