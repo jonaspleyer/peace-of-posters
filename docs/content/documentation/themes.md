@@ -4,22 +4,23 @@ The dictionary is saved as a [state](https://typst.app/docs/reference/meta/state
 Most of the time, themes are meant to be set initially without any further alteration.
 ```typst
 theme = (
-    "body_color": [color],
-    "body_background": [color],
-    "heading_color": [color],
-    "heading_background": [color],
+    "body_box_args": [dictionary],
+    "body_box_args_with_title": [dictionary],
+    "body_box_function": [function],
+    "heading_box_args": [dictionary],
+    "heading_box_args_with_body": [dictionary],
+    "heading_box_function": [function],
 )
 ```
+
 
 ## Updating a Theme
 ```typst
 update_theme(
-    body_color: [color],
-    body_background: [color],
-    heading_color: [color],
-    heading_background: [color],
+    ..args
 )
 ```
+All arguments coincide with the values of the ones of `theme` shown above.
 
 ### Note: Updating in the middle of the document
 The user can also update the theme in the middle of the document.

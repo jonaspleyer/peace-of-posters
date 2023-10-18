@@ -1,5 +1,5 @@
 # Boxes
-
+Please note that most values which have default values [none] are probably specified either by a [theme](/documentation/themes) or [layout](/documentation/layouts).
 ## Common Box
 This box is mostly meant as a shared template for other functions to be calling.
 While it can be used individually, users should strongly consider relying on other functions.
@@ -11,24 +11,29 @@ This box also automatically considers the currently defined [theme](themes) and 
 _common_box(
     body: [none] [content],
 	heading: [none] [content],
-	body_color: [none] [color],
-	body_background: [none] [color],
-	heading_color: [none] [color],
-	heading_background: [none] [color],
+    heading_size: [none] [length],
+	heading_box_args: [none] [dictionary],
+    heading_text_args: [none] [dictionary],
+    body_size: [none] [length],
+	body_box_args: [none] [dictionary],
+	body_text_args: [none] [dictionary],
 	stretch_to_bottom: [bool],
+    spacing: [none] [length] [relative],
 	bottom_box: [bool],
 ) --> [content]
 ```
 
 | Argument | Type | Default Value | Description |
 | --- | --- | --- | --- |
-| `heading` | [none] [content] | [none] | The upper rectangle which defines the heading of the box.
 | `body` | [none] [content] | [none] | The lower rectangle containing the body of the box. |
-| `body_color` | [none] [color] | [none] | Text color of the body. |
-| `body_background` | [none] [color] | [none] | Background color of the body. |
-| `heading_color` | [none] [color] | [none] | Text color of the heading. |
-| `heading_background` | [none] [color] | [none] | Background color of the heading. |
+| `heading` | [none] [content] | [none] | The upper rectangle which defines the heading of the box.
+| `heading_box_args` | [none] [dictionary] | [none] | Arguments given to the box-type function that creates the heading. |
+| `heading_text_args` | [none] [dictionary] | [none] | Arguments given to the `text` function which creates the heading. |
+| `body_size` | [none] [length] | [none] | Size of the body. |
+| `body_box_args` | [none] [dictionary] | [none] | Arguments given to the box-type function that creates the body. |
+| `body_text_args` | [none] [dictionary] | [none] | Arguments given to the `text` function which creates the body. |
 | `stretch_to_bottom` | [bool] | [false] | The vertical size of the box is stretched such that it fills out the remainder of the vertical space. |
+| `spacing` | [none] | [none] | Only useful when specifying `stretch_to_bottom`. Controls spacing towards next block. |
 | `bottom_box` | [bool] | [false] | The box should be aligned towards the bottom of the page. |
 
 ### Example
