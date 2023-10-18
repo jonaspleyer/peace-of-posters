@@ -1,11 +1,5 @@
 #let _default_layout = (
     "spacing": 1.2em,
-    "body_box_args": (),
-    "body_box_args_with_title": (),
-    "body_box_function": rect,
-    "heading_box_args": (),
-    "heading_box_args_with_body": (),
-    "heading_box_function": rect,
 )
 
 #let layout_a0 = _default_layout + (

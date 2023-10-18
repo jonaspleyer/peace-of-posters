@@ -40,13 +40,14 @@
 #let _common_box(
 	body: none,
 	heading: none,
-	body_size: none,
-	body_color: none,
-	body_background: none,
 	heading_size: none,
-	heading_color: none,
-	heading_background: none,
-	inset: 0.6em,
+	heading_box_args: none,
+	heading_text_args: none,
+	heading_box_function: none,
+	body_size: none,
+	body_box_args: none,
+	body_text_args: none,
+	body_box_function: none,
 	stretch_to_bottom: false,
 	spacing: none,
 	bottom_box: false,
@@ -55,56 +56,99 @@
 		let pt = _state_poster_theme.at(loc)
 		let pl = _state_poster_layout.at(loc)
 
-		/// INITIALIZE ALL DEFAULT VALUES
-		let heading_color = heading_color
-		let heading_background = heading_background
-		let body_color = body_color
-		let body_background = body_background
-
-		/// SET ALL DEFAULT VALUES DEFINED BY THE CURRENT THEME
-		if heading_color==none {heading_color = pt.at("heading_color")}
-		if heading_background==none {heading_background = pt.at("heading_background")}
-		if body_color==none {body_color = pt.at("body_color")}
-		if body_background==none {body_background = pt.at("body_background")}
-
-		/// SET ALL DEFAULT VALUES DEFINED BY THE CURRENT LAYOUT
-		let body_size = if body_size==none {pl.at("body_size")} else {body_size}
-		let heading_size = if heading_size==none {pl.at("heading_size")} else {heading_size}
 		let spacing = if spacing==none {pl.at("spacing")} else {spacing}
-		let heading_box_args = pl.at("heading_box_args", default: ())
-		let heading_box_args_with_body = if body!=none {pl.at("heading_box_args_with_body", default: ())} else {()}
-		let heading_box_function = pl.at("heading_box_function", default: rect)
-		let body_box_args = pl.at("body_box_args", default: ())
-		let body_box_args_with_heading = if heading!=none {pl.at("body_box_args_with_heading", default: ())} else {()}
-		let body_box_function = pl.at("body_box_function", default: rect)
+
+		/// #####################################################
+		/// ###################### HEADING ######################
+		/// #####################################################
+		// Sort out arguments for heading box
+		let heading_box_args = heading_box_args
+		if heading_box_args==none {
+			heading_box_args = pt.at("heading_box_args", default: (:))
+			if body==none {
+				heading_box_args = pt.at("heading_box_args_with_body", default: heading_box_args)
+			}
+		}
+
+		// Sort out arguments for heading text
+		let heading_text_args = heading_text_args
+		if heading_text_args==none {
+			heading_text_args = pt.at("heading_text_args", default: (:))
+			if body==none {
+				heading_text_args = pt.at("heading_text_args_with_body", default: heading_text_args)
+			}
+		}
+
+		// Define which function to use for heading box
+		let heading_box_function = heading_box_function
+		if heading_box_function==none {
+			heading_box_function = pt.at("heading_box_function", default: rect)
+		}
+
+		// Determine the size of the heading
+		let heading_size = pl.at("heading_size", default: heading_size)
+		if heading_size!=none {
+			heading_text_args.insert("size", heading_size)
+		}
 
 		/// CONSTRUCT HEADING IF NOT EMPTY
 		let heading_box = box(width: 0%, height: 0%)
 		if heading!=none {
 			heading_box = heading_box_function(
-				width: 100%,
-				fill: heading_background,
-				stroke: heading_background,
 				..heading_box_args,
-				..heading_box_args_with_body,
 			)[
-				#set text(fill: heading_color, size: heading_size)
+				#set text(..heading_text_args)
 				#heading
 			]
+		}
+
+		/// #####################################################
+		/// ####################### BODY ########################
+		/// #####################################################
+		// Sort out arguments for body box
+		let body_box_args = body_box_args
+		if body_box_args==none {
+			body_box_args = pt.at("body_box_args", default: (:))
+			if heading==none {
+				body_box_args = pt.at("body_box_args_with_heading", default: body_box_args)
+			}
+		}
+
+		// Sort out arguments for body text
+		let body_text_args = body_text_args
+		if body_text_args==none {
+			body_text_args = pt.at("body_text_args", default: (:))
+			if heading==none {
+				body_text_args = pt.at("body_text_args_with_heading", default: body_text_args)
+			}
+		}
+
+		// Define which function to use for body box
+		let body_box_function = body_box_function
+		if body_box_function==none {
+			body_box_function = pt.at("body_box_function", default: rect)
+		}
+
+		// Determine the size of the body
+		let body_size = pl.at("body_size", default: body_size)
+		if body_size!=none {
+			body_text_args.insert("size", body_size)
 		}
 
 		/// CONSTRUCT BODY IF NOT EMPTY
 		let body_box = box(width: 0%, height: 0%)
 		if body!=none {
-			set text(size: body_size)
 			body_box = body_box_function(
-				body,
-				width: 100%,
 				..body_box_args,
-				..body_box_args_with_heading,
-			)
+			)[
+				#set text(..body_text_args)
+				#body
+			]
 		}
 
+		/// #####################################################
+		/// ##################### COMBINE #######################
+		/// #####################################################
 		/// IF THIS BOX SHOULD BE STRETCHED TO THE NEXT POSSIBLE POINT WE HAVE TO ADJUST ITS SIZE
 		if stretch_to_bottom==true {
 			if body!=none {
@@ -112,18 +156,14 @@
 					body_box_function,
 					spacing: spacing,
 					body,
-					width: 100%,
 					..body_box_args,
-					..body_box_args_with_heading,
 				)
 			} else {
 				heading_box = stretch_box_to_bottom(
 					heading_box_function,
 					spacing: spacing,
 					heading,
-					width: 100%,
 					..heading_box_args,
-					..heading_box_args_with_body,
 				)
 			}
 		}
@@ -146,8 +186,6 @@
 // Function to display the title of the document
 #let title_box(
 	title,
-	heading_color: none,
-	heading_background: none,
 	subtitle: none,
 	authors: none,
 	institutes: none,
@@ -155,8 +193,6 @@
 	image: none,
 	text_relative_width: 80%,
 	spacing: 5%,
-	/// TODO set this based on layout
-	inset: 0.6em,
 	title_size: none,
 	subtitle_size: none,
 	authors_size: none,
