@@ -109,7 +109,6 @@ body {
 }
 
 .main-grid {
-  padding: 32px;
   display: grid;
   grid-template-columns: minmax(auto, var(--sidebar-left-width)) minmax(auto, var(--content-max-width)) minmax(auto, var(--sidebar-right-width));
   gap: 36px;
@@ -199,6 +198,7 @@ pre {
 }
 
 .showcase-grid {
+  margin: 1em;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(var(--showcase-min-width), 1fr));
   gap: 36px;
