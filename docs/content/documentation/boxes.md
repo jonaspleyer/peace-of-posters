@@ -36,6 +36,13 @@ _common_box(
 | `spacing` | [none] | [none] | Only useful when specifying `stretch_to_bottom`. Controls spacing towards next block. |
 | `bottom_box` | [bool] | [false] | The box should be aligned towards the bottom of the page. |
 
+<div class="warning-block">
+    <h2>Warning</h2>
+    <p>Currently, the <code>stretch_to_bottom</code> option only works when stretching the very last box towards a <a href="#bottom-box">Bottom Box</a>.
+    This is a restriction which will hopefully be lifted in the future and only there for time-restrictions in creating this package.
+    </p>
+</div>
+
 ### Example
 ```typst
 #_common_box(
@@ -86,4 +93,4 @@ bibliography_box(
 | `text_size` | [length] | `24pt` | Font size of the bibliography. |
 | `title` | [none] [content] | [none] | Title of the Bibliography Box. |
 | `style` | [str] | `"ieee"` | Citation style. |
-| `stretch_to_bottom` | [bool] | [false] | The vertical size of the box is stretched such that it fills out the remainder of the vertical space. |
+| `stretch_to_bottom` | [bool] | [false] | See [Common Box](#common-box). |

@@ -293,3 +293,25 @@ td {
 .code-value-true {
   color: #d73a49;
 }
+
+.warning-block {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  color: rgb(50, 50, 50);
+  background: hsl(0, 0%, 100%);
+  border-left: 6px solid #ff9100;
+  box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.05), 0 0 0.1rem rgba(0, 0, 0, 0.1);
+}
+
+.warning-block h2 {
+  color: black;
+  background: rgba(255, 145, 0, 0.1);
+  padding: 0.2em;
+  padding-left: 1em;
+  margin: 0px;
+}
+
+.warning-block p {
+  margin-top: 0px;
+  padding: 1.2em;
+}
