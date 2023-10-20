@@ -71,6 +71,6 @@ The poster consists of multiple boxes which can be adjusted by specifying [colum
 ```
 
 ## Final Result
-<div class="showcase-single" style="text-align: center; padding: 1em;">
+<div class="showcase-single" style="text-align: center; padding: 0em;">
 <a href="examples/getting_started/main.pdf"><img src="examples/getting_started/main.png" width=100%></a>
 </div>
