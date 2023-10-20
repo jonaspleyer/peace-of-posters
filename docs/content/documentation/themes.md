@@ -12,6 +12,14 @@ theme = (
     "heading_box_function": [function],
 )
 ```
+| Argument | Type | Default Value | Description |
+| --- | --- | --- | --- |
+| `body_box_args` | [dictionary] | | Arguemtns given to the body box. |
+| `body_box_args_with_title` | [dictionary] | | Arguemtns given to the body box when a title is present. This dictionary is optional. Leaving  |
+| `body_box_function` | [function] | | Arguemtns given to the body box. |
+| `heading_box_args` | [dictionary] | | Arguemtns given to the body box. |
+| `heading_box_args_with_body` | [dictionary] | | Arguemtns given to the body box. |
+| `heading_box_function` | [function] | | Arguemtns given to the body box. |
 
 
 ## Updating a Theme
