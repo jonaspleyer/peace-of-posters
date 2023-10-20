@@ -7,26 +7,25 @@
     "a0",
     margin: 1.5cm,
 )
-
+#set_layout(layout_a0)
 #set text(
     font: "Arial",
-	size: 33pt,
+	size: layout_a0.at("body_size"),
 )
 
 #let spacing = 1.2em
 #set block(spacing: spacing)
+#set columns(gutter: spacing)
+#update_layout(spacing, spacing)
+
+#set_theme(uni_fr)
 
 // Define colors as given by coroprate design of uni freiburg
 #let uni_dark_blue = rgb("#1d154d")
 
-#set_theme(uni_fr)
-#update_theme(
-    heading_color: white,
-)
-
 /// START OF THE DOCUMENT
 #title_box(
-	[`cellular_raza` - Novel Flexibility in Design of Agent-Based Models in Cellular Systems],
+	[#box(inset: (bottom: -0.3em), image(height: 1.2em, "images/cellular_raza_dark_mode.svg")) - Novel Flexibility in Design of Agent-Based Models in Cellular Systems],
 	authors: "Jonas Pleyer¹, Christian Fleck¹",
 	institutes: "¹Freiburg Center for Data-Analysis and Modeling",
     image: image("/UFR-Siegel-white.png"),
@@ -43,55 +42,103 @@
 
 #columns(2, gutter: spacing)[
 	#column_box(
-		heading: [#set align(center);#image(height: 80pt, "images/cellular_raza_dark_mode.svg")],
+		heading: [Features],
 	)[
 		#columns(2, gutter: 0.5*spacing)[
-			- New Agent-Based Modeling Tool
-			- Extensive use of generics allows for unparalleled flexibility
-			- Written in Rust
-			- Parallelized (via OS-threads)
+			- Generic Progamming allows for unparalleled flexibility
+			- Parallelized (via OS-threads and Domain-decomposition)
+			- Produces deterministic results
 		
 			#colbreak()
-			- Produces deterministic results
-			- Modularized
-			- No inherent assumptions about cells or domain
+			- Modular
+			- No inherent assumptions
 			- User has complete control over every parameter and functionality
 			- Free software (GPLv2.0)
 
 		]
 	]
 
-	#column_box(heading: [Rust Traits are Cellular Properties], stretch_to_bottom: spacing)[
-		This shows the abstract trait used to define cellular interactions via force mechanics.
-        Users implement these traits to specify cellular behavior.
-        #figure([
-```rust
-pub trait Interaction<Pos, Vel, Force, Inf = ()> {
-    /// Get additional information of cellular properties (ie. for
-    /// cell-specific interactions). For now, this can also be used
-    /// to get the mass of the other cell-agent. In the future, we
-    /// will probably provide a custom function for this.
-    fn get_interaction_information(&self) -> Inf;
-
-    /// Calculates the force (velocity-derivative) on the
-    /// corresponding external position given external velocity.
-    /// By providing velocities, we can calculate terms that are
-    /// related to friction.
-    fn calculate_force_between(
-        &self,
-        own_pos: &Pos,
-        own_vel: &Vel,
-        ext_pos: &Pos,
-        ext_vel: &Vel,
-        ext_info: &Inf,
-    ) -> Option<Result<Force, CalcError>>;
-}
-```])
-        Notice that even the types themselves such as position, force and velocity are generic, meaning this allows not only to switch between 2D and 3D but also to represent cells entirely differently as desired.
-        The user is able and encouraged to modify and adjust these types as needed.
+	#column_box(heading: "Scaling Behavior")[
+		#figure(stack(dir: ltr, 
+				box([#image("images/scaling_0.png")
+				#place(top+left, rect(text("A", fill: white), fill: uni_dark_blue, inset: 10pt))], width: 49.5%),
+				box(width: 1%),
+				box([#image("images/scaling_1.png")
+				#place(top+left, rect(text("B", fill: white), fill: uni_dark_blue, inset: 10pt))], width: 49.5%)
+			),
+			caption: [
+				(A) Linear fit $f(x)=a x$ of scaling with increasing amounts of agents.
+				(B) Amdahl's Law with up to $p=98.6%$ parallelized parts of the executed code resulting in a $21.5$ times speedup.
+			])
+		#align(right, text(size: 20pt)[
+			#super("1")Workstation, AMD 3960X (24C/48T) \@3.8GHz-4.5GHz, 64Gb DDR4 3200MT/s\
+			#super("2")Desktop, AMD 3700x (8C/16T) \@3.6GHz-4.4GHz, 32Gb DDR4 3200MT/s\
+			#super("3")Laptop, Intel 12700H (6+8C/12+8T) 45W \@3.5GHz-4.7GHz 32Gb DDR5 4800MT/s
+		])
 	]
 
+	#column_box(heading: [Cellular Properties as Rust Traits])[
+		Abstract traits are used to define cellular interactions via force mechanics.
+        Users implement traits and obtain full control over cellular behavior.
+        #figure([
+			```rust
+			pub trait Interaction<Pos, Vel, Force, Inf = ()> {
+				/// Get additional information of cellular properties (ie. for
+				/// cell-specific interactions). For now, this can also be used
+				/// to get the mass of the other cell-agent. In the future, we
+				/// will probably provide a custom function for this.
+				fn get_interaction_information(&self) -> Inf;
+
+				/// Calculates the force (velocity-derivative) on the
+				/// corresponding external position given external velocity.
+				/// By providing velocities, we can calculate terms that are
+				/// related to friction.
+				fn calculate_force_between(
+					&self,
+					own_pos: &Pos,
+					own_vel: &Vel,
+					ext_pos: &Pos,
+					ext_vel: &Vel,
+					ext_info: &Inf,
+				) -> Option<Result<Force, CalcError>>;
+			}
+			```])
+        // Notice that even the types themselves such as position, force and velocity are generic, meaning this allows not only to switch between 2D and 3D but also to represent cells entirely differently as desired.
+        // The user is able and encouraged to modify and adjust these types as needed.
+	]
+
+	#column_box(
+		heading: [Roadmap],
+		stretch_to_bottom: true,
+	)[#columns(2)[
+		- Stabilize user API
+		- Additional backends (GPUs, MPI)
+		- Multi-Scale
+		- Stochastic processes
+		#colbreak()
+		- Restarting simulations
+		- Advanced error handling
+		- Support common export formats (such as `*.vtk` files)
+	]]
+
 	#colbreak()
+
+	#column_box(heading: [Branching patterns of _Bacillus subtilis_ in 2D & 3D])[
+		#figure(stack(dir: ltr,
+			box([
+                #image("images/bacteria_cells_at_iter_0000088000.png", width: 49.5%)
+                #place(top+left, dx: 10pt, dy: 10pt, rect(text("2D", fill: white), fill: uni_dark_blue, inset: 10pt))
+            ]),
+            box(width: 1%),
+			box([
+                #image("images/bacteria_population-3d-0000-cropped.png", width: 49.5%)
+                #place(top+left, dx: 10pt, dy: 10pt, rect(text("3D", fill: white), fill: uni_dark_blue, inset: 10pt))
+            ])
+		), caption: [
+            Spatio-Temporal patterns inspired by #cite("kawasakiModelingSpatioTemporalPatterns1997","matsushitaInterfaceGrowthPattern1998"). Cells ($~$500,000) consume extracellular nutrients, grow, divide and self-organize into a branched pattern.
+			Brighter colors indicate higher nutrient concentrations.
+		])
+	]
 
 	#column_box(heading: "Cell Sorting in 3D")[
 		#figure(stack(dir: ltr,
@@ -107,52 +154,40 @@ pub trait Interaction<Pos, Vel, Force, Inf = ()> {
 		),
 		caption: [
 			Cells with species-specific interactions.
-			The initially randomized state (A) organizes itself and separates the two species (B).
+			The initially randomized state (A) organizes itself and the two species get separated (B).
 		])
 	]
 
-	#column_box(heading: [Branching patterns of _Bacillus subtilis_ in 2D & 3D])[
+	#column_box(heading: [Semi-Vertex Models])[
 		#figure(stack(dir: ltr,
 			box([
-                #image("images/bacteria_cells_at_iter_0000088000.png", width: 49.5%)
-                #place(top+left, dx: 10pt, dy: 10pt, rect(text("2D", fill: white), fill: uni_dark_blue, inset: 10pt))
-            ]),
-            box(width: 1%),
+				#image("images/kidney_organoid_model-final.png", width: 49.5%)
+				#place(top+left, dx: 10pt, dy: 10pt, rect(text("A", fill: uni_dark_blue), fill: white, inset: 10pt))
+			]),
+			box(width: 1%),
 			box([
-                #image("images/bacteria_population-3d-0000-cropped.png", width: 49.5%)
-                #place(top+left, dx: 10pt, dy: 10pt, rect(text("3D", fill: white), fill: uni_dark_blue, inset: 10pt))
-            ])
-		), caption: [
-            Spatio-Temporal patterns inspired by #cite("kawasakiModelingSpatioTemporalPatterns1997","matsushitaInterfaceGrowthPattern1998"). Cells ($~$500,000) consume extracellular nutrients, grow, divide and self-organize into a branched pattern.
-			Brighter colors show higher nutrient concentrations.
+				#image("images/free_vertex_model_end.png", width: 49.5%)
+				#place(top+left, dx: 10pt, dy: 10pt, rect(text("B", fill: uni_dark_blue), fill: white, inset: 10pt))
+			])
+		),
+		caption: [
+			Freely motile semi-vertex models with (A) 6 and (b) 4 vertices.
+			Vertices attract each other but will be repelled once inside another cell.
 		])
 	]
 
-	#column_box(heading: [Roadmap])[#columns(2)[
-            - Stabilize user API
-            - Develop additional backends
-                - GPUs
-                - MPI compatibility
-            - Multi-Scale in time for different cellular properties
-            - Optimize implementation of stochastic processes
-            #colbreak()
-            - Restarting Simulations
-            - Advanced Error handling strategies and accuracy correction algorithms
-            - Support common export formats (such as `*.vtk` files)
-        ]]
-
-	#bibliography_box("/cellular_raza.bib", title: "Sources", stretch_to_bottom: spacing)
+	#bibliography_box("/cellular_raza.bib", title: "Sources", stretch_to_bottom: true)
 ]
 
 #bottom_box(
 	stack(dir: ltr, 
-		box(width: 22.5%, [
+		box(width: 20.5%, [
             #set text(size: 30pt)
 			bwHPC Symposium
 			#linebreak()
 			23.10.2023 - Mannheim
 		]),
-		box(width: 27.75%, height: 1.25em, align(center+horizon)[
+		box(width: 29.75%, height: 1.25em, align(center+horizon)[
 			#set text(size: 35pt)
 			#box(image(height: 30pt, "images/github-mark-white.png"))
 			#link("https://github.com/jonaspleyer/")[github.com/jonaspleyer]

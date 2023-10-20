@@ -6,3 +6,4 @@ code_path = "main.typ"
 preview_image = "main.png"
 description = "Presenting a novel simulation tool for cellular biology."
 +++
+For full code with image files visit [github.com/spatial-systems-biology-freiburg/poster-presentation-templates/tree/master/posters/typst](https://github.com/spatial-systems-biology-freiburg/poster-presentation-templates/tree/master/posters/typst)
