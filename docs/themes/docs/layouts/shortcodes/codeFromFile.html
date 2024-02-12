@@ -1,0 +1,36 @@
+{{ $filename := (.Get "file") }}
+
+{{ $start := 0 }}
+{{ if (.Get "start" )}}
+{{ $start = math.Sub (int (.Get "start")) 1 }}
+{{ end }}
+
+{{ $end := (.Get "end") }}
+{{ $diff := $end }}
+{{ if (.Get "end") }}
+{{ $diff = math.Sub (int $end) $start }}
+{{ end }}
+
+{{ $lang := "typst" }}
+{{ if (.Get "lang") }}
+{{ $lang = (.Get "lang") }}
+{{ end }}
+
+{{ $highlight_args := dict }}
+{{ if (.Get "highlight_args") }}
+{{ $highlight_args = (.Get "highlight_args") }}
+{{ end }}
+
+{{ $file := readFile $filename }}
+{{ $file = split $file "\n" }}
+
+{{ $file = after $start $file }}
+{{ if $diff }}
+{{ $file = first $diff $file }}
+{{ end }}
+
+{{ $file = delimit $file "\n" }}
+
+{{ (.Get "highlight_args") }}
+
+{{ highlight $file $lang $highlight_args }}
