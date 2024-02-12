@@ -35,7 +35,9 @@
 
     #colbreak()
 
-    #column_box()[
+    #column_box(
+        stretch_to_next: true,
+    )[
         We can also choose to not have a title for our boxes.
     ]
 ])
@@ -50,7 +52,7 @@
     #colbreak()
     #column_box(
         heading: [Stretching],
-        stretch_to_bottom: true
+        stretch_to_next: true
     )[
         And stretch boxes to the next lowest box (or bottom of the page)
     ]

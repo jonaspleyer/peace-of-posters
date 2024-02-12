@@ -1,39 +1,70 @@
 #import "themes.typ": *
 #import "layouts.typ": *
 
-#let stretch_box_to_bottom(box_function, spacing: 1.2em, ..r) = locate(loc => {
-    // Get current y location
-    let m_loc = loc.position()
-	// [My location: #m_loc#linebreak()]
-	// Find bottom boxes
-	let elems = query(<COLUMN_BOX>, loc).filter(c_box => {
-		let c_loc = c_box.location().position()
-		// TODO this is NOT complete (missing criteria for x-coordinate)
-		// Probably many bugs left to find
-		int(c_loc.y > m_loc.y)*int(c_loc.x <= m_loc.x)==1
-	})
+#let _calculate_width(b1, b2) = {
+	// Get positions and width of box
+	let p1 = b1.location().position()
+	let p2 = b2.location().position()
+	let width = p2.at("x") - p1.at("x")
+	width
+}
 
-	// If none was found we create one which is empty instead
-	let n = 0
-	let r1 = box_function(..r)
-	for c_box in elems {
-		r1 = style(styles => {
-			let c_box_width = measure(c_box, styles).width
-			let c_box_position = c_box.location().position()
-			// If the box has 0pt width we expect to have found the bottom box
-			// This is probably an error but works for now
-			let bottom_y = c_box_position.y
-			let dist = c_box_position.y - m_loc.y - spacing
-			if c_box_width==0pt {
-				box_function(..r, height: dist)
-			} else if int(m_loc.x <= c_box_position.x + c_box_width)*int(c_box_position.x <= m_loc.x)==1 {
-				box_function(..r, height: dist)
-			} else {
-				r1
-			}
-		})
+#let _calculate_vertical_distance(current_position, box, spacing) = {
+	let p = box.location().position()
+	// calculate distance
+	let bottom_y = p.y
+	let without_spacing = p.y - current_position.y
+	let dist = p.y - current_position.y - spacing
+	(dist, without_spacing)
+}
+
+#let _calculate_vertical_distance_to_page_end(m_loc, spacing) = {
+	// Get position of end of page
+	pt.at("heading_text_args", default: (:))
+	100% - m_loc.y - spacing
+}
+
+#let _boxes_would_intersect(b1_right, b2_left) = {
+	let p = b1_right.location().position()
+	let q = b2_left.location().position()
+	let filt1 = p.at("x") > q.at("x")
+	let filt2 = p.at("y") < q.at("y")
+	let filt3 = b1_right.location().page() == b2_left.location().page()
+	filt1 and filt2
+}
+
+#let stretch_box_to_next(box_function, location_heading_box, spacing: 1.2em, ..r) = locate(loc => {
+	// Get current y location
+	let m_loc = loc.position()
+	let b1 = query(<COLUMN_BOX>, loc)
+	let b2 = query(<COLUMN_BOX_RIGHT>, loc)
+
+	// Find current box inall these queries
+	let cb = b1.zip(b2).filter(b => {
+		let (c_box, c_box_end) = b
+		c_box.location().position() == location_heading_box.position()
+	}).first()
+	
+	let target = b1.zip(b2).map(b => {
+		let (c_box, c_box_end) = b
+		let c_loc = c_box.location().position()
+		let filt = _boxes_would_intersect(cb.at(1), c_box)
+		let (dist, dist_without_spacing) = _calculate_vertical_distance(m_loc, c_box, spacing)
+		(dist, filt, dist_without_spacing)
+	}).filter(dist_filt => {dist_filt.at(1) and dist_filt.at(2) > 0.0mm}).sorted(key: dist_filt => {dist_filt.at(2)})
+
+	// If we found a target, expand towards this target
+	if target.len() > 0 {
+		let (dist, _, _) = target.first()
+		box_function(..r, height: dist)
+	// Else determine the end of the page
+	} else {
+		let pl = _state_poster_layout.at(loc)
+
+		let (_, height) = pl.at("size")
+		let dist = height - m_loc.y - spacing
+		box_function(..r, height: dist)
 	}
-	r1
 })
 
 // A common box that makes up all other boxes
@@ -48,7 +79,7 @@
 	body_box_args: none,
 	body_text_args: none,
 	body_box_function: none,
-	stretch_to_bottom: false,
+	stretch_to_next: false,
 	spacing: none,
 	bottom_box: false,
 ) = {
@@ -150,27 +181,29 @@
 		/// ##################### COMBINE #######################
 		/// #####################################################
 		/// IF THIS BOX SHOULD BE STRETCHED TO THE NEXT POSSIBLE POINT WE HAVE TO ADJUST ITS SIZE
-		if stretch_to_bottom==true {
+		if stretch_to_next==true {
 			if body!=none {
-				body_box = stretch_box_to_bottom(
+				body_box = stretch_box_to_next(
 					body_box_function,
+					loc,
 					spacing: spacing,
 					body,
 					..body_box_args,
 				)
 			} else {
-				heading_box = stretch_box_to_bottom(
+				heading_box = stretch_box_to_next(
 					heading_box_function,
+					loc,
 					spacing: spacing,
 					heading,
 					..heading_box_args,
 				)
 			}
 		}
-		box([#stack(dir:ttb,
+		box([#stack(dir: ltr, [#stack(dir:ttb,
 			heading_box,
 			body_box,
-		)<COLUMN_BOX>])
+		)], [#box(width: 0pt, height: 0pt)<COLUMN_BOX_RIGHT>])<COLUMN_BOX>])
 	})
 }
 
@@ -257,11 +290,11 @@
 }
 
 /// TODO
-#let bibliography_box(bib_file, body_size: 24pt, title: none, style: "ieee", stretch_to_bottom: false) = {
+#let bibliography_box(bib_file, body_size: 24pt, title: none, style: "ieee", stretch_to_next: false) = {
 	if title==none {
 		title = "References"
 	}
-	column_box(heading: title, stretch_to_bottom: stretch_to_bottom)[
+	column_box(heading: title, stretch_to_next: stretch_to_next)[
 		#set text(size: body_size)
 		#bibliography(bib_file, title: none, style: style)
 	]
