@@ -21,15 +21,35 @@ It is often easier to instead take an existing theme and modify its entries.</p>
     theme: <a href=https://typst.app/docs/reference/foundations/dictionary/ class="code-type-dictionary code-type-block">dictionary</a>
 )
 </code></pre><h2 id=example-themes>Example Themes</h2><h3 id=default>Default</h3><p>The default values of the theme. If nothing is specified by the user, these values will be chosen.</p><pre tabindex=0><code class=language-typst data-lang=typst>default = (
-    &#34;body_color&#34;: black,
-    &#34;body_background&#34;: white,
-    &#34;heading_color&#34;: white,
-    &#34;heading_background&#34;: rgb(25, 61, 112),
+    &#34;body_box_args&#34;: (
+        inset: 0.6em,
+        width: 100%,
+    ),
+    &#34;body_text_args&#34;: (:),
+    &#34;heading_box_args&#34;: (
+        inset: 0.6em,
+        width: 100%,
+        fill: rgb(50, 50, 50),
+        stroke: rgb(25, 25, 25),
+    ),
+    &#34;heading_text_args&#34;: (
+        fill: white,
+    )
 )
-</code></pre><h3 id=uni-freiburg>Uni Freiburg</h3><p>A theme surrounding colors specifically chosen in complience with the corporate design of the University of Freiburg.</p><pre tabindex=0><code class=language-typst data-lang=typst>uni_fr = (
-    &#34;body_color&#34;: black,
-    &#34;body_background&#34;: white,
-    &#34;heading_color&#34;: white,
-    &#34;heading_background&#34;: rgb(&#34;#1d154d&#34;),
+</code></pre><h3 id=uni-freiburg>Uni Freiburg</h3><p>A theme surrounding colors specifically chosen in complience with the corporate design of the University of Freiburg.</p><pre tabindex=0><code class=language-typst data-lang=typst>#let uni_fr = (
+    &#34;body_box_args&#34;: (
+        inset: 0.6em,
+        width: 100%,
+    ),
+    &#34;body_text_args&#34;: (:),
+    &#34;heading_box_args&#34;: (
+        inset: 0.6em,
+        width: 100%,
+        fill: rgb(&#34;#1d154d&#34;),
+        stroke: rgb(&#34;#1d154d&#34;),
+    ),
+    &#34;heading_text_args&#34;: (
+        fill: white,
+    ),
 )
-</code></pre></main></div><div class=sidebar-right></div></div><footer><div class=content><p>Copyright 2023. All rights reserved.</p></div></footer></div></body></html>
+</code></pre></main></div><div class=sidebar-right></div></div><footer><div class=content><p>Copyright 2024. All rights reserved.</p></div></footer></div></body></html>
