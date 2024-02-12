@@ -1,10 +1,10 @@
 [package]
-name = "typst-scienceposters"
+name = "science-posters"
 version = "0.1.0"
 authors = ["Jonas Pleyer<jonas.sci@pleyer.org>"]
 license = "MIT"
 description = "Create scientific posters in Typst."
 entrypoint = "lib.typ"
-repository = "https://github.com/jonaspleyer/typst-scienceposters"
-homepage = "https://jonaspleyer.github.io/typst-scienceposters/"
+repository = "https://github.com/jonaspleyer/science-posters"
+homepage = "https://jonaspleyer.github.io/science-posters/"
 

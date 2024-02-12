@@ -1,4 +1,4 @@
-// We begin by importing the `typst-scienceposters` package
+// We begin by importing the `science-posters` package
 #import "../../../../lib.typ": *
 
 // Next, we specify some general settings formatting settings.

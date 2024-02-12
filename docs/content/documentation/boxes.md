@@ -46,7 +46,7 @@ _common_box(
 ### Example
 ```typst
 #_common_box(
-    heading: "typst-scienceposters - Create scientific posters",
+    heading: "science-posters - Create scientific posters",
 )
 ```
 

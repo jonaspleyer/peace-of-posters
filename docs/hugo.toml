@@ -1,6 +1,6 @@
-baseURL = 'https://jonaspleyer.github.io/typst-scienceposters/'
+baseURL = 'https://jonaspleyer.github.io/science-posters/'
 languageCode = 'en-us'
-title = 'typst-scienceposters'
+title = 'science-posters'
 theme = "docs"
 
 [params]
