@@ -38,8 +38,8 @@ _common_box(
 
 <div class="warning-block">
     <h2>Warning</h2>
-    <p>Currently, the <code>stretch_to_bottom</code> option only works when stretching the very last box towards a <a href="#bottom-box">Bottom Box</a>.
-    This is a restriction which will hopefully be lifted in the future and only there for time-restrictions in creating this package.
+    <p>The <code>stretch_to_bottom</code> should not be used on a block which is already maximal by itself.
+    Doing so will most likely result in glitches.
     </p>
 </div>
 
