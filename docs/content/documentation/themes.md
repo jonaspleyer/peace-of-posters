@@ -50,20 +50,40 @@ set_theme(
 The default values of the theme. If nothing is specified by the user, these values will be chosen.
 ```typst
 default = (
-    "body_color": black,
-    "body_background": white,
-    "heading_color": white,
-    "heading_background": rgb(25, 61, 112),
+    "body_box_args": (
+        inset: 0.6em,
+        width: 100%,
+    ),
+    "body_text_args": (:),
+    "heading_box_args": (
+        inset: 0.6em,
+        width: 100%,
+        fill: rgb(50, 50, 50),
+        stroke: rgb(25, 25, 25),
+    ),
+    "heading_text_args": (
+        fill: white,
+    )
 )
 ```
 
 ### Uni Freiburg
 A theme surrounding colors specifically chosen in complience with the corporate design of the University of Freiburg.
 ```typst
-uni_fr = (
-    "body_color": black,
-    "body_background": white,
-    "heading_color": white,
-    "heading_background": rgb("#1d154d"),
+#let uni_fr = (
+    "body_box_args": (
+        inset: 0.6em,
+        width: 100%,
+    ),
+    "body_text_args": (:),
+    "heading_box_args": (
+        inset: 0.6em,
+        width: 100%,
+        fill: rgb("#1d154d"),
+        stroke: rgb("#1d154d"),
+    ),
+    "heading_text_args": (
+        fill: white,
+    ),
 )
 ```
