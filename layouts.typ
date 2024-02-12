@@ -65,7 +65,7 @@
 /// The default layout is for an a0 poster
 #let _state_poster_layout = state("poster_layout", layout_a0)
 
-#let update_layout(..args) = {
+#let update_poster_layout(..args) = {
     for (arg, val) in args.named() {
         _state_poster_layout.update(pt => {
             pt.insert(arg, val)
@@ -74,7 +74,7 @@
     }
 }
 
-#let set_layout(layout) = {
+#let set_poster_layout(layout) = {
     _state_poster_layout.update(pt => {
         pt=layout
         pt

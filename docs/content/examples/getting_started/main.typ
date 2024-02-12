@@ -3,13 +3,13 @@
 
 // Next, we specify some general settings formatting settings.
 #set page("a0", margin: 1cm)
-#set_layout(layout_a0)
+#set_poster_layout(layout_a0)
 #set text(font: "Arial", size: layout_a0.at("body_size"))
 
 #let box_spacing = 1.2em
 #set columns(gutter: box_spacing)
 #set block(spacing: box_spacing)
-#update_layout(spacing: box_spacing)
+#update_poster_layout(spacing: box_spacing)
 
 // After that we choose a predefined theme.
 #set_theme(uni_fr)
