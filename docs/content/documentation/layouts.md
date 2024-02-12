@@ -51,6 +51,8 @@ set_layout(
 ### A0
 ```typst
 #let layout_a0 = _default_layout + (
+    "paper":            "a0",
+    "size":             (841mm, 1188mm),
     "body_size":        33pt,
     "heading_size":     50pt,
     "title_size":       75pt,
@@ -62,6 +64,8 @@ set_layout(
 ### A1
 ```typst
 #let layout_a1 = _default_layout + (
+    "paper":            "a1",
+    "size":             (594mm, 841mm),
     "body_size":        27pt,
     "heading_size":     41pt,
     "title_size":       61pt,
@@ -73,6 +77,8 @@ set_layout(
 ### A2
 ```typst
 #let layout_a2 = _default_layout + (
+    "paper":            "a2",
+    "size":             (420mm, 594mm),
     "body_size":        20pt,
     "heading_size":     31pt,
     "title_size":       47pt,
@@ -84,6 +90,8 @@ set_layout(
 ### A3
 ```typst
 #let layout_a3 = _default_layout + (
+    "paper":            "a3",
+    "size":             (297mm, 420mm),
     "body_size":        14pt,
     "heading_size":     22pt,
     "title_size":       32pt,
@@ -95,6 +103,8 @@ set_layout(
 ### A4
 ```typst
 #let layout_a4 = _default_layout + (
+    "paper":            "a4",
+    "size":             (210mm, 297mm),
     "body_size":        8pt,
     "heading_size":     12pt,
     "title_size":       18pt,
