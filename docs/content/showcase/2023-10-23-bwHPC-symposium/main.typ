@@ -1,5 +1,5 @@
 /// IMPORT THE POSTERS PACKAGE
-#import "typst-posters/lib.typ": *
+#import "typst-scienceposters/lib.typ": *
 
 // Define overall formatting defaults for the document.
 // These settings can be overwritten later on.

@@ -1,4 +1,4 @@
-// We begin by importing the `typst-posters` package
+// We begin by importing the `typst-scienceposters` package
 #import "../../../../lib.typ": *
 
 // Next, we specify some general settings formatting settings.
@@ -17,9 +17,9 @@
 
 // We can adjust any property of the theme via the `update_theme` method of the themes module.
 // The poster consists of multiple boxes which can be adjusted by specifying column layouts.
-// `typst-posters` provideds some predefiend methods for creating a title-box, regular column-boxes in between, a bottom box and bibliography to finish it of.
+// `typst-scienceposters` provideds some predefiend methods for creating a title-box, regular column-boxes in between, a bottom box and bibliography to finish it of.
 #title_box(
-    [`typst-posters`],
+    [`typst-scienceposters`],
     subtitle: [Scientific Posters for any Occasion],
     authors: [Jonas Pleyer#super("1")],
     institutes: [#super("1")Freiburg Center for Data-Analysis and Modelling],
