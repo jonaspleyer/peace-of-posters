@@ -80,3 +80,21 @@
         pt
     })
 }
+
+#let poster_layout(layout: layout_a0, ..args, body) = {
+    // Define page size
+    set page(paper: args.named().at("paper", default: layout.at("paper", default: layout_a0.at("paper"))))
+
+    // Set default text size
+    set text(size: args.named().at("body_size", default: layout.at("body_size", default: layout_a0.at("spacing"))))
+
+    // Set spacing between blocks.
+    // We also want to adjust the gutter between columns
+    set block(spacing: args.named().at("spacing", default: layout.at("spacing", default: layout_a0.at("spacing"))))
+    set columns(gutter: args.named().at("spacing", default: layout.at("spacing", default: layout_a0.at("spacing"))))
+
+    set_poster_layout(layout)
+    update_poster_layout(..args)
+
+    body
+}
