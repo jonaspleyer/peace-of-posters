@@ -10,16 +10,16 @@ This box also automatically considers the currently defined [theme](themes) and 
 ```typst
 _common_box(
     body: [none] [content],
-	heading: [none] [content],
+    heading: [none] [content],
     heading_size: [none] [length],
-	heading_box_args: [none] [dictionary],
+    heading_box_args: [none] [dictionary],
     heading_text_args: [none] [dictionary],
     body_size: [none] [length],
-	body_box_args: [none] [dictionary],
-	body_text_args: [none] [dictionary],
-	stretch_to_bottom: [bool],
+    body_box_args: [none] [dictionary],
+    body_text_args: [none] [dictionary],
+    stretch_to_bottom: [bool],
     spacing: [none] [length] [relative],
-	bottom_box: [bool],
+    bottom_box: [bool],
 ) --> [content]
 ```
 
