@@ -1,4 +1,7 @@
 # science-posters
+![Build](https://img.shields.io/github/actions/workflow/status/jonaspleyer/science-posters/build.yml?style=flat-square&label=Build)
+![Docs](https://img.shields.io/github/actions/workflow/status/jonaspleyer/science-posters/docs.yml?style=flat-square&label=Docs)
+
 
 [science-posters](https://github.com/jonaspleyer/science-posters) is a Typst package to help creating scientific posters.
 It is flexible and can be used for different sizes and layouts.
