@@ -1,6 +1,13 @@
-<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,minimum-scale=1,initial-scale=1"><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Hanken+Grotesk"><link rel=stylesheet href=https://fonts.cdnfonts.com/css/cascadia-code><title>| science-posters</title><link rel=stylesheet href=/science-posters/css/main.min.fed2d5e1fe7a6c1af9c410d31be5c817a14de90a934015eff84e2526937ca07f.css integrity="sha256-/tLV4f56bBr5xBDTG+XIF6FN6QqTQBXv+E4lJpN8oH8=" crossorigin=anonymous><script src=/science-posters/js/main.23cd0c7d837263b9eaeb96ee2d9ccfa2969daa3fa00fa1c1fe8701a9b87251a1.js integrity="sha256-I80MfYNyY7nq65buLZzPopadqj+gD6HB/ocBqbhyUaE=" crossorigin=anonymous></script></head><body><div class=page-container><header><div class=content><nav><div class=top-menu></div><div class=topnav><a href=https://jonaspleyer.github.io/science-posters/>science-posters</a>
-<a class=header-author href="mailto:jonas.sci@pleyer.org?subject=science-posters">Jonas Pleyer</a></div></nav></div></header><div class=main-grid><div class=sidebar-left><div class=sidenav><div class=entry-formatter><a href=/science-posters/>Home</a></div><div class=entry-formatter><a aria-current=true class=ancestor href=/science-posters/documentation/>Documentation</a>
-<button class="dropdown-btn expanded"><img class="arrow-menu expanded" src=/science-posters/arrow-menu.svg></button><div class=dropdown-container><div class=entry-formatter><a href=/science-posters/documentation/boxes/>Boxes</a></div><div class=entry-formatter><a href=/science-posters/documentation/themes/>Themes</a></div><div class=entry-formatter><a aria-current=page class=active href=/science-posters/documentation/layouts/>Layouts</a></div></div></div><div class=entry-formatter><a href=/science-posters/showcase/>Showcase</a></div><div class=entry-formatter><a href=/science-posters/tips_and_tricks/>Tips and Tricks</a></div></div><script>var i,dropdown=document.getElementsByClassName("dropdown-btn");for(i=0;i<dropdown.length;i++)dropdown[i].addEventListener("click",function(){this.classList.toggle("expanded"),this.attributes.expanded=!0;var e=this.nextElementSibling;e.classList.toggle("hidden")})</script></div><div class=content><main><h1 id=layouts>Layouts</h1><p>Layouts modify mostly shapes and spacings between boxes.
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Layouts # Layouts modify mostly shapes and spacings between boxes. Similarly to themes, their purpose is cosmetic. A layout, just like a theme, is a dictionary.
+layout = ( &#34;spacing&#34;: [length] [relative], &#34;body_size&#34;: [length], &#34;heading_size&#34;: [length], &#34;title_size&#34;: [length], &#34;subtitle_size&#34;: [length], &#34;authors_size&#34;: [length], &#34;keywords_size&#34;: [length], ) All default values assume an a0 layout. You can easily change this by using the set_layout function below.
+Argument Type Default Value Description spacing [length] [relative] 1."><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:title" content="Layouts"><meta property="og:description" content="Layouts # Layouts modify mostly shapes and spacings between boxes. Similarly to themes, their purpose is cosmetic. A layout, just like a theme, is a dictionary.
+layout = ( &#34;spacing&#34;: [length] [relative], &#34;body_size&#34;: [length], &#34;heading_size&#34;: [length], &#34;title_size&#34;: [length], &#34;subtitle_size&#34;: [length], &#34;authors_size&#34;: [length], &#34;keywords_size&#34;: [length], ) All default values assume an a0 layout. You can easily change this by using the set_layout function below.
+Argument Type Default Value Description spacing [length] [relative] 1."><meta property="og:type" content="article"><meta property="og:url" content="https://jonaspleyer.github.io/science-posters/documentation/layouts/"><meta property="article:section" content="documentation"><title>Layouts | science-posters</title><link rel=manifest href=/science-posters/manifest.json><link rel=icon href=/science-posters/favicon.png><link rel=canonical href=https://jonaspleyer.github.io/science-posters/documentation/layouts/><link rel=stylesheet href=/science-posters/book.min.ee39461f1ad0c5481ae7324fc31fbb627878170d46e5dfb27b0dbf210bfa0f1d.css integrity="sha256-7jlGHxrQxUga5zJPwx+7Ynh4Fw1G5d+yew2/IQv6Dx0=" crossorigin=anonymous><script defer src=/science-posters/flexsearch.min.js></script>
+<script defer src=/science-posters/en.search.min.70e950cd3d21b215aff82710d16e7ca9c28af9a771cdec240019bd15b2a540cc.js integrity="sha256-cOlQzT0hshWv+CcQ0W58qcKK+adxzewkABm9FbKlQMw=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/science-posters/><span>science-posters</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/science-posters/svg/menu.svg class=book-icon alt=Menu></label>
+<strong>Layouts</strong>
+<label for=toc-control><img src=/science-posters/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#updating-a-layout>Updating a Layout</a></li><li><a href=#setting-a-new-layout>Setting a new Layout</a></li><li><a href=#example-layouts>Example Layouts</a><ul><li><a href=#default>Default</a></li><li><a href=#a0>A0</a></li><li><a href=#a1>A1</a></li><li><a href=#a2>A2</a></li><li><a href=#a3>A3</a></li><li><a href=#a4>A4</a></li></ul></li></ul></nav></aside></header><h1 id=layouts>Layouts
+<a class=anchor href=#layouts>#</a></h1><p>Layouts modify mostly shapes and spacings between boxes.
 Similarly to <a href=/documentation/themes>themes</a>, their purpose is cosmetic.
 A layout, just like a theme, is a dictionary.</p><pre tabindex=0><code class=language-typst data-lang=typst>layout = (
     &#34;spacing&#34;: <a href=https://typst.app/docs/reference/foundations/length/ class="code-type-length code-type-block">length</a> <a href=https://typst.app/docs/reference/layout/relative/ class="code-type-relative code-type-block">relative</a>,
@@ -12,16 +19,21 @@ A layout, just like a theme, is a dictionary.</p><pre tabindex=0><code class=lan
     &#34;keywords_size&#34;: <a href=https://typst.app/docs/reference/foundations/length/ class="code-type-length code-type-block">length</a>,
 )
 </code></pre><p>All default values assume an <code>a0</code> layout.
-You can easily change this by using the <code>set_layout</code> function below.</p><table><thead><tr><th>Argument</th><th>Type</th><th>Default Value</th><th>Description</th></tr></thead><tbody><tr><td><code>spacing</code></td><td><a href=https://typst.app/docs/reference/foundations/length/ class="code-type-length code-type-block">length</a> <a href=https://typst.app/docs/reference/layout/relative/ class="code-type-relative code-type-block">relative</a></td><td><code>1.2em</code></td><td>Spacing between boxes when stretching box.</td></tr><tr><td><code>body_size</code></td><td><a href=https://typst.app/docs/reference/foundations/length/ class="code-type-length code-type-block">length</a></td><td><code>33pt</code></td><td>Size of the body.</td></tr><tr><td><code>heading_size</code></td><td><a href=https://typst.app/docs/reference/foundations/length/ class="code-type-length code-type-block">length</a></td><td><code>50pt</code></td><td>Size of the heading.</td></tr><tr><td><code>title_size</code></td><td><a href=https://typst.app/docs/reference/foundations/length/ class="code-type-length code-type-block">length</a></td><td><code>75pt</code></td><td>Size of the title.</td></tr><tr><td><code>subtitle_size</code></td><td><a href=https://typst.app/docs/reference/foundations/length/ class="code-type-length code-type-block">length</a></td><td><code>60pt</code></td><td>Size of the subtitle.</td></tr><tr><td><code>authors_size</code></td><td><a href=https://typst.app/docs/reference/foundations/length/ class="code-type-length code-type-block">length</a></td><td><code>50pt</code></td><td>Size of the authors.</td></tr><tr><td><code>keywords_size</code></td><td><a href=https://typst.app/docs/reference/foundations/length/ class="code-type-length code-type-block">length</a></td><td><code>40pt</code></td><td>Size of the keywords.</td></tr></tbody></table><h2 id=updating-a-layout>Updating a Layout</h2><pre tabindex=0><code class=language-typst data-lang=typst>update_layout(
+You can easily change this by using the <code>set_layout</code> function below.</p><table><thead><tr><th>Argument</th><th>Type</th><th>Default Value</th><th>Description</th></tr></thead><tbody><tr><td><code>spacing</code></td><td><a href=https://typst.app/docs/reference/foundations/length/ class="code-type-length code-type-block">length</a> <a href=https://typst.app/docs/reference/layout/relative/ class="code-type-relative code-type-block">relative</a></td><td><code>1.2em</code></td><td>Spacing between boxes when stretching box.</td></tr><tr><td><code>body_size</code></td><td><a href=https://typst.app/docs/reference/foundations/length/ class="code-type-length code-type-block">length</a></td><td><code>33pt</code></td><td>Size of the body.</td></tr><tr><td><code>heading_size</code></td><td><a href=https://typst.app/docs/reference/foundations/length/ class="code-type-length code-type-block">length</a></td><td><code>50pt</code></td><td>Size of the heading.</td></tr><tr><td><code>title_size</code></td><td><a href=https://typst.app/docs/reference/foundations/length/ class="code-type-length code-type-block">length</a></td><td><code>75pt</code></td><td>Size of the title.</td></tr><tr><td><code>subtitle_size</code></td><td><a href=https://typst.app/docs/reference/foundations/length/ class="code-type-length code-type-block">length</a></td><td><code>60pt</code></td><td>Size of the subtitle.</td></tr><tr><td><code>authors_size</code></td><td><a href=https://typst.app/docs/reference/foundations/length/ class="code-type-length code-type-block">length</a></td><td><code>50pt</code></td><td>Size of the authors.</td></tr><tr><td><code>keywords_size</code></td><td><a href=https://typst.app/docs/reference/foundations/length/ class="code-type-length code-type-block">length</a></td><td><code>40pt</code></td><td>Size of the keywords.</td></tr></tbody></table><h2 id=updating-a-layout>Updating a Layout
+<a class=anchor href=#updating-a-layout>#</a></h2><pre tabindex=0><code class=language-typst data-lang=typst>update_layout(
     ..args
 )
-</code></pre><p>All arguments coincide with the values of the ones of <code>layout</code> shown above.</p><h2 id=setting-a-new-layout>Setting a new Layout</h2><pre tabindex=0><code class=language-typst data-lang=typst>set_layout(
+</code></pre><p>All arguments coincide with the values of the ones of <code>layout</code> shown above.</p><h2 id=setting-a-new-layout>Setting a new Layout
+<a class=anchor href=#setting-a-new-layout>#</a></h2><pre tabindex=0><code class=language-typst data-lang=typst>set_layout(
     layout: <a href=https://typst.app/docs/reference/foundations/dictionary/ class="code-type-dictionary code-type-block">dictionary</a>,
 )
-</code></pre><h2 id=example-layouts>Example Layouts</h2><h3 id=default>Default</h3><pre tabindex=0><code class=language-typst data-lang=typst>#let _default_layout = (
+</code></pre><h2 id=example-layouts>Example Layouts
+<a class=anchor href=#example-layouts>#</a></h2><h3 id=default>Default
+<a class=anchor href=#default>#</a></h3><pre tabindex=0><code class=language-typst data-lang=typst>#let _default_layout = (
     &#34;spacing&#34;: 1.2em,
 )
-</code></pre><h3 id=a0>A0</h3><pre tabindex=0><code class=language-typst data-lang=typst>#let layout_a0 = _default_layout + (
+</code></pre><h3 id=a0>A0
+<a class=anchor href=#a0>#</a></h3><pre tabindex=0><code class=language-typst data-lang=typst>#let layout_a0 = _default_layout + (
     &#34;paper&#34;:            &#34;a0&#34;,
     &#34;size&#34;:             (841mm, 1188mm),
     &#34;body_size&#34;:        33pt,
@@ -31,7 +43,8 @@ You can easily change this by using the <code>set_layout</code> function below.<
     &#34;authors_size&#34;:     50pt,
     &#34;keywords_size&#34;:    40pt,
 )
-</code></pre><h3 id=a1>A1</h3><pre tabindex=0><code class=language-typst data-lang=typst>#let layout_a1 = _default_layout + (
+</code></pre><h3 id=a1>A1
+<a class=anchor href=#a1>#</a></h3><pre tabindex=0><code class=language-typst data-lang=typst>#let layout_a1 = _default_layout + (
     &#34;paper&#34;:            &#34;a1&#34;,
     &#34;size&#34;:             (594mm, 841mm),
     &#34;body_size&#34;:        27pt,
@@ -41,7 +54,8 @@ You can easily change this by using the <code>set_layout</code> function below.<
     &#34;authors_size&#34;:     41pt,
     &#34;keywords_size&#34;:    33pt,
 )
-</code></pre><h3 id=a2>A2</h3><pre tabindex=0><code class=language-typst data-lang=typst>#let layout_a2 = _default_layout + (
+</code></pre><h3 id=a2>A2
+<a class=anchor href=#a2>#</a></h3><pre tabindex=0><code class=language-typst data-lang=typst>#let layout_a2 = _default_layout + (
     &#34;paper&#34;:            &#34;a2&#34;,
     &#34;size&#34;:             (420mm, 594mm),
     &#34;body_size&#34;:        20pt,
@@ -51,7 +65,8 @@ You can easily change this by using the <code>set_layout</code> function below.<
     &#34;authors_size&#34;:     31pt,
     &#34;keywords_size&#34;:    25pt,
 )
-</code></pre><h3 id=a3>A3</h3><pre tabindex=0><code class=language-typst data-lang=typst>#let layout_a3 = _default_layout + (
+</code></pre><h3 id=a3>A3
+<a class=anchor href=#a3>#</a></h3><pre tabindex=0><code class=language-typst data-lang=typst>#let layout_a3 = _default_layout + (
     &#34;paper&#34;:            &#34;a3&#34;,
     &#34;size&#34;:             (297mm, 420mm),
     &#34;body_size&#34;:        14pt,
@@ -61,7 +76,8 @@ You can easily change this by using the <code>set_layout</code> function below.<
     &#34;authors_size&#34;:     22pt,
     &#34;keywords_size&#34;:    18pt,
 )
-</code></pre><h3 id=a4>A4</h3><pre tabindex=0><code class=language-typst data-lang=typst>#let layout_a4 = _default_layout + (
+</code></pre><h3 id=a4>A4
+<a class=anchor href=#a4>#</a></h3><pre tabindex=0><code class=language-typst data-lang=typst>#let layout_a4 = _default_layout + (
     &#34;paper&#34;:            &#34;a4&#34;,
     &#34;size&#34;:             (210mm, 297mm),
     &#34;body_size&#34;:        8pt,
@@ -71,4 +87,4 @@ You can easily change this by using the <code>set_layout</code> function below.<
     &#34;authors_size&#34;:     12pt,
     &#34;keywords_size&#34;:    10pt,
 )
-</code></pre></main></div><div class=sidebar-right></div></div><footer><div class=content><p>Copyright 2024. All rights reserved.</p></div></footer></div></body></html>
+</code></pre><footer class=book-footer><div class="flex flex-wrap justify-between"></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#updating-a-layout>Updating a Layout</a></li><li><a href=#setting-a-new-layout>Setting a new Layout</a></li><li><a href=#example-layouts>Example Layouts</a><ul><li><a href=#default>Default</a></li><li><a href=#a0>A0</a></li><li><a href=#a1>A1</a></li><li><a href=#a2>A2</a></li><li><a href=#a3>A3</a></li><li><a href=#a4>A4</a></li></ul></li></ul></nav></div></aside></main></body></html>
