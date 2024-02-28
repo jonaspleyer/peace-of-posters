@@ -1,3 +1,8 @@
+---
+title: "Themes"
+weight: 30
+---
+
 # Themes
 Themes are dictionaries with particular variables that control overall styling of the generated boxes.
 The dictionary is saved as a [state](https://typst.app/docs/reference/meta/state/) variable and can be accessed by the `update_theme` and `set_theme` methods.

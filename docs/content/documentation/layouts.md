@@ -1,3 +1,8 @@
+---
+title: "Layouts"
+weight: 20
+---
+
 # Layouts
 Layouts modify mostly shapes and spacings between boxes.
 Similarly to [themes](/documentation/themes), their purpose is cosmetic.

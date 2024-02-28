@@ -1,6 +1,5 @@
 ---
 title: "Documentation"
-weight: 10
 ---
 
 # Documentation

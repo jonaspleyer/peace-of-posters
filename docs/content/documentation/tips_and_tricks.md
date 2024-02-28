@@ -1,6 +1,6 @@
 ---
 title: "Tips and Tricks"
-weight: 20
+weight: 40
 ---
 
 # Tips and Tricks
