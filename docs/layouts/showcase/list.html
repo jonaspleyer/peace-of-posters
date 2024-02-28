@@ -1,0 +1,15 @@
+{{ define "main" }}
+  {{ .Content }}
+  <div class="showcase-grid">
+  {{ range .Pages }}
+    <div class="showcase-single">
+      <div class="showcase-single-date">{{ .Date.Format "2 Jan 2006" }}</div>
+      <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+      {{ .Params.description }}
+      <a href="{{ printf "%s/%s" .RelPermalink .Params.file_path }}">
+        <img src="{{ printf "%s/%s" .RelPermalink .Params.preview_image }}" width="100%">
+      </a>
+    </div>
+  {{ end }}
+  </div>
+{{ end }}

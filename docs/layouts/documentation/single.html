@@ -1,0 +1,41 @@
+{{ define "main" }}
+    {{ $contentRE := .Content }}
+    <!-- REPLACE [color] BY A NICE SHINY INLINE DIV -->
+    {{ $contentRE := replaceRE `\[color\]` `<a href="https://typst.app/docs/reference/visualize/color/" class="code-type-color code-type-block">color</a>` $contentRE }}
+    
+    <!-- REPLACE [content] BY A COLORED BLOCK -->
+    {{ $contentRE := replaceRE `\[content\]` `<a href="https://typst.app/docs/reference/foundations/content/" class="code-type-content code-type-block">content</a>` $contentRE }}
+    
+    <!-- REPLACE [none] BY A COLORED BLOCK -->
+    {{ $contentRE := replaceRE `\[none\]` `<a href="https://typst.app/docs/reference/foundations/type/" class="code-type-none code-type-block">none</a>` $contentRE }}
+    
+    <!-- REPLACE [bool] BY A COLORED BLOCK -->
+    {{ $contentRE := replaceRE `\[bool\]` `<a href="https://typst.app/docs/reference/foundations/bool/" class="code-type-bool code-type-block">bool</a>` $contentRE }}
+
+    <!-- REPLACE [relative] BY A COLORED BLOCK -->
+    {{ $contentRE := replaceRE `\[relative\]` `<a href="https://typst.app/docs/reference/layout/relative/" class="code-type-relative code-type-block">relative</a>` $contentRE }}
+
+    <!-- REPLACE [dictionary] BY A COLORED BLOCK -->
+    {{ $contentRE := replaceRE `\[dictionary\]` `<a href="https://typst.app/docs/reference/foundations/dictionary/" class="code-type-dictionary code-type-block">dictionary</a>` $contentRE }}
+
+    <!-- REPLACE [length] BY A COLORED BLOCK -->
+    {{ $contentRE := replaceRE `\[length\]` `<a href="https://typst.app/docs/reference/foundations/length/" class="code-type-length code-type-block">length</a>` $contentRE }}
+
+    <!-- REPLACE [str] BY A COLORED BLOCK -->
+    {{ $contentRE := replaceRE `\[str\]` `<a href="https://typst.app/docs/reference/foundations/str/" class="code-type-str code-type-block">str</a>` $contentRE }}
+
+    <!-- REPLACE [function] BY A COLORED BLOCK -->
+    {{ $contentRE := replaceRE `\[function\]` `<a href="https://typst.app/docs/reference/foundations/function/" class="code-type-function code-type-block">function</a>` $contentRE }}
+
+    <!-- REPLACE [false] BY A COLORED BLOCK -->
+    {{ $contentRE := replaceRE `\[false\]` `<p class="code-value-false">false</p>` $contentRE }}
+
+    <!-- REPLACE [true] BY A COLORED BLOCK -->
+    {{ $contentRE := replaceRE `\[true\]` `<p class="code-value-true">true</p>` $contentRE }}
+
+    <!-- TODO REPLACE typst CODE BLOCKS -->
+    <!-- {{ $contentRE := replaceRE 'a' 'a' $contentRE}} -->
+
+    <!-- RENDER THE FINAL RESULT -->
+    {{ .RenderString $contentRE }}
+{{ end }}

@@ -1,5 +1,5 @@
 # Boxes
-Please note that most values which have default values [none] are probably specified either by a [theme](/documentation/themes) or [layout](/documentation/layouts).
+Please note that most values which have default values [none] are probably specified either by a [theme](/themes) or [layout](/documentation/layouts).
 ## Common Box
 This box is mostly meant as a shared template for other functions to be calling.
 While it can be used individually, users should strongly consider relying on other functions.
@@ -53,8 +53,8 @@ _common_box(
 ## Column Box
 ```typst
 column_box(
-	body: [content],
-	..args
+    body: [content],
+    ..args
 ) --> [content]
 ```
 All arguments align with `_common_box` but the `column_box` requires at least a body.
@@ -94,3 +94,4 @@ bibliography_box(
 | `title` | [none] [content] | [none] | Title of the Bibliography Box. |
 | `style` | [str] | `"ieee"` | Citation style. |
 | `stretch_to_bottom` | [bool] | [false] | See [Common Box](#common-box). |
+

@@ -1,49 +1,13 @@
 baseURL = 'https://jonaspleyer.github.io/science-posters/'
 languageCode = 'en-us'
 title = 'science-posters'
-theme = "docs"
+theme = "hugo-book"
 
 [params]
 author = "Jonas Pleyer"
 author_mail = "jonas.sci@pleyer.org"
-
-[[menus.main]]
-name = 'Home'
-pageRef = '/'
-weight = 10
-
-[[menus.main]]
-name = "Documentation"
-pageRef = '/documentation'
-weight = 20
-
-[[menus.main]]
-parent = "Documentation"
-name = "Boxes"
-pageRef = '/documentation/boxes'
-weight = 22
-
-[[menus.main]]
-parent = "Documentation"
-name = "Themes"
-pageRef = "/documentation/themes"
-weight = 25
-
-[[menus.main]]
-parent = "Documentation"
-name = "Layouts"
-pageRef = "/documentation/layouts"
-weight = 27
-
-[[menus.main]]
-name = 'Showcase'
-pageRef = '/showcase'
-weight = 30
-
-[[menus.main]]
-name = 'Tips and Tricks'
-pageref = 'tips_and_tricks'
-weight = 40
+BookSection = '.'
 
 [markup.goldmark.renderer]
-    unsafe = true
+unsafe = true
+

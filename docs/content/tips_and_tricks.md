@@ -1,6 +1,8 @@
-+++
-title = "Tips and Tricks"
-+++
+---
+title: "Tips and Tricks"
+weight: 20
+---
+
 # Tips and Tricks
 <!-- TODO add screenshots of before and after -->
 ## Modify Spacing between Boxes
