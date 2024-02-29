@@ -1,5 +1,5 @@
 <!doctype html><html lang=en-us dir=ltr><head><meta name=generator content="Hugo 0.123.1"><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Overview # science-posters allows to create simple but elegant posters. It does not make any assumptions about layout (eg. 2/3 column), size of the poster (eg. a0, a1) or orientation. Its main functionality is provided by a handful of functions that create boxes with optional titles. There are specific functions for defining title boxes and bottom boxes. It provides predefined themes which can be adjusted to customize the design of the boxes."><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:title" content="Introduction"><meta property="og:description" content><meta property="og:type" content="website"><meta property="og:url" content="https://jonaspleyer.github.io/science-posters/"><title>Introduction | science-posters</title>
-<link rel=manifest href=/science-posters/manifest.json><link rel=icon href=/science-posters/favicon.png><link rel=canonical href=https://jonaspleyer.github.io/science-posters/><link rel=stylesheet href=/science-posters/book.min.ee39461f1ad0c5481ae7324fc31fbb627878170d46e5dfb27b0dbf210bfa0f1d.css integrity="sha256-7jlGHxrQxUga5zJPwx+7Ynh4Fw1G5d+yew2/IQv6Dx0=" crossorigin=anonymous><script defer src=/science-posters/flexsearch.min.js></script><script defer src=/science-posters/en.search.min.70e950cd3d21b215aff82710d16e7ca9c28af9a771cdec240019bd15b2a540cc.js integrity="sha256-cOlQzT0hshWv+CcQ0W58qcKK+adxzewkABm9FbKlQMw=" crossorigin=anonymous></script><link rel=alternate type=application/rss+xml href=https://jonaspleyer.github.io/science-posters/index.xml title=science-posters></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<link rel=manifest href=/science-posters/manifest.json><link rel=icon href=/science-posters/favicon.png><link rel=canonical href=https://jonaspleyer.github.io/science-posters/><link rel=stylesheet href=/science-posters/book.min.fac77f4c247fad0b9e26b59172691d98e52080385f7f19bdabfd74b8cdf1b2da.css integrity="sha256-+sd/TCR/rQueJrWRcmkdmOUggDhffxm9q/10uM3xsto=" crossorigin=anonymous><script defer src=/science-posters/flexsearch.min.js></script><script defer src=/science-posters/en.search.min.70e950cd3d21b215aff82710d16e7ca9c28af9a771cdec240019bd15b2a540cc.js integrity="sha256-cOlQzT0hshWv+CcQ0W58qcKK+adxzewkABm9FbKlQMw=" crossorigin=anonymous></script><link rel=alternate type=application/rss+xml href=https://jonaspleyer.github.io/science-posters/index.xml title=science-posters></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
 <input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/science-posters/><span>science-posters</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li><a href=/science-posters/showcase/>Showcase</a><ul><li><a href=/science-posters/showcase/2023-10-23-bwhpc-symposium/>bwHPC Symposium 2023</a></li></ul></li><li><a href=/science-posters/documentation/>Documentation</a><ul><li><a href=/science-posters/documentation/boxes/>Boxes</a></li><li><a href=/science-posters/documentation/layouts/>Layouts</a></li><li><a href=/science-posters/documentation/themes/>Themes</a></li><li><a href=/science-posters/documentation/tips_and_tricks/>Tips and Tricks</a></li></ul></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/science-posters/svg/menu.svg class=book-icon alt=Menu>
 </label><strong>Introduction</strong>
 <label for=toc-control><img src=/science-posters/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#example>Example</a></li><li><a href=#final-result>Final Result</a></li></ul></nav></aside></header><article class="markdown book-article"><h1 id=overview>Overview
@@ -8,7 +8,60 @@ It does not make any assumptions about layout (eg. 2/3 column), size of the post
 Its main functionality is provided by a handful of functions that create <a href=documentation/boxes>boxes</a> with optional titles.
 There are specific functions for defining title boxes and bottom boxes.
 It provides predefined <a href=documentation/themes>themes</a> which can be adjusted to customize the design of the boxes.</p><p>To find out what you can do today with <code>science-posters</code>, have a look at the <a href=showcase>showcased examples</a>.</p><h2 id=example>Example
-<a class=anchor href=#example>#</a></h2><p>We begin by importing the <code>science-posters</code> package</p><p>Next, we specify some general settings formatting settings.</p><p>After that we choose a predefined theme.</p><p>We can adjust any property of the theme via the <code>update_theme</code> method of the <a href=documentation/themes>themes</a> module.
+<a class=anchor href=#example>#</a></h2><p>We begin by importing the <code>science-posters</code> package</p>map[]<pre tabindex=0><code class=language-typst data-lang=typst>// We begin by importing the `science-posters` package
+#import &#34;../../../../lib.typ&#34;: *</code></pre><p>Next, we specify some general settings formatting settings.</p><p>map[]</p><pre tabindex=0><code class=language-typst data-lang=typst>// Next, we specify some general settings formatting settings.
+#set page(&#34;a0&#34;, margin: 1cm)
+#set_poster_layout(layout_a0)
+#set text(font: &#34;Arial&#34;, size: layout_a0.at(&#34;body_size&#34;))
+
+#let box_spacing = 1.2em
+#set columns(gutter: box_spacing)
+#set block(spacing: box_spacing)
+#update_poster_layout(spacing: box_spacing)</code></pre><p>After that we choose a predefined theme.</p><p>map[]</p><pre tabindex=0><code class=language-typst data-lang=typst>// After that we choose a predefined theme.
+#set_theme(uni_fr)</code></pre><p>We can adjust any property of the theme via the <code>update_theme</code> method of the <a href=documentation/themes>themes</a> module.
 The poster consists of multiple boxes which can be adjusted by specifying <a href=https://typst.app/docs/reference/layout/columns/>column layouts</a>.
-<code>science-posters</code> provideds some predefiend methods for creating a title-box, regular column-boxes in between, a bottom box and bibliography to finish it of.</p><h2 id=final-result>Final Result
+<code>science-posters</code> provideds some predefiend methods for creating a title-box, regular column-boxes in between, a bottom box and bibliography to finish it of.</p><p>map[]</p><pre tabindex=0><code class=language-typst data-lang=typst>// `science-posters` provideds some predefiend methods for creating a title-box, regular column-boxes in between, a bottom box and bibliography to finish it of.
+#title_box(
+    [`science-posters`],
+    subtitle: [Scientific Posters for any Occasion],
+    authors: [Jonas Pleyer#super(&#34;1&#34;)],
+    institutes: [#super(&#34;1&#34;)Freiburg Center for Data-Analysis and Modelling],
+    keywords: [Science, Poster, Typesetting, `typst`],
+)
+
+#columns(2, [
+    #column_box(
+        heading: [Left Column],
+    )[
+        Multi-Column layouts are supported out of the box by typsts `columns()` method.
+    ]
+
+    #colbreak()
+
+    #column_box(
+        stretch_to_next: true,
+    )[
+        We can also choose to not have a title for our boxes.
+    ]
+])
+
+#column_box()[
+    We can update the layout of the boxes in the middle of the document.
+]
+
+#_common_box(heading: [only heading])
+
+#columns(2, [
+    #colbreak()
+    #column_box(
+        heading: [Stretching],
+        stretch_to_next: true
+    )[
+        And stretch boxes to the next lowest box (or bottom of the page)
+    ]
+])
+
+#bottom_box()[
+    Align them to the bottom.
+]</code></pre><h2 id=final-result>Final Result
 <a class=anchor href=#final-result>#</a></h2><div class=showcase-single style=text-align:center;padding:0><a href=examples/getting_started/main.pdf><img src=examples/getting_started/main.png width=100%></a></div></article><footer class=book-footer><div class="flex flex-wrap justify-between"></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#example>Example</a></li><li><a href=#final-result>Final Result</a></li></ul></nav></div></aside></main></body></html>
