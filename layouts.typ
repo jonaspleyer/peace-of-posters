@@ -75,6 +75,7 @@
 }
 
 #let set_poster_layout(layout) = {
+    // TODO match for strings such as "a0" "layout_a0" and so on
     _state_poster_layout.update(pt => {
         pt=layout
         pt
@@ -98,3 +99,61 @@
 
     body
 }
+
+// TEMPLATES
+// See https://typst.app/docs/tutorial/making-a-template/
+#let a0_poster(doc) = [
+    #set page("a0", margin: 1cm)
+    #set text(font: "Arial", size: layout_a0.at("body_size"))
+    #let box_spacing = 1.2em
+    #set columns(gutter: box_spacing)
+    #set block(spacing: box_spacing)
+    #set_poster_layout(layout_a0)
+    #update_poster_layout(spacing: box_spacing)
+    #doc
+]
+
+#let a1_poster(doc) = [
+    #set page("a1", margin: 1cm)
+    #set text(font: "Arial", size: layout_a1.at("body_size"))
+    #let box_spacing = 1.2em
+    #set columns(gutter: box_spacing)
+    #set block(spacing: box_spacing)
+    #set_poster_layout(layout_a1)
+    #update_poster_layout(spacing: box_spacing)
+    #doc
+]
+
+#let a2_poster(doc) = [
+    #set page("a2", margin: 1cm)
+    #set text(font: "Arial", size: layout_a2.at("body_size"))
+    #let box_spacing = 1.2em
+    #set columns(gutter: box_spacing)
+    #set block(spacing: box_spacing)
+    #set_poster_layout(layout_a2)
+    #update_poster_layout(spacing: box_spacing)
+    #doc
+]
+
+#let a3_poster(doc) = [
+    #set page("a3", margin: 1cm)
+    #set text(font: "Arial", size: layout_a3.at("body_size"))
+    #let box_spacing = 1.2em
+    #set columns(gutter: box_spacing)
+    #set block(spacing: box_spacing)
+    #set_poster_layout(layout_a3)
+    #update_poster_layout(spacing: box_spacing)
+    #doc
+]
+
+#let a4_poster(doc) = [
+    #set page("a4", margin: 1cm)
+    #set text(font: "Arial", size: layout_a4.at("body_size"))
+    #let box_spacing = 1.2em
+    #set columns(gutter: box_spacing)
+    #set block(spacing: box_spacing)
+    #set_poster_layout(layout_a4)
+    #update_poster_layout(spacing: box_spacing)
+    #doc
+]
+
