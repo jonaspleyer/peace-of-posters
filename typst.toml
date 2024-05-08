@@ -8,3 +8,7 @@ entrypoint = "lib.typ"
 repository = "https://github.com/jonaspleyer/science-posters"
 homepage = "https://jonaspleyer.github.io/science-posters/"
 
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
