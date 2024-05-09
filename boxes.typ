@@ -50,7 +50,7 @@
   filt1 and filt2
 }
 
-#let stretch_box_to_next(box_function, location_heading_box, next, spacing: 1.2em, ..r) = locate(loc => {
+#let stretch_box_to_next(box_function, location_heading_box, spacing: 1.2em, ..r) = locate(loc => {
   // Get current y location
   let m_loc = loc.position()
   let b1 = query(<COLUMN_BOX>, loc)
