@@ -1,4 +1,4 @@
-#import "@preview/science-posters:0.2.0" as sp
+#import "@preview/science-posters:0.3.0" as sp
 
 #show: sp.a0_poster
 
