@@ -27,11 +27,5 @@
   ]
 ])
 
-#table(
-  columns: (25%, 50%, 25%), 
-  stroke: none,
-  sp.column_box(heading: "Some Heading as well")[test],
-)
-
 #sp.bottom_box()[This is a box at the bottom]
 
