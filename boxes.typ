@@ -144,13 +144,19 @@
 
     /// CONSTRUCT HEADING IF NOT EMPTY
     let heading_box = box(width: 0%, height: 0%)
-    if heading!=none {
-      heading_box = heading_box_function(
-        ..heading_box_args,
-      )[
+    let heading = if heading!=none {
+      [
         #set text(..heading_text_args)
         #heading
       ]
+    } else {
+      none
+    }
+
+    if heading!=none {
+      heading_box = heading_box_function(
+        ..heading_box_args,
+      )[#heading]
     }
 
     /// #####################################################
@@ -188,13 +194,18 @@
 
     /// CONSTRUCT BODY IF NOT EMPTY
     let body_box = box(width: 0%, height: 0%)
-    if body!=none {
-      body_box = body_box_function(
-        ..body_box_args,
-      )[
+    let body = if body!=none {
+      [
         #set text(..body_text_args)
         #body
       ]
+    } else {
+      none
+    }
+    if body!=none {
+      body_box = body_box_function(
+        ..body_box_args,
+      )[#body]
     }
 
     /// #####################################################
