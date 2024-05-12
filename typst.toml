@@ -7,6 +7,7 @@ description = "Create scientific posters in Typst."
 entrypoint = "lib.typ"
 repository = "https://github.com/jonaspleyer/science-posters"
 homepage = "https://jonaspleyer.github.io/science-posters/"
+categories = ["poster"]
 
 [template]
 path = "template"
