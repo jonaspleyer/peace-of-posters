@@ -3,11 +3,12 @@ title: Introduction
 type: docs
 ---
 
+# Overview
+
 > piece of cake<br>
 > peace of mind<br>
 > peace of posters
 
-# Overview
 `peace-of-posters` allows to create simple but elegant posters.
 It does not make any assumptions about layout (eg. 2/3 column), size of the poster (eg. a0, a1) or orientation.
 Its main functionality is provided by a handful of functions that create [boxes](documentation/boxes) with optional titles.
