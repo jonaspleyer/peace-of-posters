@@ -1,10 +1,10 @@
-#import "@preview/science-posters:0.2.0" as sp
+#import "@preview/peace-of-posters:0.2.0" as sp
 
 #set page("a5")
 #sp.set_poster_layout(sp.layout_a3)
 
 #sp.title_box(
-  "science-posters",
+  "peace-of-posters",
   authors: "Jonas Pleyer¹",
   institutes: "¹University of Freiburg",
   keywords: "Typst, Posters, Science",
@@ -45,7 +45,7 @@
 #sp.bottom_box()[
   #columns(2)[
     #set text(14pt)
-    github.com/jonaspleyer/science-posters
+    github.com/jonaspleyer/peace-of-posters
     #colbreak()
     jonas.pleyer.org
   ]

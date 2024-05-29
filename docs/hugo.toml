@@ -1,6 +1,6 @@
-baseURL = 'https://jonaspleyer.github.io/science-posters/'
+baseURL = 'https://jonaspleyer.github.io/peace-of-posters/'
 languageCode = 'en-us'
-title = 'science-posters'
+title = 'peace-of-posters'
 theme = "hugo-book"
 
 [params]

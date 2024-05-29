@@ -1,5 +1,5 @@
 /// IMPORT THE POSTERS PACKAGE
-#import "science-posters/lib.typ": *
+#import "peace-of-posters/lib.typ": *
 
 // Define overall formatting defaults for the document.
 // These settings can be overwritten later on.
