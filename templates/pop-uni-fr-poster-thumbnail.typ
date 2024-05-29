@@ -1,24 +1,24 @@
-#import "@preview/peace-of-posters:0.2.0" as sp
+#import "@preview/peace-of-posters:0.3.0" as pop
 
 #set page("a5")
-#sp.set_poster_layout(sp.layout_a3)
+#pop.set_poster_layout(pop.layout_a3)
+#set text(font: "Latin Modern Serif")
 
-#sp.title_box(
+#pop.title_box(
   "peace-of-posters",
   authors: "Jonas Pleyer¹",
   institutes: "¹University of Freiburg",
   keywords: "Typst, Posters, Science",
-  image: rect(height: 4em, width: 4em)[#set align(center+horizon);Title Image],
+  image: rect(height: 4em, width: 4em, fill: white, radius: 5pt)[#image("peace-dove.png")],
 )
 
 #columns(2,[
-  #sp.column_box(heading: "Biology")[
+  #pop.column_box(heading: "Biology")[
     _The fundamental difference between phyics and biology is that there are no laws.
     There are only principles._
   ]
-  #sp.column_box(stretch_to_next: true)[
+  #pop.column_box(stretch_to_next: true)[
     Minimal main routines in 2 languages.
-    Can you guess them?
     #linebreak()
     #box(stroke: 1pt + black, inset: 5pt, width: 90%)[
     ```c
@@ -34,7 +34,7 @@
 
   #colbreak()
 
-  #sp.column_box(heading: "General Relativity", stretch_to_next: true)[
+  #pop.column_box(heading: "General Relativity", stretch_to_next: true)[
   Einstein's brilliant theory of general relativity
   starts with the field equations.
   $ G_(mu nu) + Lambda g_(mu nu) = kappa T_(mu nu) $
@@ -42,10 +42,10 @@
   ]
 ])
 
-#sp.bottom_box()[
+#pop.bottom_box()[
   #columns(2)[
     #set text(14pt)
-    github.com/jonaspleyer/peace-of-posters
+    github.com/jonapopleyer/peace-of-posters
     #colbreak()
     jonas.pleyer.org
   ]
