@@ -1,8 +1,8 @@
-#import "@preview/peace-of-posters:0.3.0" as sp
+#import "@preview/peace-of-posters:0.3.0" as pop
 
-#show: sp.a0_poster
+#show: pop.a0_poster
 
-#sp.title_box(
+#pop.title_box(
   "My very fancy Title goes here",
   authors: "Jonas Pleyer¹",
   institutes: "¹Freiburg Center for Data-Analysis and Modelling",
@@ -11,8 +11,8 @@
 )
 
 #columns(2,[
-  #sp.column_box(heading: "My First Box")[There is nothing here yet]
-  #sp.column_box()[
+  #pop.column_box(heading: "My First Box")[There is nothing here yet]
+  #pop.column_box()[
   This box does not have a heading.
 
   But it is still very cool!
@@ -20,12 +20,12 @@
 
   #colbreak()
 
-  #sp.column_box(heading: "General Relativity", stretch_to_next: true)[
+  #pop.column_box(heading: "General Relativity", stretch_to_next: true)[
   Einstein's brilliant theory of general relativity
   starts with the field equations.
   $ G_(mu nu) + Lambda g_(mu nu) = kappa T_(mu nu) $
   ]
 ])
 
-#sp.bottom_box()[This is a box at the bottom]
+#pop.bottom_box()[This is a box at the bottom]
 
