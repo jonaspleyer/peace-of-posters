@@ -2,8 +2,11 @@
 ![Build](https://img.shields.io/github/actions/workflow/status/jonaspleyer/peace-of-posters/build.yml?style=flat-square&label=Build)
 ![Docs](https://img.shields.io/github/actions/workflow/status/jonaspleyer/peace-of-posters/docs.yml?style=flat-square&label=Docs)
 
+> piece of cake<br>
+> peace of mind<br>
+> peace of posters
 
-[peace-of-posters](https://github.com/jonaspleyer/peace-of-posters) is a Typst package to help creating scientific posters.
+[peace-of-posters (PoP)](https://github.com/jonaspleyer/peace-of-posters) is a Typst package to help creating scientific posters.
 It is flexible and can be used for different sizes and layouts.
 To see what is possible have a look at some of my own real-world examples in the [showcase](https://jonaspleyer.github.io/peace-of-posters/showcase/) section of the documentation.
 
