@@ -1,0 +1,25 @@
+name: Test
+on: push
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/typst/typst:latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Compile lib.typ
+        run: typst compile lib.typ
+
+      - name: Create local package folder
+        run: mkdir -p ~/.local/share/typst/packages/local/peace-of-posters/0.3.0
+      - name: Copy files into package folder
+        run: cp -r . ~/.local/share/typst/packages/local/peace-of-posters/0.3.0
+
+      # Create file which imports locally installed package
+      - name: Create testfile
+        run: echo '#import "@local/peace-of-posters:0.3.0" as pop' >> testfile.typ
+      - name: Compile testfile
+        run: typst compile testfile.typ
+
