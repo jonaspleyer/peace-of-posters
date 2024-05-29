@@ -31,6 +31,4 @@
 
 {{ $file = delimit $file "\n" }}
 
-{{ (.Scratch.Get "highlight_args") }}
-
 {{ highlight $file $lang $highlight_args }}
