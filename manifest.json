@@ -1,14 +1,14 @@
 {
-  "name": "science-posters",
-  "short_name": "science-posters",
-  "start_url": "/science-posters/",
-  "scope": "/science-posters/",
+  "name": "peace-of-posters",
+  "short_name": "peace-of-posters",
+  "start_url": "/peace-of-posters/",
+  "scope": "/peace-of-posters/",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#000000",
   "icons": [
     {
-      "src": "/science-posters/favicon.svg",
+      "src": "/peace-of-posters/favicon.svg",
       "sizes": "512x512"
     }
   ]

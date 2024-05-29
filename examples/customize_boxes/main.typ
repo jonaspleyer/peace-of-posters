@@ -1,4 +1,4 @@
-// We begin by importing the `science-posters` package
+// We begin by importing the `peace-of-posters` package
 #import "../../../../lib.typ": *
 
 // Next, we specify some general settings formatting settings.
