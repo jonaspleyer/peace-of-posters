@@ -1,5 +1,5 @@
 # peace-of-posters
-![Build](https://img.shields.io/github/actions/workflow/status/jonaspleyer/peace-of-posters/build.yml?style=flat-square&label=Build)
+![Test](https://img.shields.io/github/actions/workflow/status/jonaspleyer/peace-of-posters/build.yml?style=flat-square&label=Test)
 ![Docs](https://img.shields.io/github/actions/workflow/status/jonaspleyer/peace-of-posters/docs.yml?style=flat-square&label=Docs)
 
 > piece of cake<br>
