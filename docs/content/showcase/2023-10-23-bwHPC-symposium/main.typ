@@ -7,31 +7,31 @@
     "a0",
     margin: 1.5cm,
 )
-#set_layout(layout_a0)
+#set-layout(layout-a0)
 #set text(
     font: "Arial",
-	size: layout_a0.at("body_size"),
+	size: layout-a0.at("body-size"),
 )
 
 #let spacing = 1.2em
 #set block(spacing: spacing)
 #set columns(gutter: spacing)
-#update_layout(spacing, spacing)
+#update-layout(spacing, spacing)
 
-#set_theme(uni_fr)
+#set-theme(uni-fr)
 
 // Define colors as given by coroprate design of uni freiburg
-#let uni_dark_blue = rgb("#1d154d")
+#let uni-dark-blue = rgb("#1d154d")
 
 /// START OF THE DOCUMENT
-#title_box(
-	[#box(inset: (bottom: -0.3em), image(height: 1.2em, "images/cellular_raza_dark_mode.svg")) - Novel Flexibility in Design of Agent-Based Models in Cellular Systems],
+#title-box(
+	[#box(inset: (bottom: -0.3em), image(height: 1.2em, "images/cellular_raza-dark-mode.svg")) - Novel Flexibility in Design of Agent-Based Models in Cellular Systems],
 	authors: "Jonas Pleyer¹, Christian Fleck¹",
 	institutes: "¹Freiburg Center for Data-Analysis and Modeling",
     image: image("/UFR-Siegel-white.png"),
 )
 
-#column_box()[
+#column-box()[
 	#set par(justify: true)
 	#set align(center)
 	Agent-Based Models (ABMs) allow researchers to describe complex cellular systems in a mechanistic manner but can also abstract over less-known processes.
@@ -41,7 +41,7 @@
 ]
 
 #columns(2, gutter: spacing)[
-	#column_box(
+	#column-box(
 		heading: [Features],
 	)[
 		#columns(2, gutter: 0.5*spacing)[
@@ -58,13 +58,13 @@
 		]
 	]
 
-	#column_box(heading: "Scaling Behavior")[
+	#column-box(heading: "Scaling Behavior")[
 		#figure(stack(dir: ltr, 
-				box([#image("images/scaling_0.png")
-				#place(top+left, rect(text("A", fill: white), fill: uni_dark_blue, inset: 10pt))], width: 49.5%),
+				box([#image("images/scaling-0.png")
+				#place(top+left, rect(text("A", fill: white), fill: uni-dark-blue, inset: 10pt))], width: 49.5%),
 				box(width: 1%),
-				box([#image("images/scaling_1.png")
-				#place(top+left, rect(text("B", fill: white), fill: uni_dark_blue, inset: 10pt))], width: 49.5%)
+				box([#image("images/scaling-1.png")
+				#place(top+left, rect(text("B", fill: white), fill: uni-dark-blue, inset: 10pt))], width: 49.5%)
 			),
 			caption: [
 				(A) Linear fit $f(x)=a x$ of scaling with increasing amounts of agents.
@@ -77,7 +77,7 @@
 		])
 	]
 
-	#column_box(heading: [Cellular Properties as Rust Traits])[
+	#column-box(heading: [Cellular Properties as Rust Traits])[
 		Abstract traits are used to define cellular interactions via force mechanics.
         Users implement traits and obtain full control over cellular behavior.
         #figure([
@@ -87,19 +87,19 @@
 				/// cell-specific interactions). For now, this can also be used
 				/// to get the mass of the other cell-agent. In the future, we
 				/// will probably provide a custom function for this.
-				fn get_interaction_information(&self) -> Inf;
+				fn get-interaction-information(&self) -> Inf;
 
 				/// Calculates the force (velocity-derivative) on the
 				/// corresponding external position given external velocity.
 				/// By providing velocities, we can calculate terms that are
 				/// related to friction.
-				fn calculate_force_between(
+				fn calculate-force-between(
 					&self,
-					own_pos: &Pos,
-					own_vel: &Vel,
-					ext_pos: &Pos,
-					ext_vel: &Vel,
-					ext_info: &Inf,
+					own-pos: &Pos,
+					own-vel: &Vel,
+					ext-pos: &Pos,
+					ext-vel: &Vel,
+					ext-info: &Inf,
 				) -> Option<Result<Force, CalcError>>;
 			}
 			```])
@@ -107,9 +107,9 @@
         // The user is able and encouraged to modify and adjust these types as needed.
 	]
 
-	#column_box(
+	#column-box(
 		heading: [Roadmap],
-		stretch_to_bottom: true,
+		stretch-to-bottom: true,
 	)[#columns(2)[
 		- Stabilize user API
 		- Additional backends (GPUs, MPI)
@@ -123,16 +123,16 @@
 
 	#colbreak()
 
-	#column_box(heading: [Branching patterns of _Bacillus subtilis_ in 2D & 3D])[
+	#column-box(heading: [Branching patterns of -Bacillus subtilis- in 2D & 3D])[
 		#figure(stack(dir: ltr,
 			box([
-                #image("images/bacteria_cells_at_iter_0000088000.png", width: 49.5%)
-                #place(top+left, dx: 10pt, dy: 10pt, rect(text("2D", fill: white), fill: uni_dark_blue, inset: 10pt))
+                #image("images/bacteria-cells-at-iter-0000088000.png", width: 49.5%)
+                #place(top+left, dx: 10pt, dy: 10pt, rect(text("2D", fill: white), fill: uni-dark-blue, inset: 10pt))
             ]),
             box(width: 1%),
 			box([
-                #image("images/bacteria_population-3d-0000-cropped.png", width: 49.5%)
-                #place(top+left, dx: 10pt, dy: 10pt, rect(text("3D", fill: white), fill: uni_dark_blue, inset: 10pt))
+                #image("images/bacteria-population-3d-0000-cropped.png", width: 49.5%)
+                #place(top+left, dx: 10pt, dy: 10pt, rect(text("3D", fill: white), fill: uni-dark-blue, inset: 10pt))
             ])
 		), caption: [
             Spatio-Temporal patterns inspired by #cite("kawasakiModelingSpatioTemporalPatterns1997","matsushitaInterfaceGrowthPattern1998"). Cells ($~$500,000) consume extracellular nutrients, grow, divide and self-organize into a branched pattern.
@@ -140,16 +140,16 @@
 		])
 	]
 
-	#column_box(heading: "Cell Sorting in 3D")[
+	#column-box(heading: "Cell Sorting in 3D")[
 		#figure(stack(dir: ltr,
 			box([
-                #image("images/cell_sorting_start.png", width: 49.5%)
-                #place(top+left, dx: 10pt, dy: 10pt, rect(text("A", fill: white), fill: uni_dark_blue, inset: 10pt))
+                #image("images/cell-sorting-start.png", width: 49.5%)
+                #place(top+left, dx: 10pt, dy: 10pt, rect(text("A", fill: white), fill: uni-dark-blue, inset: 10pt))
             ]),
             box(width: 1%),
 			box([
-                #image("images/cell_sorting_end.png", width: 49.5%)
-                #place(top+left, dx: 10pt, dy: 10pt, rect(text("B", fill: white), fill: uni_dark_blue, inset: 10pt))
+                #image("images/cell-sorting-end.png", width: 49.5%)
+                #place(top+left, dx: 10pt, dy: 10pt, rect(text("B", fill: white), fill: uni-dark-blue, inset: 10pt))
             ]),
 		),
 		caption: [
@@ -158,16 +158,16 @@
 		])
 	]
 
-	#column_box(heading: [Semi-Vertex Models])[
+	#column-box(heading: [Semi-Vertex Models])[
 		#figure(stack(dir: ltr,
 			box([
-				#image("images/kidney_organoid_model-final.png", width: 49.5%)
-				#place(top+left, dx: 10pt, dy: 10pt, rect(text("A", fill: uni_dark_blue), fill: white, inset: 10pt))
+				#image("images/kidney-organoid-model-final.png", width: 49.5%)
+				#place(top+left, dx: 10pt, dy: 10pt, rect(text("A", fill: uni-dark-blue), fill: white, inset: 10pt))
 			]),
 			box(width: 1%),
 			box([
-				#image("images/free_vertex_model_end.png", width: 49.5%)
-				#place(top+left, dx: 10pt, dy: 10pt, rect(text("B", fill: uni_dark_blue), fill: white, inset: 10pt))
+				#image("images/free-vertex-model-end.png", width: 49.5%)
+				#place(top+left, dx: 10pt, dy: 10pt, rect(text("B", fill: uni-dark-blue), fill: white, inset: 10pt))
 			])
 		),
 		caption: [
@@ -176,10 +176,10 @@
 		])
 	]
 
-	#bibliography_box("/cellular_raza.bib", title: "Sources", stretch_to_bottom: true)
+	#bibliography-box("/cellular_raza.bib", title: "Sources", stretch-to-bottom: true)
 ]
 
-#bottom_box(
+#bottom-box(
 	stack(dir: ltr, 
 		box(width: 20.5%, [
             #set text(size: 30pt)
@@ -192,16 +192,16 @@
 			#box(image(height: 30pt, "images/github-mark-white.png"))
 			#link("https://github.com/jonaspleyer/")[github.com/jonaspleyer]
 		]),
-		box(width: 23.25%, align(center, image(height: 80pt, "images/cellular_raza_dark_mode.svg"))),
+		box(width: 23.25%, align(center, image(height: 80pt, "images/cellular_raza-dark-mode.svg"))),
 		box(width: 26.75%, height: 1.25em, align(center+horizon, [
 			#set text(size: 35pt)
 			#box(image(height: 30pt, "images/JonasPleyer-edited.jpeg"))
 			#link("https/jonas.pleyer.org")[jonas.pleyer.org]
 		])),
 	),
-	text_relative_width: 80%,
+	text-relative-width: 80%,
     logo: stack(dir: ltr,
-        image(width: 0.3*(100% - 0.5*spacing - 80%), "fdm_logo.jpg", fit: "contain"),
+        image(width: 0.3*(100% - 0.5*spacing - 80%), "fdm-logo.jpg", fit: "contain"),
         h(0.5*spacing),
         image(width: 0.7*(100% - 0.5*spacing - 80%), "UFR-Schriftzug-white.png", fit: "contain"),
     )
