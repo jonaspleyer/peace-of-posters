@@ -9,6 +9,7 @@ def zip_package():
     typst_files = glob.glob("./*.typ")
     typst_files.append("./typst.toml")
     typst_files.append("./LICENSE")
+    typst_files.append("./README.md")
 
     # Open new zip file
     zip_file = zipfile.ZipFile(Path("package.zip"), mode='w')
