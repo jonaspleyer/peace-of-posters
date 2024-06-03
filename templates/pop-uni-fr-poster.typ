@@ -1,4 +1,4 @@
-#import "@preview/peace-of-posters:0.4.0" as pop
+#import "@preview/peace-of-posters:0.4.1" as pop
 
 #show: pop.a0_poster
 
