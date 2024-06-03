@@ -104,8 +104,8 @@
   bottom-box: false,
 ) = {
   locate(loc => {
-    let pt = -state-poster-theme.at(loc)
-    let pl = -state-poster-layout.at(loc)
+    let pt = _state-poster-theme.at(loc)
+    let pl = _state-poster-layout.at(loc)
 
     let spacing = if spacing==none {pl.at("spacing")} else {spacing}
 
@@ -265,7 +265,7 @@
   locate(loc => {
     let text-relative-width = text-relative-width
     /// Get theme and layout state
-    let pl = -state-poster-layout.at(loc)
+    let pl = _state-poster-layout.at(loc)
 
     /// Layout specific options
     let title-size = if title-size==none {pl.at("title-size")} else {title-size}
