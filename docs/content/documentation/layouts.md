@@ -33,7 +33,7 @@ You can easily change this by using the `set-layout` function below.
 
 ## Updating a Layout
 ```typst
-update-layout(
+update-poster-layout(
     ..args
 )
 ```
@@ -41,7 +41,7 @@ All arguments coincide with the values of the ones of `layout` shown above.
 
 ## Setting a new Layout
 ```typst
-set-layout(
+set-poster-layout(
     layout: [dictionary],
 )
 ```

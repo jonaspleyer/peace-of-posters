@@ -22,7 +22,7 @@ common-box(
     body-size: [none] [length],
     body-box-args: [none] [dictionary],
     body-text-args: [none] [dictionary],
-    stretch-to-bottom: [bool],
+    stretch-to-next: [bool],
     spacing: [none] [length] [relative],
     bottom-box: [bool],
 ) --> [content]
@@ -37,13 +37,13 @@ common-box(
 | `body-size` | [none] [length] | [none] | Size of the body. |
 | `body-box-args` | [none] [dictionary] | [none] | Arguments given to the box-type function that creates the body. |
 | `body-text-args` | [none] [dictionary] | [none] | Arguments given to the `text` function which creates the body. |
-| `stretch-to-bottom` | [bool] | [false] | The vertical size of the box is stretched such that it fills out the remainder of the vertical space. |
-| `spacing` | [none] | [none] | Only useful when specifying `stretch-to-bottom`. Controls spacing towards next block. |
+| `stretch-to-next` | [bool] | [false] | The vertical size of the box is stretched such that it fills out the remainder of the vertical space. |
+| `spacing` | [none] | [none] | Only useful when specifying `stretch-to-next`. Controls spacing towards next block. |
 | `bottom-box` | [bool] | [false] | The box should be aligned towards the bottom of the page. |
 
 <div class="warning-block">
     <h2>Warning</h2>
-    <p>The <code>stretch-to-bottom</code> should not be used on a block which is already maximal by itself.
+    <p>The <code>stretch-to-next</code> should not be used on a block which is already maximal by itself.
     Doing so will most likely result in glitches.
     </p>
 </div>
@@ -88,7 +88,7 @@ bibliography-box(
     text-size: [length],
     title: [none] [content],
     style: [str],
-    stretch-to-bottom: [bool]
+    stretch-to-next: [bool]
 ) --> [content]
 ```
 
@@ -98,5 +98,5 @@ bibliography-box(
 | `text-size` | [length] | `24pt` | Font size of the bibliography. |
 | `title` | [none] [content] | [none] | Title of the Bibliography Box. |
 | `style` | [str] | `"ieee"` | Citation style. |
-| `stretch-to-bottom` | [bool] | [false] | See [Common Box](#common-box). |
+| `stretch-to-next` | [bool] | [false] | See [Common Box](#common-box). |
 
