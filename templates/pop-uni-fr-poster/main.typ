@@ -1,15 +1,15 @@
-#import "@preview/peace-of-posters:0.4.3" as sp
+#import "@preview/peace-of-posters:0.4.3" as pop
 
 #set page("a0", margin: 1cm)
-#sp.set-poster-layout(sp.layout-a0)
-#sp.set-theme(sp.uni-fr)
-#set text(size: sp.layout-a0.at("body-size"))
+#pop.set-poster-layout(pop.layout-a0)
+#pop.set-theme(pop.uni-fr)
+#set text(size: pop.layout-a0.at("body-size"))
 #let box-spacing = 1.2em
 #set columns(gutter: box-spacing)
 #set block(spacing: box-spacing)
-#sp.update-poster-layout(spacing: box-spacing)
+#pop.update-poster-layout(spacing: box-spacing)
 
-#sp.title-box(
+#pop.title-box(
   "Peace of Posters Template",
   authors: "Jonas Pleyer¹",
   institutes: "¹Freiburg Center for Data-Analysis and Modelling",
@@ -18,7 +18,7 @@
 )
 
 #columns(2,[
-  #sp.column-box(heading: "Columbidae")[
+  #pop.column-box(heading: "Columbidae")[
     'Columbidae is a bird family consisting of doves and pigeons.
     It is the only family in the order Columbiformes.'
     #cite(<wiki:Columbidae>)
@@ -30,13 +30,13 @@
     ]
   ]
 
-  #let hba = sp.uni-fr.heading-box-args
+  #let hba = pop.uni-fr.heading-box-args
   #hba.insert("width", 60%)
-  #let bba = sp.uni-fr.body-box-args
+  #let bba = pop.uni-fr.body-box-args
   #bba.insert("width", 60%)
   #bba.insert("inset", 0pt)
 
-  #sp.column-box(
+  #pop.column-box(
     heading: "Biological Information",
     body-box-args: bba,
     heading-box-args: hba
@@ -55,7 +55,7 @@
     )
   ]
 
-  #sp.column-box()[
+  #pop.column-box()[
     #figure(caption: [Geographic range of the family #cite(<wiki:Columbidae>)])[
       #image("Pigeon_range.png")
     ]
@@ -63,14 +63,14 @@
 
   #colbreak()
 
-  #sp.column-box(heading: "General Relativity")[
+  #pop.column-box(heading: "General Relativity")[
     Einstein's brilliant theory of general relativity
     starts with the field equations #cite(<Einstein1916>).
     $ G_(mu nu) + Lambda g_(mu nu) = kappa T_(mu nu) $
     However, they have nothing to do with doves.
   ]
 
-  #sp.column-box(heading: "Peace be with you")[
+  #pop.column-box(heading: "Peace be with you")[
     #figure(caption: [
       'Doves [...] are used in many settings as symbols of peace, freedom or love.
       Doves appear in the symbolism of Judaism, Christianity, Islam and paganism, and of both
@@ -81,7 +81,7 @@
     ]
   ]
 
-  #sp.column-box(heading: "Etymology")[
+  #pop.column-box(heading: "Etymology")[
     Pigeon is a French word that derives from the Latin pīpiō, for a 'peeping' chick,
     while dove is an ultimately Germanic word, possibly referring to the bird's diving flight.
     The English dialectal word culver appears to derive from Latin columba
@@ -90,7 +90,7 @@
     #cite(<Lipton1991-qa>).
   ]
 
-  #sp.column-box(heading: "Fill space with a box", stretch-to-next: true)[
+  #pop.column-box(heading: "Fill space with a box", stretch-to-next: true)[
     Notice that this box would not fill the entire space up to the bottom of the page but we
     can stretch it such that it does so anyway.
 
@@ -98,7 +98,7 @@
   ]
 ])
 
-#sp.bottom-box()[
+#pop.bottom-box()[
   What does the Dove say? $-->$ Ouuuhhhh - Oh ... Ouuuhhhhh - Oh
   #linebreak()
   #link("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
