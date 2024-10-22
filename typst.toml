@@ -1,6 +1,6 @@
 [package]
 name = "peace-of-posters"
-version = "0.4.1"
+version = "0.4.3"
 authors = ["Jonas Pleyer<jonas.sci@pleyer.org>"]
 license = "MIT"
 description = "Create scientific posters in Typst."
