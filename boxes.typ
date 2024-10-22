@@ -116,7 +116,7 @@
     let heading-box-args = heading-box-args
     if heading-box-args==none {
       heading-box-args = pt.at("heading-box-args", default: (:))
-      if body==none {
+      if body!=none {
         heading-box-args = pt.at("heading-box-args-with-body", default: heading-box-args)
       }
     }
@@ -125,7 +125,7 @@
     let heading-text-args = heading-text-args
     if heading-text-args==none {
       heading-text-args = pt.at("heading-text-args", default: (:))
-      if body==none {
+      if body!=none {
         heading-text-args = pt.at("heading-text-args-with-body", default: heading-text-args)
       }
     }
