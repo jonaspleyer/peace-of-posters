@@ -82,6 +82,13 @@ bottom-box(
 | `logo` | [none] [content] | [none] | The content which should be used as logo. Usually specified by an [image](https://typst.app/docs/reference/visualize/image/). It will be aligned towards the right side of the box. |
 
 ## Bibliography Box
+
+<div class="warning-block">
+    <h2>Warning</h2>
+    <p>This function is currently not working due to unwieldy file-path handling.
+    See <a href="https://github.com/typst/typst/issues/971">#971</a> for more details.</p>
+</div>
+
 ```typst
 bibliography-box(
     bib-file: [str],
