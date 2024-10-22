@@ -18,17 +18,7 @@ It provides predefined [themes](documentation/themes) which can be adjusted to c
 To find out what you can do today with `peace-of-posters`, have a look at the [showcased examples](showcase).
 
 ## Example
-We begin by importing the `peace-of-posters` package
-
-{{< codeFromFile file="examples/getting_started/main.typ" start="2" end="2" >}}
-
-Next, we specify some general settings formatting settings.
-
-{{% codeFromFile file="examples/getting_started/main.typ" start="5" end="12" %}}
-
-After that we choose a predefined theme.
-
-{{% codeFromFile file="examples/getting_started/main.typ" start="15" end="15" %}}
+{{< codeFromFile file="examples/getting_started/main.typ" start="1" end="15" >}}
 
 We can adjust any property of the theme via the `update_theme` method of the [themes](documentation/themes) module.
 The poster consists of multiple boxes which can be adjusted by specifying [column layouts](https://typst.app/docs/reference/layout/columns/).

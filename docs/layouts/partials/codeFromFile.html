@@ -1,9 +1,7 @@
 {{ $filename := (.Scratch.Get "file") }}
 
-{{ $start := 0 }}
-{{ if (.Scratch.Get "start" )}}
-{{ $start = math.Sub (int (.Scratch.Get "start")) 1 }}
-{{ end }}
+{{ $start := (.Scratch.Get "start") | default 0 }}
+{{ $start_linenumber := math.Add (.Scratch.Get "start" | default 0) 1 }}
 
 {{ $end := (.Scratch.Get "end") }}
 {{ $diff := $end }}
@@ -11,24 +9,28 @@
 {{ $diff = math.Sub (int $end) $start }}
 {{ end }}
 
-{{ $lang := "typst" }}
-{{ if (.Scratch.Get "lang") }}
-{{ $lang = (.Scratch.Get "lang") }}
-{{ end }}
+{{ $content := readFile $filename }}
+{{ $content = split $content "\n" }}
 
-{{ $highlight_args := dict }}
-{{ if (.Scratch.Get "highlight_args") }}
-{{ $highlight_args = (.Scratch.Get "highlight_args") }}
-{{ end }}
-
-{{ $file := readFile $filename }}
-{{ $file = split $file "\n" }}
-
-{{ $file = after $start $file }}
+{{ $content = after $start $content }}
 {{ if $diff }}
-{{ $file = first $diff $file }}
+{{ $content = first $diff $content }}
 {{ end }}
 
-{{ $file = delimit $file "\n" }}
+{{ $hl_inline := (.Scratch.Get "hl_inline") | default "true" }}
 
-{{ highlight $file $lang $highlight_args }}
+{{ $content = delimit $content "\n" }}
+
+{{ $lang := (.Scratch.Get "lang") | default "typst" }}
+{{ $options := (.Scratch.Get "options") | default "" }}
+{{ if compare.Eq $options "" }}
+{{ $options = (print "linenos=table,linenostart=" $start_linenumber) }}
+{{ else }}
+{{ $options = (print "linenos=table,linenostart=" $start_linenumber "," $options ) }}
+{{ end }}
+
+{{ $filename := (.Scratch.Get "filename") | default "" }}
+
+<div style="overflow: scroll;">
+    {{ highlight $content $lang $options }}
+</div>
