@@ -1,0 +1,218 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="A template for peace-of-posters."><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:title" content="PoP Template"><meta property="og:description" content="A template for peace-of-posters."><meta property="og:type" content="article"><meta property="og:url" content="https://jonaspleyer.github.io/peace-of-posters/showcase/2024-10-22-pop-template/"><meta property="article:section" content="showcase"><meta property="article:published_time" content="2024-10-22T17:50:00+02:00"><meta property="article:modified_time" content="2024-10-22T17:50:00+02:00"><title>PoP Template | peace-of-posters</title>
+<link rel=manifest href=/peace-of-posters/manifest.json><link rel=icon href=/peace-of-posters/favicon.png><link rel=canonical href=https://jonaspleyer.github.io/peace-of-posters/showcase/2024-10-22-pop-template/><link rel=stylesheet href=/peace-of-posters/book.min.fac77f4c247fad0b9e26b59172691d98e52080385f7f19bdabfd74b8cdf1b2da.css integrity="sha256-+sd/TCR/rQueJrWRcmkdmOUggDhffxm9q/10uM3xsto=" crossorigin=anonymous><script defer src=/peace-of-posters/flexsearch.min.js></script><script defer src=/peace-of-posters/en.search.min.c9ebd55cc6b4a599fea07d59312ea1856b4e64a49e0631b9b8031de8f75f36fb.js integrity="sha256-yevVXMa0pZn+oH1ZMS6hhWtOZKSeBjG5uAMd6PdfNvs=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/peace-of-posters/><img src=/peace-of-posters/favicon.svg alt=Logo><span>peace-of-posters</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li><a href=/peace-of-posters/showcase/>Showcase</a><ul><li><a href=/peace-of-posters/showcase/2024-10-22-pop-template/ class=active>PoP Template</a></li><li><a href=/peace-of-posters/showcase/2023-10-23-bwhpc-symposium/>bwHPC Symposium 2023</a></li></ul></li><li><a href=/peace-of-posters/documentation/>Documentation</a><ul><li><a href=/peace-of-posters/documentation/boxes/>Boxes</a></li><li><a href=/peace-of-posters/documentation/layouts/>Layouts</a></li><li><a href=/peace-of-posters/documentation/themes/>Themes</a></li><li><a href=/peace-of-posters/documentation/tips_and_tricks/>Tips and Tricks</a></li></ul></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/peace-of-posters/svg/menu.svg class=book-icon alt=Menu>
+</label><strong>PoP Template</strong>
+<label for=toc-control><img src=/peace-of-posters/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#code>Code</a></li></ul></nav></aside></header><h1>PoP Template</h1><h2 id=code>Code
+<a class=anchor href=#code>#</a></h2><div style=overflow:scroll><pre tabindex=0><code class=language-typst data-lang=typst>#import &#34;@preview/peace-of-posters:0.4.3&#34; as pop
+
+#set page(&#34;a0&#34;, margin: 1cm)
+#pop.set-poster-layout(pop.layout-a0)
+#pop.set-theme(pop.uni-fr)
+#set text(size: pop.layout-a0.at(&#34;body-size&#34;))
+#let box-spacing = 1.2em
+#set columns(gutter: box-spacing)
+#set block(spacing: box-spacing)
+#pop.update-poster-layout(spacing: box-spacing)
+
+#pop.title-box(
+  &#34;Peace of Posters Template&#34;,
+  authors: &#34;Jonas Pleyer¹&#34;,
+  institutes: &#34;¹Freiburg Center for Data-Analysis and Modelling&#34;,
+  keywords: &#34;Peace, Dove, Poster, Science&#34;,
+  image: image(&#34;peace-dove-thumbnail.png&#34;),
+)
+
+#columns(2,[
+  #pop.column-box(heading: &#34;Columbidae&#34;)[
+    &#39;Columbidae is a bird family consisting of doves and pigeons.
+    It is the only family in the order Columbiformes.&#39;
+    #cite(&lt;wiki:Columbidae&gt;)
+
+    #figure(caption: [
+      Pink-necked green pigeon #cite(&lt;wiki:File:Treron_vernans_male_-_Kent_Ridge_Park.jpg&gt;).
+    ])[
+      #image(&#34;Treron_vernans_male_-_Kent_Ridge_Park.jpg&#34;)
+    ]
+  ]
+
+  #let hba = pop.uni-fr.heading-box-args
+  #hba.insert(&#34;width&#34;, 60%)
+  #let bba = pop.uni-fr.body-box-args
+  #bba.insert(&#34;width&#34;, 60%)
+  #bba.insert(&#34;inset&#34;, 0pt)
+
+  #pop.column-box(
+    heading: &#34;Biological Information&#34;,
+    body-box-args: bba,
+    heading-box-args: hba
+  )[
+    #table(
+      columns: (auto, 1fr),
+      inset: 0.5cm,
+      [Domain],[Eukaryota],
+      [Kingdom],[Animalia],
+      [Phylum],[Chordata],
+      [Class],[Aves],
+      [Clade],[Columbimorphae],
+      [Order],[Columbiformes],
+      [Family],[Columbidae],
+      [Type genus],[Columba],
+    )
+  ]
+
+  #pop.column-box()[
+    #figure(caption: [Geographic range of the family #cite(&lt;wiki:Columbidae&gt;)])[
+      #image(&#34;Pigeon_range.png&#34;)
+    ]
+  ]
+
+  #colbreak()
+
+  #pop.column-box(heading: &#34;General Relativity&#34;)[
+    Einstein&#39;s brilliant theory of general relativity
+    starts with the field equations #cite(&lt;Einstein1916&gt;).
+    $ G_(mu nu) + Lambda g_(mu nu) = kappa T_(mu nu) $
+    However, they have nothing to do with doves.
+  ]
+
+  #pop.column-box(heading: &#34;Peace be with you&#34;)[
+    #figure(caption: [
+      &#39;Doves [...] are used in many settings as symbols of peace, freedom or love.
+      Doves appear in the symbolism of Judaism, Christianity, Islam and paganism, and of both
+      military and pacifist groups.&#39;
+      #cite(&lt;wiki:Doves_as_symbols&gt;).
+    ])[
+      #image(&#34;peace-dove.png&#34;)
+    ]
+  ]
+
+  #pop.column-box(heading: &#34;Etymology&#34;)[
+    Pigeon is a French word that derives from the Latin pīpiō, for a &#39;peeping&#39; chick,
+    while dove is an ultimately Germanic word, possibly referring to the bird&#39;s diving flight.
+    The English dialectal word culver appears to derive from Latin columba
+    #cite(&lt;wiki:Online_Etymology_Dictionary&gt;).
+    A group of doves is called a &#34;dule&#34;, taken from the French word deuil (&#39;mourning&#39;)
+    #cite(&lt;Lipton1991-qa&gt;).
+  ]
+
+  #pop.column-box(heading: &#34;Fill space with a box&#34;, stretch-to-next: true)[
+    Notice that this box would not fill the entire space up to the bottom of the page but we
+    can stretch it such that it does so anyway.
+
+    #bibliography(&#34;bibliography.bib&#34;)
+  ]
+])
+
+#pop.bottom-box()[
+  What does the Dove say? $--&gt;$ Ouuuhhhh - Oh ... Ouuuhhhhh - Oh
+  #linebreak()
+  #link(&#34;https://www.youtube.com/watch?v=dQw4w9WgXcQ&#34;)
+]
+
+</code></pre></div>Find the Code <a href=main.typ>here</a>.<div style=width:100%;aspect-ratio:.7071><object width=100% height=100% data=/peace-of-posters/showcase/2024-10-22-pop-template//main.pdf></object></div><div style=overflow:scroll><pre tabindex=0><code class=language-typst data-lang=typst>#import &#34;@preview/peace-of-posters:0.4.3&#34; as pop
+
+#set page(&#34;a0&#34;, margin: 1cm)
+#pop.set-poster-layout(pop.layout-a0)
+#pop.set-theme(pop.uni-fr)
+#set text(size: pop.layout-a0.at(&#34;body-size&#34;))
+#let box-spacing = 1.2em
+#set columns(gutter: box-spacing)
+#set block(spacing: box-spacing)
+#pop.update-poster-layout(spacing: box-spacing)
+
+#pop.title-box(
+  &#34;Peace of Posters Template&#34;,
+  authors: &#34;Jonas Pleyer¹&#34;,
+  institutes: &#34;¹Freiburg Center for Data-Analysis and Modelling&#34;,
+  keywords: &#34;Peace, Dove, Poster, Science&#34;,
+  image: image(&#34;peace-dove-thumbnail.png&#34;),
+)
+
+#columns(2,[
+  #pop.column-box(heading: &#34;Columbidae&#34;)[
+    &#39;Columbidae is a bird family consisting of doves and pigeons.
+    It is the only family in the order Columbiformes.&#39;
+    #cite(&lt;wiki:Columbidae&gt;)
+
+    #figure(caption: [
+      Pink-necked green pigeon #cite(&lt;wiki:File:Treron_vernans_male_-_Kent_Ridge_Park.jpg&gt;).
+    ])[
+      #image(&#34;Treron_vernans_male_-_Kent_Ridge_Park.jpg&#34;)
+    ]
+  ]
+
+  #let hba = pop.uni-fr.heading-box-args
+  #hba.insert(&#34;width&#34;, 60%)
+  #let bba = pop.uni-fr.body-box-args
+  #bba.insert(&#34;width&#34;, 60%)
+  #bba.insert(&#34;inset&#34;, 0pt)
+
+  #pop.column-box(
+    heading: &#34;Biological Information&#34;,
+    body-box-args: bba,
+    heading-box-args: hba
+  )[
+    #table(
+      columns: (auto, 1fr),
+      inset: 0.5cm,
+      [Domain],[Eukaryota],
+      [Kingdom],[Animalia],
+      [Phylum],[Chordata],
+      [Class],[Aves],
+      [Clade],[Columbimorphae],
+      [Order],[Columbiformes],
+      [Family],[Columbidae],
+      [Type genus],[Columba],
+    )
+  ]
+
+  #pop.column-box()[
+    #figure(caption: [Geographic range of the family #cite(&lt;wiki:Columbidae&gt;)])[
+      #image(&#34;Pigeon_range.png&#34;)
+    ]
+  ]
+
+  #colbreak()
+
+  #pop.column-box(heading: &#34;General Relativity&#34;)[
+    Einstein&#39;s brilliant theory of general relativity
+    starts with the field equations #cite(&lt;Einstein1916&gt;).
+    $ G_(mu nu) + Lambda g_(mu nu) = kappa T_(mu nu) $
+    However, they have nothing to do with doves.
+  ]
+
+  #pop.column-box(heading: &#34;Peace be with you&#34;)[
+    #figure(caption: [
+      &#39;Doves [...] are used in many settings as symbols of peace, freedom or love.
+      Doves appear in the symbolism of Judaism, Christianity, Islam and paganism, and of both
+      military and pacifist groups.&#39;
+      #cite(&lt;wiki:Doves_as_symbols&gt;).
+    ])[
+      #image(&#34;peace-dove.png&#34;)
+    ]
+  ]
+
+  #pop.column-box(heading: &#34;Etymology&#34;)[
+    Pigeon is a French word that derives from the Latin pīpiō, for a &#39;peeping&#39; chick,
+    while dove is an ultimately Germanic word, possibly referring to the bird&#39;s diving flight.
+    The English dialectal word culver appears to derive from Latin columba
+    #cite(&lt;wiki:Online_Etymology_Dictionary&gt;).
+    A group of doves is called a &#34;dule&#34;, taken from the French word deuil (&#39;mourning&#39;)
+    #cite(&lt;Lipton1991-qa&gt;).
+  ]
+
+  #pop.column-box(heading: &#34;Fill space with a box&#34;, stretch-to-next: true)[
+    Notice that this box would not fill the entire space up to the bottom of the page but we
+    can stretch it such that it does so anyway.
+
+    #bibliography(&#34;bibliography.bib&#34;)
+  ]
+])
+
+#pop.bottom-box()[
+  What does the Dove say? $--&gt;$ Ouuuhhhh - Oh ... Ouuuhhhhh - Oh
+  #linebreak()
+  #link(&#34;https://www.youtube.com/watch?v=dQw4w9WgXcQ&#34;)
+]
+
+</code></pre></div><footer class=book-footer><div class="flex flex-wrap justify-between"></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#code>Code</a></li></ul></nav></div></aside></main></body></html>
