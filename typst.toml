@@ -9,3 +9,7 @@ repository = "https://github.com/jonaspleyer/peace-of-posters"
 homepage = "https://jonaspleyer.github.io/peace-of-posters/"
 categories = ["poster"]
 
+[template]
+path = "templates/pop-uni-fr-poster"
+entrypoint = "main.typ"
+thumbnail = "templates/pop-uni-fr-poster/peace-dove-thumbnail.png"
