@@ -1,4 +1,4 @@
-#import "@preview/peace-of-posters:0.4.1" as pop
+#import "@preview/peace-of-posters:0.4.3" as pop
 
 #set page("a5")
 #pop.set_poster_layout(pop.layout_a3)
