@@ -1,52 +1,47 @@
 <!doctype html><html lang=en-us dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Presenting a novel simulation tool for cellular biology."><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:title" content="bwHPC Symposium 2023"><meta property="og:description" content="Presenting a novel simulation tool for cellular biology."><meta property="og:type" content="article"><meta property="og:url" content="https://jonaspleyer.github.io/peace-of-posters/showcase/2023-10-23-bwhpc-symposium/"><meta property="article:section" content="showcase"><meta property="article:published_time" content="2023-10-15T11:19:47+02:00"><meta property="article:modified_time" content="2023-10-15T11:19:47+02:00"><title>bwHPC Symposium 2023 | peace-of-posters</title>
-<link rel=manifest href=/peace-of-posters/manifest.json><link rel=icon href=/peace-of-posters/favicon.png><link rel=canonical href=https://jonaspleyer.github.io/peace-of-posters/showcase/2023-10-23-bwhpc-symposium/><link rel=stylesheet href=/peace-of-posters/book.min.fac77f4c247fad0b9e26b59172691d98e52080385f7f19bdabfd74b8cdf1b2da.css integrity="sha256-+sd/TCR/rQueJrWRcmkdmOUggDhffxm9q/10uM3xsto=" crossorigin=anonymous><script defer src=/peace-of-posters/flexsearch.min.js></script><script defer src=/peace-of-posters/en.search.min.c9ebd55cc6b4a599fea07d59312ea1856b4e64a49e0631b9b8031de8f75f36fb.js integrity="sha256-yevVXMa0pZn+oH1ZMS6hhWtOZKSeBjG5uAMd6PdfNvs=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<link rel=manifest href=/peace-of-posters/manifest.json><link rel=icon href=/peace-of-posters/favicon.png><link rel=canonical href=https://jonaspleyer.github.io/peace-of-posters/showcase/2023-10-23-bwhpc-symposium/><link rel=stylesheet href=/peace-of-posters/book.min.fac77f4c247fad0b9e26b59172691d98e52080385f7f19bdabfd74b8cdf1b2da.css integrity="sha256-+sd/TCR/rQueJrWRcmkdmOUggDhffxm9q/10uM3xsto=" crossorigin=anonymous><script defer src=/peace-of-posters/flexsearch.min.js></script><script defer src=/peace-of-posters/en.search.min.1b1095067671e90345fd4b955b444d3f1322649b00b4276de39392941358a6c6.js integrity="sha256-GxCVBnZx6QNF/UuVW0RNPxMiZJsAtCdt45OSlBNYpsY=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
 <input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/peace-of-posters/><img src=/peace-of-posters/favicon.svg alt=Logo><span>peace-of-posters</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li><a href=/peace-of-posters/showcase/>Showcase</a><ul><li><a href=/peace-of-posters/showcase/2024-10-22-pop-template/>PoP Template</a></li><li><a href=/peace-of-posters/showcase/2023-10-23-bwhpc-symposium/ class=active>bwHPC Symposium 2023</a></li></ul></li><li><a href=/peace-of-posters/documentation/>Documentation</a><ul><li><a href=/peace-of-posters/documentation/boxes/>Boxes</a></li><li><a href=/peace-of-posters/documentation/layouts/>Layouts</a></li><li><a href=/peace-of-posters/documentation/themes/>Themes</a></li><li><a href=/peace-of-posters/documentation/tips_and_tricks/>Tips and Tricks</a></li></ul></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/peace-of-posters/svg/menu.svg class=book-icon alt=Menu>
 </label><strong>bwHPC Symposium 2023</strong>
 <label for=toc-control><img src=/peace-of-posters/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#code>Code</a></li></ul></nav></aside></header><h1>bwHPC Symposium 2023</h1><h2 id=code>Code
 <a class=anchor href=#code>#</a></h2><div style=overflow:scroll><pre tabindex=0><code class=language-typst data-lang=typst>/// IMPORT THE POSTERS PACKAGE
-#import &#34;peace-of-posters/lib.typ&#34;: *
+#import &#34;@preview/peace-of-posters:0.4.3&#34; as pop
 
 // Define overall formatting defaults for the document.
 // These settings can be overwritten later on.
-#set page(
-    &#34;a0&#34;,
-    margin: 1.5cm,
-)
-#set-layout(layout-a0)
-#set text(
-    font: &#34;Arial&#34;,
-	size: layout-a0.at(&#34;body-size&#34;),
-)
-
 #let spacing = 1.2em
-#set block(spacing: spacing)
-#set columns(gutter: spacing)
-#update-layout(spacing, spacing)
+#set page(&#34;a0&#34;, margin: 1.5cm)
+#pop.set-poster-layout(pop.layout-a0)
+#pop.set-theme(pop.uni-fr)
 
-#set-theme(uni-fr)
+#set text(font: &#34;Arial&#34;, size: pop.layout-a0.at(&#34;body-size&#34;))
+
+#let box-spacing = 1.2em
+#set columns(gutter: box-spacing)
+#set block(spacing: box-spacing)
+#pop.update-poster-layout(spacing: box-spacing)
 
 // Define colors as given by coroprate design of uni freiburg
-#let uni-dark-blue = rgb(&#34;#1d154d&#34;)
+#let uni_dark_blue = rgb(&#34;#1d154d&#34;)
 
 /// START OF THE DOCUMENT
-#title-box(
-	[#box(inset: (bottom: -0.3em), image(height: 1.2em, &#34;images/cellular_raza-dark-mode.svg&#34;)) - Novel Flexibility in Design of Agent-Based Models in Cellular Systems],
-	authors: &#34;Jonas Pleyer¹, Christian Fleck¹&#34;,
-	institutes: &#34;¹Freiburg Center for Data-Analysis and Modeling&#34;,
-    image: image(&#34;/UFR-Siegel-white.png&#34;),
+#pop.title-box(
+  [#box(inset: (bottom: -0.3em), image(height: 1.2em, &#34;images/cellular_raza_dark_mode.svg&#34;)) - Novel Flexibility in Design of Agent-Based Models in Cellular Systems],
+  authors: &#34;Jonas Pleyer¹, Christian Fleck¹&#34;,
+  institutes: &#34;¹Freiburg Center for Data-Analysis and Modeling&#34;,
+  image: image(&#34;/UFR-Siegel-white.png&#34;),
 )
 
-#column-box()[
-	#set par(justify: true)
-	#set align(center)
-	Agent-Based Models (ABMs) allow researchers to describe complex cellular systems in a mechanistic manner but can also abstract over less-known processes.
-	It is often desirable to exchange only parts of the model eg. changing the spatial representation of cells from a spherical interaction potential to an elliptical.
-	Existing tools lack in flexibility and cannot change their internal representation of cells.
-	To solve these problems we created `cellular_raza`, a novel library that offers previously unknown flexibility in model design while retaining excellent performance.
+#pop.column-box()[
+  #set par(justify: true)
+  #set align(center)
+  Agent-Based Models (ABMs) allow researchers to describe complex cellular systems in a mechanistic manner but can also abstract over less-known processes.
+  It is often desirable to exchange only parts of the model eg. changing the spatial representation of cells from a spherical interaction potential to an elliptical.
+  Existing tools lack in flexibility and cannot change their internal representation of cells.
+  To solve these problems we created `cellular_raza`, a novel library that offers previously unknown flexibility in model design while retaining excellent performance.
 ]
 
 #columns(2, gutter: spacing)[
-	#column-box(
+	#pop.column-box(
 		heading: [Features],
 	)[
 		#columns(2, gutter: 0.5*spacing)[
@@ -63,13 +58,13 @@
 		]
 	]
 
-	#column-box(heading: &#34;Scaling Behavior&#34;)[
+	#pop.column-box(heading: &#34;Scaling Behavior&#34;)[
 		#figure(stack(dir: ltr, 
-				box([#image(&#34;images/scaling-0.png&#34;)
-				#place(top+left, rect(text(&#34;A&#34;, fill: white), fill: uni-dark-blue, inset: 10pt))], width: 49.5%),
+				box([#image(&#34;images/scaling_0.png&#34;)
+				#place(top+left, rect(text(&#34;A&#34;, fill: white), fill: uni_dark_blue, inset: 10pt))], width: 49.5%),
 				box(width: 1%),
-				box([#image(&#34;images/scaling-1.png&#34;)
-				#place(top+left, rect(text(&#34;B&#34;, fill: white), fill: uni-dark-blue, inset: 10pt))], width: 49.5%)
+				box([#image(&#34;images/scaling_1.png&#34;)
+				#place(top+left, rect(text(&#34;B&#34;, fill: white), fill: uni_dark_blue, inset: 10pt))], width: 49.5%)
 			),
 			caption: [
 				(A) Linear fit $f(x)=a x$ of scaling with increasing amounts of agents.
@@ -82,7 +77,7 @@
 		])
 	]
 
-	#column-box(heading: [Cellular Properties as Rust Traits])[
+	#pop.column-box(heading: [Cellular Properties as Rust Traits])[
 		Abstract traits are used to define cellular interactions via force mechanics.
         Users implement traits and obtain full control over cellular behavior.
         #figure([
@@ -92,19 +87,19 @@
 				/// cell-specific interactions). For now, this can also be used
 				/// to get the mass of the other cell-agent. In the future, we
 				/// will probably provide a custom function for this.
-				fn get-interaction-information(&amp;self) -&gt; Inf;
+				fn get_interaction_information(&amp;self) -&gt; Inf;
 
 				/// Calculates the force (velocity-derivative) on the
 				/// corresponding external position given external velocity.
 				/// By providing velocities, we can calculate terms that are
 				/// related to friction.
-				fn calculate-force-between(
+				fn calculate_force_between(
 					&amp;self,
-					own-pos: &amp;Pos,
-					own-vel: &amp;Vel,
-					ext-pos: &amp;Pos,
-					ext-vel: &amp;Vel,
-					ext-info: &amp;Inf,
+					own_pos: &amp;Pos,
+					own_vel: &amp;Vel,
+					ext_pos: &amp;Pos,
+					ext_vel: &amp;Vel,
+					ext_info: &amp;Inf,
 				) -&gt; Option&lt;Result&lt;Force, CalcError&gt;&gt;;
 			}
 			```])
@@ -112,9 +107,9 @@
         // The user is able and encouraged to modify and adjust these types as needed.
 	]
 
-	#column-box(
+	#pop.column-box(
 		heading: [Roadmap],
-		stretch-to-bottom: true,
+		stretch-to-next: true,
 	)[#columns(2)[
 		- Stabilize user API
 		- Additional backends (GPUs, MPI)
@@ -128,33 +123,34 @@
 
 	#colbreak()
 
-	#column-box(heading: [Branching patterns of -Bacillus subtilis- in 2D &amp; 3D])[
+	#pop.column-box(heading: [Branching patterns of _Bacillus subtilis_ in 2D &amp; 3D])[
 		#figure(stack(dir: ltr,
 			box([
-                #image(&#34;images/bacteria-cells-at-iter-0000088000.png&#34;, width: 49.5%)
-                #place(top+left, dx: 10pt, dy: 10pt, rect(text(&#34;2D&#34;, fill: white), fill: uni-dark-blue, inset: 10pt))
+                #image(&#34;images/bacteria_cells_at_iter_0000088000.png&#34;, width: 49.5%)
+                #place(top+left, dx: 10pt, dy: 10pt, rect(text(&#34;2D&#34;, fill: white), fill: uni_dark_blue, inset: 10pt))
             ]),
             box(width: 1%),
 			box([
-                #image(&#34;images/bacteria-population-3d-0000-cropped.png&#34;, width: 49.5%)
-                #place(top+left, dx: 10pt, dy: 10pt, rect(text(&#34;3D&#34;, fill: white), fill: uni-dark-blue, inset: 10pt))
+                #image(&#34;images/bacteria_population-3d-0000-cropped.png&#34;, width: 49.5%)
+                #place(top+left, dx: 10pt, dy: 10pt, rect(text(&#34;3D&#34;, fill: white), fill: uni_dark_blue, inset: 10pt))
             ])
 		), caption: [
-            Spatio-Temporal patterns inspired by #cite(&#34;kawasakiModelingSpatioTemporalPatterns1997&#34;,&#34;matsushitaInterfaceGrowthPattern1998&#34;). Cells ($~$500,000) consume extracellular nutrients, grow, divide and self-organize into a branched pattern.
+            Spatio-Temporal patterns inspired by @kawasakiModelingSpatioTemporalPatterns1997 @matsushitaInterfaceGrowthPattern1998.
+            Cells ($~$500,000) consume extracellular nutrients, grow, divide and self-organize into a branched pattern.
 			Brighter colors indicate higher nutrient concentrations.
 		])
 	]
 
-	#column-box(heading: &#34;Cell Sorting in 3D&#34;)[
+	#pop.column-box(heading: &#34;Cell Sorting in 3D&#34;)[
 		#figure(stack(dir: ltr,
 			box([
-                #image(&#34;images/cell-sorting-start.png&#34;, width: 49.5%)
-                #place(top+left, dx: 10pt, dy: 10pt, rect(text(&#34;A&#34;, fill: white), fill: uni-dark-blue, inset: 10pt))
+                #image(&#34;images/cell_sorting_start.png&#34;, width: 49.5%)
+                #place(top+left, dx: 10pt, dy: 10pt, rect(text(&#34;A&#34;, fill: white), fill: uni_dark_blue, inset: 10pt))
             ]),
             box(width: 1%),
 			box([
-                #image(&#34;images/cell-sorting-end.png&#34;, width: 49.5%)
-                #place(top+left, dx: 10pt, dy: 10pt, rect(text(&#34;B&#34;, fill: white), fill: uni-dark-blue, inset: 10pt))
+                #image(&#34;images/cell_sorting_end.png&#34;, width: 49.5%)
+                #place(top+left, dx: 10pt, dy: 10pt, rect(text(&#34;B&#34;, fill: white), fill: uni_dark_blue, inset: 10pt))
             ]),
 		),
 		caption: [
@@ -163,16 +159,16 @@
 		])
 	]
 
-	#column-box(heading: [Semi-Vertex Models])[
+	#pop.column-box(heading: [Semi-Vertex Models])[
 		#figure(stack(dir: ltr,
 			box([
-				#image(&#34;images/kidney-organoid-model-final.png&#34;, width: 49.5%)
-				#place(top+left, dx: 10pt, dy: 10pt, rect(text(&#34;A&#34;, fill: uni-dark-blue), fill: white, inset: 10pt))
+				#image(&#34;images/kidney_organoid_model-final.png&#34;, width: 49.5%)
+				#place(top+left, dx: 10pt, dy: 10pt, rect(text(&#34;A&#34;, fill: uni_dark_blue), fill: white, inset: 10pt))
 			]),
 			box(width: 1%),
 			box([
-				#image(&#34;images/free-vertex-model-end.png&#34;, width: 49.5%)
-				#place(top+left, dx: 10pt, dy: 10pt, rect(text(&#34;B&#34;, fill: uni-dark-blue), fill: white, inset: 10pt))
+				#image(&#34;images/free_vertex_model_end.png&#34;, width: 49.5%)
+				#place(top+left, dx: 10pt, dy: 10pt, rect(text(&#34;B&#34;, fill: uni_dark_blue), fill: white, inset: 10pt))
 			])
 		),
 		caption: [
@@ -181,10 +177,13 @@
 		])
 	]
 
-	#bibliography-box(&#34;/cellular_raza.bib&#34;, title: &#34;Sources&#34;, stretch-to-bottom: true)
+	#pop.column-box(heading: &#34;Sources&#34;, stretch-to-next: true)[
+          #set text(size: 24pt)
+          #bibliography(&#34;/cellular_raza.bib&#34;, title: none)
+        ]
 ]
 
-#bottom-box(
+#pop.bottom-box(
 	stack(dir: ltr, 
 		box(width: 20.5%, [
             #set text(size: 30pt)
@@ -197,7 +196,7 @@
 			#box(image(height: 30pt, &#34;images/github-mark-white.png&#34;))
 			#link(&#34;https://github.com/jonaspleyer/&#34;)[github.com/jonaspleyer]
 		]),
-		box(width: 23.25%, align(center, image(height: 80pt, &#34;images/cellular_raza-dark-mode.svg&#34;))),
+		box(width: 23.25%, align(center, image(height: 80pt, &#34;images/cellular_raza_dark_mode.svg&#34;))),
 		box(width: 26.75%, height: 1.25em, align(center+horizon, [
 			#set text(size: 35pt)
 			#box(image(height: 30pt, &#34;images/JonasPleyer-edited.jpeg&#34;))
@@ -206,55 +205,50 @@
 	),
 	text-relative-width: 80%,
     logo: stack(dir: ltr,
-        image(width: 0.3*(100% - 0.5*spacing - 80%), &#34;fdm-logo.jpg&#34;, fit: &#34;contain&#34;),
+        image(width: 0.3*(100% - 0.5*spacing - 80%), &#34;fdm_logo.jpg&#34;, fit: &#34;contain&#34;),
         h(0.5*spacing),
         image(width: 0.7*(100% - 0.5*spacing - 80%), &#34;UFR-Schriftzug-white.png&#34;, fit: &#34;contain&#34;),
     )
 )
 </code></pre></div>Find the Code <a href=main.typ>here</a>.<div style=width:100%;aspect-ratio:.7071><object width=100% height=100% data=/peace-of-posters/showcase/2023-10-23-bwhpc-symposium//main.pdf></object></div><div style=overflow:scroll><pre tabindex=0><code class=language-typst data-lang=typst>/// IMPORT THE POSTERS PACKAGE
-#import &#34;peace-of-posters/lib.typ&#34;: *
+#import &#34;@preview/peace-of-posters:0.4.3&#34; as pop
 
 // Define overall formatting defaults for the document.
 // These settings can be overwritten later on.
-#set page(
-    &#34;a0&#34;,
-    margin: 1.5cm,
-)
-#set-layout(layout-a0)
-#set text(
-    font: &#34;Arial&#34;,
-	size: layout-a0.at(&#34;body-size&#34;),
-)
-
 #let spacing = 1.2em
-#set block(spacing: spacing)
-#set columns(gutter: spacing)
-#update-layout(spacing, spacing)
+#set page(&#34;a0&#34;, margin: 1.5cm)
+#pop.set-poster-layout(pop.layout-a0)
+#pop.set-theme(pop.uni-fr)
 
-#set-theme(uni-fr)
+#set text(font: &#34;Arial&#34;, size: pop.layout-a0.at(&#34;body-size&#34;))
+
+#let box-spacing = 1.2em
+#set columns(gutter: box-spacing)
+#set block(spacing: box-spacing)
+#pop.update-poster-layout(spacing: box-spacing)
 
 // Define colors as given by coroprate design of uni freiburg
-#let uni-dark-blue = rgb(&#34;#1d154d&#34;)
+#let uni_dark_blue = rgb(&#34;#1d154d&#34;)
 
 /// START OF THE DOCUMENT
-#title-box(
-	[#box(inset: (bottom: -0.3em), image(height: 1.2em, &#34;images/cellular_raza-dark-mode.svg&#34;)) - Novel Flexibility in Design of Agent-Based Models in Cellular Systems],
-	authors: &#34;Jonas Pleyer¹, Christian Fleck¹&#34;,
-	institutes: &#34;¹Freiburg Center for Data-Analysis and Modeling&#34;,
-    image: image(&#34;/UFR-Siegel-white.png&#34;),
+#pop.title-box(
+  [#box(inset: (bottom: -0.3em), image(height: 1.2em, &#34;images/cellular_raza_dark_mode.svg&#34;)) - Novel Flexibility in Design of Agent-Based Models in Cellular Systems],
+  authors: &#34;Jonas Pleyer¹, Christian Fleck¹&#34;,
+  institutes: &#34;¹Freiburg Center for Data-Analysis and Modeling&#34;,
+  image: image(&#34;/UFR-Siegel-white.png&#34;),
 )
 
-#column-box()[
-	#set par(justify: true)
-	#set align(center)
-	Agent-Based Models (ABMs) allow researchers to describe complex cellular systems in a mechanistic manner but can also abstract over less-known processes.
-	It is often desirable to exchange only parts of the model eg. changing the spatial representation of cells from a spherical interaction potential to an elliptical.
-	Existing tools lack in flexibility and cannot change their internal representation of cells.
-	To solve these problems we created `cellular_raza`, a novel library that offers previously unknown flexibility in model design while retaining excellent performance.
+#pop.column-box()[
+  #set par(justify: true)
+  #set align(center)
+  Agent-Based Models (ABMs) allow researchers to describe complex cellular systems in a mechanistic manner but can also abstract over less-known processes.
+  It is often desirable to exchange only parts of the model eg. changing the spatial representation of cells from a spherical interaction potential to an elliptical.
+  Existing tools lack in flexibility and cannot change their internal representation of cells.
+  To solve these problems we created `cellular_raza`, a novel library that offers previously unknown flexibility in model design while retaining excellent performance.
 ]
 
 #columns(2, gutter: spacing)[
-	#column-box(
+	#pop.column-box(
 		heading: [Features],
 	)[
 		#columns(2, gutter: 0.5*spacing)[
@@ -271,13 +265,13 @@
 		]
 	]
 
-	#column-box(heading: &#34;Scaling Behavior&#34;)[
+	#pop.column-box(heading: &#34;Scaling Behavior&#34;)[
 		#figure(stack(dir: ltr, 
-				box([#image(&#34;images/scaling-0.png&#34;)
-				#place(top+left, rect(text(&#34;A&#34;, fill: white), fill: uni-dark-blue, inset: 10pt))], width: 49.5%),
+				box([#image(&#34;images/scaling_0.png&#34;)
+				#place(top+left, rect(text(&#34;A&#34;, fill: white), fill: uni_dark_blue, inset: 10pt))], width: 49.5%),
 				box(width: 1%),
-				box([#image(&#34;images/scaling-1.png&#34;)
-				#place(top+left, rect(text(&#34;B&#34;, fill: white), fill: uni-dark-blue, inset: 10pt))], width: 49.5%)
+				box([#image(&#34;images/scaling_1.png&#34;)
+				#place(top+left, rect(text(&#34;B&#34;, fill: white), fill: uni_dark_blue, inset: 10pt))], width: 49.5%)
 			),
 			caption: [
 				(A) Linear fit $f(x)=a x$ of scaling with increasing amounts of agents.
@@ -290,7 +284,7 @@
 		])
 	]
 
-	#column-box(heading: [Cellular Properties as Rust Traits])[
+	#pop.column-box(heading: [Cellular Properties as Rust Traits])[
 		Abstract traits are used to define cellular interactions via force mechanics.
         Users implement traits and obtain full control over cellular behavior.
         #figure([
@@ -300,19 +294,19 @@
 				/// cell-specific interactions). For now, this can also be used
 				/// to get the mass of the other cell-agent. In the future, we
 				/// will probably provide a custom function for this.
-				fn get-interaction-information(&amp;self) -&gt; Inf;
+				fn get_interaction_information(&amp;self) -&gt; Inf;
 
 				/// Calculates the force (velocity-derivative) on the
 				/// corresponding external position given external velocity.
 				/// By providing velocities, we can calculate terms that are
 				/// related to friction.
-				fn calculate-force-between(
+				fn calculate_force_between(
 					&amp;self,
-					own-pos: &amp;Pos,
-					own-vel: &amp;Vel,
-					ext-pos: &amp;Pos,
-					ext-vel: &amp;Vel,
-					ext-info: &amp;Inf,
+					own_pos: &amp;Pos,
+					own_vel: &amp;Vel,
+					ext_pos: &amp;Pos,
+					ext_vel: &amp;Vel,
+					ext_info: &amp;Inf,
 				) -&gt; Option&lt;Result&lt;Force, CalcError&gt;&gt;;
 			}
 			```])
@@ -320,9 +314,9 @@
         // The user is able and encouraged to modify and adjust these types as needed.
 	]
 
-	#column-box(
+	#pop.column-box(
 		heading: [Roadmap],
-		stretch-to-bottom: true,
+		stretch-to-next: true,
 	)[#columns(2)[
 		- Stabilize user API
 		- Additional backends (GPUs, MPI)
@@ -336,33 +330,34 @@
 
 	#colbreak()
 
-	#column-box(heading: [Branching patterns of -Bacillus subtilis- in 2D &amp; 3D])[
+	#pop.column-box(heading: [Branching patterns of _Bacillus subtilis_ in 2D &amp; 3D])[
 		#figure(stack(dir: ltr,
 			box([
-                #image(&#34;images/bacteria-cells-at-iter-0000088000.png&#34;, width: 49.5%)
-                #place(top+left, dx: 10pt, dy: 10pt, rect(text(&#34;2D&#34;, fill: white), fill: uni-dark-blue, inset: 10pt))
+                #image(&#34;images/bacteria_cells_at_iter_0000088000.png&#34;, width: 49.5%)
+                #place(top+left, dx: 10pt, dy: 10pt, rect(text(&#34;2D&#34;, fill: white), fill: uni_dark_blue, inset: 10pt))
             ]),
             box(width: 1%),
 			box([
-                #image(&#34;images/bacteria-population-3d-0000-cropped.png&#34;, width: 49.5%)
-                #place(top+left, dx: 10pt, dy: 10pt, rect(text(&#34;3D&#34;, fill: white), fill: uni-dark-blue, inset: 10pt))
+                #image(&#34;images/bacteria_population-3d-0000-cropped.png&#34;, width: 49.5%)
+                #place(top+left, dx: 10pt, dy: 10pt, rect(text(&#34;3D&#34;, fill: white), fill: uni_dark_blue, inset: 10pt))
             ])
 		), caption: [
-            Spatio-Temporal patterns inspired by #cite(&#34;kawasakiModelingSpatioTemporalPatterns1997&#34;,&#34;matsushitaInterfaceGrowthPattern1998&#34;). Cells ($~$500,000) consume extracellular nutrients, grow, divide and self-organize into a branched pattern.
+            Spatio-Temporal patterns inspired by @kawasakiModelingSpatioTemporalPatterns1997 @matsushitaInterfaceGrowthPattern1998.
+            Cells ($~$500,000) consume extracellular nutrients, grow, divide and self-organize into a branched pattern.
 			Brighter colors indicate higher nutrient concentrations.
 		])
 	]
 
-	#column-box(heading: &#34;Cell Sorting in 3D&#34;)[
+	#pop.column-box(heading: &#34;Cell Sorting in 3D&#34;)[
 		#figure(stack(dir: ltr,
 			box([
-                #image(&#34;images/cell-sorting-start.png&#34;, width: 49.5%)
-                #place(top+left, dx: 10pt, dy: 10pt, rect(text(&#34;A&#34;, fill: white), fill: uni-dark-blue, inset: 10pt))
+                #image(&#34;images/cell_sorting_start.png&#34;, width: 49.5%)
+                #place(top+left, dx: 10pt, dy: 10pt, rect(text(&#34;A&#34;, fill: white), fill: uni_dark_blue, inset: 10pt))
             ]),
             box(width: 1%),
 			box([
-                #image(&#34;images/cell-sorting-end.png&#34;, width: 49.5%)
-                #place(top+left, dx: 10pt, dy: 10pt, rect(text(&#34;B&#34;, fill: white), fill: uni-dark-blue, inset: 10pt))
+                #image(&#34;images/cell_sorting_end.png&#34;, width: 49.5%)
+                #place(top+left, dx: 10pt, dy: 10pt, rect(text(&#34;B&#34;, fill: white), fill: uni_dark_blue, inset: 10pt))
             ]),
 		),
 		caption: [
@@ -371,16 +366,16 @@
 		])
 	]
 
-	#column-box(heading: [Semi-Vertex Models])[
+	#pop.column-box(heading: [Semi-Vertex Models])[
 		#figure(stack(dir: ltr,
 			box([
-				#image(&#34;images/kidney-organoid-model-final.png&#34;, width: 49.5%)
-				#place(top+left, dx: 10pt, dy: 10pt, rect(text(&#34;A&#34;, fill: uni-dark-blue), fill: white, inset: 10pt))
+				#image(&#34;images/kidney_organoid_model-final.png&#34;, width: 49.5%)
+				#place(top+left, dx: 10pt, dy: 10pt, rect(text(&#34;A&#34;, fill: uni_dark_blue), fill: white, inset: 10pt))
 			]),
 			box(width: 1%),
 			box([
-				#image(&#34;images/free-vertex-model-end.png&#34;, width: 49.5%)
-				#place(top+left, dx: 10pt, dy: 10pt, rect(text(&#34;B&#34;, fill: uni-dark-blue), fill: white, inset: 10pt))
+				#image(&#34;images/free_vertex_model_end.png&#34;, width: 49.5%)
+				#place(top+left, dx: 10pt, dy: 10pt, rect(text(&#34;B&#34;, fill: uni_dark_blue), fill: white, inset: 10pt))
 			])
 		),
 		caption: [
@@ -389,10 +384,13 @@
 		])
 	]
 
-	#bibliography-box(&#34;/cellular_raza.bib&#34;, title: &#34;Sources&#34;, stretch-to-bottom: true)
+	#pop.column-box(heading: &#34;Sources&#34;, stretch-to-next: true)[
+          #set text(size: 24pt)
+          #bibliography(&#34;/cellular_raza.bib&#34;, title: none)
+        ]
 ]
 
-#bottom-box(
+#pop.bottom-box(
 	stack(dir: ltr, 
 		box(width: 20.5%, [
             #set text(size: 30pt)
@@ -405,7 +403,7 @@
 			#box(image(height: 30pt, &#34;images/github-mark-white.png&#34;))
 			#link(&#34;https://github.com/jonaspleyer/&#34;)[github.com/jonaspleyer]
 		]),
-		box(width: 23.25%, align(center, image(height: 80pt, &#34;images/cellular_raza-dark-mode.svg&#34;))),
+		box(width: 23.25%, align(center, image(height: 80pt, &#34;images/cellular_raza_dark_mode.svg&#34;))),
 		box(width: 26.75%, height: 1.25em, align(center+horizon, [
 			#set text(size: 35pt)
 			#box(image(height: 30pt, &#34;images/JonasPleyer-edited.jpeg&#34;))
@@ -414,7 +412,7 @@
 	),
 	text-relative-width: 80%,
     logo: stack(dir: ltr,
-        image(width: 0.3*(100% - 0.5*spacing - 80%), &#34;fdm-logo.jpg&#34;, fit: &#34;contain&#34;),
+        image(width: 0.3*(100% - 0.5*spacing - 80%), &#34;fdm_logo.jpg&#34;, fit: &#34;contain&#34;),
         h(0.5*spacing),
         image(width: 0.7*(100% - 0.5*spacing - 80%), &#34;UFR-Schriftzug-white.png&#34;, fit: &#34;contain&#34;),
     )
