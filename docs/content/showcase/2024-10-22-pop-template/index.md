@@ -7,6 +7,3 @@ preview_image = "main.png"
 description = "A template for peace-of-posters."
 +++
 
-## Code
-
-{{< codeFromFile file="/showcase/2024-10-22-pop-template/main.typ" >}}
