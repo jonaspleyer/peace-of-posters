@@ -22,11 +22,11 @@ theme = (
 | `body-box-args` | [dictionary] | | Arguments given to the body box. |
 | `body-box-args-with-title` | [dictionary] | | Arguments given to the body box when a title is present. This dictionary is optional. Leaving  |
 | `body-box-function` | [function] | | Arguments given to the body box. |
-| `body-text-args` | [dictionary] | | Text related arguments given to the body box. |
+| `body-text-args` | [dictionary] | | Text-related arguments given to the body box. |
 | `heading-box-args` | [dictionary] | | Arguments given to the heading box. |
 | `heading-box-args-with-body` | [dictionary] | | Arguments given to the body box. |
 | `heading-box-function` | [function] | | Fuctions given to the heading box. |
-| `heading-text-args` | [dictionary] | | Text related arguments given to the heading box. |
+| `heading-text-args` | [dictionary] | | Text-related arguments given to the heading box. |
 
 
 ### `heading-text-args` & `body-text-args`
@@ -34,15 +34,15 @@ Takes arguments to alter heading or body text. for all possible arguments see: [
 
 ```typst
 "heading-text-args": (
-fill: rgb("#FFFFFF"),
-font: "Lora",
+    fill: rgb("#FFFFFF"),
+    font: "Lora",
 )
 ```
 This would ensure the heading text color is white (#FFFFFF) and the font family is set to 'Lora'.
 
 ```typst
 "body-text-args": (
-font: ("Ubuntu", "Source Han Sans"),
+    font: ("Ubuntu", "Source Han Sans"),
 )
 ```
 This would set body font family to `Ubuntu` with `Source Han Sans` as fallback.
