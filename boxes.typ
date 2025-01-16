@@ -103,9 +103,9 @@
   spacing: none,
   bottom-box: false,
 ) = {
-  locate(loc => {
-    let pt = _state-poster-theme.at(loc)
-    let pl = _state-poster-layout.at(loc)
+  context {
+    let pt = _state-poster-theme.at(here())
+    let pl = _state-poster-layout.at(here())
 
     let spacing = if spacing==none {pl.at("spacing")} else {spacing}
 
@@ -235,7 +235,7 @@
       heading-box,
       body-box,
     )], [#box(width: 0pt, height: 0pt)<COLUMN-BOX-RIGHT>])<COLUMN-BOX>])
-  })
+  }
 }
 
 
@@ -262,10 +262,10 @@
   authors-size: none,
   keywords-size: none,
 ) = {
-  locate(loc => {
+  context {
     let text-relative-width = text-relative-width
     /// Get theme and layout state
-    let pl = _state-poster-layout.at(loc)
+    let pl = _state-poster-layout.at(here())
 
     /// Layout specific options
     let title-size = if title-size==none {pl.at("title-size")} else {title-size}
@@ -301,7 +301,7 @@
         box(text-content, width: text-relative-width),
         align(right, box(image, width: 100% - spacing - text-relative-width))
       ))
-  })
+  }
 }
 
 #let bottom-box(body, text-relative-width: 70%, logo: none, ..args) = {
