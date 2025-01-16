@@ -254,7 +254,7 @@
   authors: none,
   institutes: none,
   keywords: none,
-  image: none,
+  logo: none,
   text-relative-width: 80%,
   spacing: 5%,
   title-size: none,
@@ -296,7 +296,7 @@
     ]
 
     /// Expand to full width of no image is specified
-    if image==none {
+    if logo==none {
       text-relative-width=100%
     }
 
@@ -304,7 +304,7 @@
     common-box(heading:
       stack(dir: ltr,
         box(text-content, width: text-relative-width),
-        align(right, box(image, width: 100% - spacing - text-relative-width))
+        align(right, box(logo, width: 100% - spacing - text-relative-width))
       ))
   }
 }
