@@ -260,6 +260,7 @@
   title-size: none,
   subtitle-size: none,
   authors-size: none,
+  institutes-size: none,
   keywords-size: none,
 ) = {
   context {
@@ -282,7 +283,11 @@
       #v(1.25em, weak: true)
       #set text(size: authors-size)
       #if authors!=none {[#authors\ ]}
-      #if institutes!=none {[#institutes\ ]}
+      #if institutes!=none {[
+        #if institutes-size!=none {
+          set text(size: institutes-size)
+        [#institutes]}
+      ]}
       #if keywords!=none {[
         #v(1em, weak: true)
         #set text(size: keywords-size)
