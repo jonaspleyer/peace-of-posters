@@ -32,6 +32,24 @@
     ),
 )
 
+#let psi-ch = (
+    "body-box-args": (
+        inset: (x: 0.0em, y: 0.6em),
+        width: 100%,
+        stroke: none,
+    ),
+    "body-text-args": (:),
+    "heading-box-args": (
+        inset: 0em,
+        width: 100%,
+        stroke: none,
+    ),
+    "heading-text-args": (
+        fill: rgb("#dc005a"),
+        weight: "bold",
+    ),
+)
+
 #let update-theme(..args) = {
     for (arg, val) in args.named() {
         _state-poster-theme.update(pt => {
