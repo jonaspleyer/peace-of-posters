@@ -1,0 +1,155 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Predicting electronic screening for fast Koopmans spectral functionals"><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:title" content="Total Energies 2025"><meta property="og:description" content="Predicting electronic screening for fast Koopmans spectral functionals"><meta property="og:type" content="article"><meta property="og:url" content="https://jonaspleyer.github.io/peace-of-posters/showcase/2025-psi/"><meta property="article:section" content="showcase"><meta property="article:published_time" content="2025-01-01T00:00:00+00:00"><meta property="article:modified_time" content="2025-01-01T00:00:00+00:00"><title>Total Energies 2025 | peace-of-posters</title>
+<link rel=manifest href=/peace-of-posters/manifest.json><link rel=icon href=/peace-of-posters/favicon.png><link rel=canonical href=https://jonaspleyer.github.io/peace-of-posters/showcase/2025-psi/><link rel=stylesheet href=/peace-of-posters/book.min.fac77f4c247fad0b9e26b59172691d98e52080385f7f19bdabfd74b8cdf1b2da.css integrity="sha256-+sd/TCR/rQueJrWRcmkdmOUggDhffxm9q/10uM3xsto=" crossorigin=anonymous><script defer src=/peace-of-posters/flexsearch.min.js></script><script defer src=/peace-of-posters/en.search.min.f152572f580a05f8fc830105c4633cb0cc18fdc63de3671975df800f31240312.js integrity="sha256-8VJXL1gKBfj8gwEFxGM8sMwY/cY942cZdd+ADzEkAxI=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/peace-of-posters/><img src=/peace-of-posters/favicon.svg alt=Logo><span>peace-of-posters</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li><a href=/peace-of-posters/showcase/>Showcase</a><ul></ul></li><li><a href=/peace-of-posters/documentation/>Documentation</a><ul><li><a href=/peace-of-posters/documentation/boxes/>Boxes</a></li><li><a href=/peace-of-posters/documentation/layouts/>Layouts</a></li><li><a href=/peace-of-posters/documentation/themes/>Themes</a></li><li><a href=/peace-of-posters/documentation/tips_and_tricks/>Tips and Tricks</a></li></ul></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/peace-of-posters/svg/menu.svg class=book-icon alt=Menu>
+</label><strong>Total Energies 2025</strong>
+<label for=toc-control><img src=/peace-of-posters/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents></nav></aside></header><h1>Total Energies 2025</h1>Find the Code <a href=main.typ>here</a>.<div style=width:100%;aspect-ratio:.7071><object width=100% height=100% data=/peace-of-posters/showcase/2025-psi//main.pdf></object></div><div style=overflow:scroll><pre tabindex=0><code class=language-typst data-lang=typst>#import &#34;../../../../lib.typ&#34; as pop
+#import &#34;@preview/xarrow:0.3.0&#34;: xarrow
+
+#set page(&#34;a1&#34;, margin: 2cm)
+#pop.set-poster-layout(pop.layout-a1)
+#pop.set-theme(pop.psi-ch)
+#set text(font: &#34;arial&#34;, size: pop.layout-a1.at(&#34;body-size&#34;))
+#let box-spacing = 1.2em
+#set columns(gutter: box-spacing)
+#set block(spacing: box-spacing)
+#pop.update-poster-layout(spacing: box-spacing, heading-size: 30pt)
+
+#pop.title-box(
+    [
+        #set text(fill: white)
+        #image(&#34;psi_scd_banner_white.png&#34;, width: 35%)
+        Predicting electronic screening for fast Koopmans spectral functionals
+    ],
+    authors: [
+        #v(1cm)
+        #set text(fill: black)
+        Edward Linscott#super(&#34;1,2&#34;),
+        Yannick Schubert#super(&#34;3&#34;),
+        Sandra Luber#super(&#34;3&#34;),
+        and Nicola Marzari#super(&#34;1,2,4&#34;)
+    ],
+    institutes: [
+        #set text(fill: black, weight: &#34;regular&#34;)
+        #super(&#34;1&#34;)Center for Scientific Computing, Theory and Data, Paul Scherrer Institute,
+            Switzerland
+        #super(&#34;2&#34;)National Centre for Computational Design and Discovery of Novel Materials
+            (MARVEL), Paul Scherrer Institute, Switzerland
+        #super(&#34;3&#34;)Department of Chemistry, University of Zurich, Switzerland
+        #super(&#34;4&#34;)Theory and Simulation of Materials, École Polytechnique Fédérale de Lausanne,
+            Switzerland&#34;
+    ],
+  // logo: ,
+  background: box(image(&#34;pink-yellow.png&#34;, height: 16cm, width: 100%), inset: -2cm, outset: 0pt),
+  // banner-height: 20%
+  authors-size: 27pt,
+  institutes-size: 19pt,
+  // heading-text-args: (fill: white, weight: &#34;bold&#34;),
+)
+
+#columns(2,[
+  #pop.column-box(heading: &#34;Summary&#34;)[
+    - Koopmans functionals are powerful orbital-density-dependent functionals that predict spectral
+      properties as accurately as state-of-the-art GW@Dabo2010@Nguyen2018@Colonna2019@Linscott2023
+    - they rely on parameters to capture electronic screening
+    - we construct a ML framework to predict these parameters
+    - minimal training data is required to achieve desirable accuracy
+  ]
+
+  #pop.column-box(heading: &#34;1. What are screening parameters?&#34;)[
+  $
+    alpha_i = (angle.l n_i|epsilon^(-1) f_&#34;Hxc&#34;|n_i angle.r) / (angle.l n_i|f_&#34;Hxc&#34;|n_i angle.r)
+  $
+  - can be computed #emph[ab initio] @DeGennaro2022@Colonna2018@Colonna2022
+  - are the vast majority of Koopmans&#39; computational cost
+  - must be accurate; if $psi_i (bold(r)) = sum_j U_(i j) phi_j (bold(r))$ then
+
+    #set text(size: 0.8em)
+    $
+      Delta epsilon_(i in&#34;occ&#34;) =
+      sum_(j) alpha_j U_(i j)U_(j i)^dagger
+      (-E_&#34;Hxc&#34; [rho - n_j]+E_&#34;Hxc&#34; [rho] - integral d bold(r) v_&#34;Hxc&#34; [rho](bold(r))  n_j (bold(r)))
+    $
+  ]
+
+  #pop.column-box(heading: &#34;2. How can machine learning help?&#34;)[
+    #grid(columns: 8, column-gutter: 0.3em, row-gutter: 0.3em,
+        image(&#34;CsSnI3_disordered.png&#34;, width: 100%),
+        image(&#34;CsSnI3_disordered.png&#34;, width: 100%),
+        image(&#34;CsSnI3_disordered.png&#34;, width: 100%),
+        image(&#34;CsSnI3_disordered.png&#34;, width: 100%),
+        image(&#34;CsSnI3_disordered.png&#34;, width: 100%),
+        image(&#34;CsSnI3_disordered.png&#34;, width: 100%),
+        image(&#34;CsSnI3_disordered.png&#34;, width: 100%),
+        grid.cell(align: center + horizon, [...]),
+        grid.cell(inset: 0.2em, align: center, fill: rgb(&#34;#dc005a&#34;), colspan: 3, text(fill: white, &#34;train&#34;, size: 0.5em, weight: &#34;bold&#34;)),
+        grid.cell(inset: 0.2em, align: center, fill: yellow, colspan: 5, text(&#34;predict&#34;, size: 0.5em, weight: &#34;bold&#34;)),
+  )
+  #v(-0.5em)
+  _or_ train on a small cell and deploy on a larger cell (N.B. not a general-purpose model)
+  
+  ]
+
+  #pop.column-box(heading: &#34;3. Our machine learning framework&#34;)[
+    $ rho_i (bold(r)) arrow.r p^i_(n_1 n_2 l k_1 k_2) arrow.r alpha_i $
+    #v(-0.5em)
+    *Descriptors* are power spectrum decompositions@Bartok2013@Himanen2020 of orbital densities
+    #set text(size: 0.8em)
+    #v(-1.5em)
+  $
+    p^i_(n_1 n_2 l,k_1 k_2) = pi sqrt(8 / (2l+1)) sum_m c_(n_1 l m,k_1)^(i *) c_(n_2 l m,k_2)^i
+  $
+  $
+    c^i_(n l m, k) &amp; = integral dif bold(r) g_(n l) (r) Y_(l m)(theta,phi) n_i (
+      bold(r) - bold(R)_i
+    )
+  $
+    #set text(size: 1.25em)
+
+    *Network* is just ridge regression!
+
+  ]
+
+  #pop.bibliography-box(&#34;docs/content/showcase/2025-PSI/references.bib&#34;, style: &#34;docs/content/showcase/2025-PSI/brief.csl&#34;, body-size: 0.55em)
+
+  #colbreak()
+
+  #pop.column-box(heading: &#34;4. Results&#34;)[
+    - accurate to $cal(&#34;O&#34;)$(10 meV) _cf._ typical $E_g$ accuracy of $cal(&#34;O&#34;)$(100 meV)
+    - speed-ups from $cal(&#34;O&#34;)$(10) to $cal(&#34;O&#34;)$(100) times!
+    - ridge-regression on one snapshot more accurate than oneshot
+    #grid(
+      columns: 2,
+      gutter: 0.2em,
+      [*Accuracy*], [*Speed-up*],
+      image(&#34;convergence_analysis_Eg_only.svg&#34;, width: 100%),
+      v(0.4em) + image(&#34;speedup.svg&#34;, width: 83%),
+      align(center, image(&#34;water_cls_calc_vs_pred_and_hist.svg&#34;, width: 98%)),
+      align(center, image(&#34;CsSnI3_calc_vs_pred_and_hist.svg&#34;, width: 98%)),
+      v(-25.8em) + text(size: 0.7em, &#34;water&#34;), v(-25.8em) + text(size: 0.7em, &#34;CsSnI&#34; + sub(&#34;3&#34;)) + v(25.1em),
+      [*Transferability*], [],
+      align(center, image(&#34;transferability_water.svg&#34;, width: 98%)),
+      align(center, image(&#34;transferability_cssni3.svg&#34;, width: 98%)),
+    )
+    #v(-0.5em)
+  ]
+
+  #pop.column-box(heading: &#34;5. Takeaways&#34;)[
+  - lightweight ML can predict Koopmans screening parameters
+  - more generally, predicting electronic response can be done efficiently with frozen-orbital approximations and ML
+  - try it now with `koopmans`! (`koopmans-functionals.org`)
+  ]
+])
+
+#v(-1em)
+
+#pop.bottom-box(
+    heading-box-args: (inset: 1cm, fill: rgb(&#34;#dc005a&#34;)),
+    logo: grid(columns: 2, align: horizon + center, column-gutter: 3em, 
+        image(&#34;marvel_white_on_transparent.png&#34;, height: 2em),
+        image(&#34;snf_white_on_transparent.png&#34;, height: 2em),
+    ),
+)[
+    #box(height: 2em)[#set text(size: 27pt, fill: white, weight: &#34;bold&#34;)
+    #align(horizon)[For more details, see Schubert _et al._, npj Computational Materials (2024)]]
+]
+</code></pre></div><footer class=book-footer><div class="flex flex-wrap justify-between"></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents></nav></div></aside></main></body></html>
