@@ -255,6 +255,7 @@
   institutes: none,
   keywords: none,
   logo: none,
+  background: none,
   text-relative-width: 80%,
   spacing: 5%,
   title-size: none,
@@ -302,10 +303,14 @@
 
     /// Finally construct the main rectangle
     common-box(heading:
-      stack(dir: ltr,
-        box(text-content, width: text-relative-width),
-        align(right, box(logo, width: 100% - spacing - text-relative-width))
-      ))
+      [
+        #background
+        #v(-measure(background).height)
+        #stack(dir: ltr,
+          box(text-content, width: text-relative-width),
+          align(right, box(logo, width: 100% - spacing - text-relative-width))
+        )
+      ])
   }
 }
 
