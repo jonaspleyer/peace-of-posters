@@ -1,74 +1,150 @@
-<!doctype html><html lang=en-us dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content='Themes # Themes are dictionaries with particular variables that control overall styling of the generated boxes. The dictionary is saved as a state variable and can be accessed by the update-theme and set-theme methods. Most of the time, themes are meant to be set initially without any further alteration.
-theme = ( "body-box-args": [dictionary], "body-box-args-with-title": [dictionary], "body-box-function": [function], "heading-box-args": [dictionary], "heading-box-args-with-body": [dictionary], "heading-box-function": [function], ) Argument Type Default Value Description body-box-args [dictionary] Arguments given to the body box.'><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:title" content="Themes"><meta property="og:description" content='Themes # Themes are dictionaries with particular variables that control overall styling of the generated boxes. The dictionary is saved as a state variable and can be accessed by the update-theme and set-theme methods. Most of the time, themes are meant to be set initially without any further alteration.
-theme = ( "body-box-args": [dictionary], "body-box-args-with-title": [dictionary], "body-box-function": [function], "heading-box-args": [dictionary], "heading-box-args-with-body": [dictionary], "heading-box-function": [function], ) Argument Type Default Value Description body-box-args [dictionary] Arguments given to the body box.'><meta property="og:type" content="article"><meta property="og:url" content="https://jonaspleyer.github.io/peace-of-posters/documentation/themes/"><meta property="article:section" content="documentation"><title>Themes | peace-of-posters</title>
-<link rel=manifest href=/peace-of-posters/manifest.json><link rel=icon href=/peace-of-posters/favicon.png><link rel=canonical href=https://jonaspleyer.github.io/peace-of-posters/documentation/themes/><link rel=stylesheet href=/peace-of-posters/book.min.fac77f4c247fad0b9e26b59172691d98e52080385f7f19bdabfd74b8cdf1b2da.css integrity="sha256-+sd/TCR/rQueJrWRcmkdmOUggDhffxm9q/10uM3xsto=" crossorigin=anonymous><script defer src=/peace-of-posters/flexsearch.min.js></script><script defer src=/peace-of-posters/en.search.min.f152572f580a05f8fc830105c4633cb0cc18fdc63de3671975df800f31240312.js integrity="sha256-8VJXL1gKBfj8gwEFxGM8sMwY/cY942cZdd+ADzEkAxI=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
-<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/peace-of-posters/><img src=/peace-of-posters/favicon.svg alt=Logo><span>peace-of-posters</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li><a href=/peace-of-posters/showcase/>Showcase</a><ul></ul></li><li><a href=/peace-of-posters/documentation/>Documentation</a><ul><li><a href=/peace-of-posters/documentation/boxes/>Boxes</a></li><li><a href=/peace-of-posters/documentation/layouts/>Layouts</a></li><li><a href=/peace-of-posters/documentation/themes/ class=active>Themes</a></li><li><a href=/peace-of-posters/documentation/tips_and_tricks/>Tips and Tricks</a></li></ul></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/peace-of-posters/svg/menu.svg class=book-icon alt=Menu>
-</label><strong>Themes</strong>
-<label for=toc-control><img src=/peace-of-posters/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><ul><li><a href=#heading-text-args--body-text-args><code>heading-text-args</code> & <code>body-text-args</code></a></li></ul></li><li><a href=#updating-a-theme>Updating a Theme</a><ul><li><a href=#note-updating-in-the-middle-of-the-document>Note: Updating in the middle of the document</a></li></ul></li><li><a href=#setting-a-new-theme>Setting a new Theme</a></li><li><a href=#example-themes>Example Themes</a><ul><li><a href=#default>Default</a></li><li><a href=#uni-freiburg>Uni Freiburg</a></li></ul></li></ul></nav></aside></header><h1 id=themes>Themes
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content='
+  Themes
+  #
+
+Themes are dictionaries with particular variables that control overall styling of the generated boxes.
+The dictionary is saved as a state variable and can be accessed by the update-theme and set-theme methods.
+Most of the time, themes are meant to be set initially without any further alteration.
+theme = (
+    "body-box-args": [dictionary],
+    "body-box-args-with-title": [dictionary],
+    "body-box-function": [function],
+    "heading-box-args": [dictionary],
+    "heading-box-args-with-body": [dictionary],
+    "heading-box-function": [function],
+)
+
+  
+      
+          Argument
+          Type
+          Default Value
+          Description
+      
+  
+  
+      
+          body-box-args
+          [dictionary]
+          
+          Arguments given to the body box.
+      
+      
+          body-box-args-with-title
+          [dictionary]
+          
+          Arguments given to the body box when a title is present. This dictionary is optional. Leaving
+      
+      
+          body-box-function
+          [function]
+          
+          Arguments given to the body box.
+      
+      
+          body-text-args
+          [dictionary]
+          
+          Text-related arguments given to the body box.
+      
+      
+          heading-box-args
+          [dictionary]
+          
+          Arguments given to the heading box.
+      
+      
+          heading-box-args-with-body
+          [dictionary]
+          
+          Arguments given to the body box.
+      
+      
+          heading-box-function
+          [function]
+          
+          Fuctions given to the heading box.
+      
+      
+          heading-text-args
+          [dictionary]
+          
+          Text-related arguments given to the heading box.
+      
+  
+
+
+  heading-text-args & body-text-args
+  #
+
+Takes arguments to alter heading or body text. for all possible arguments see: Text'><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://jonaspleyer.github.io/peace-of-posters/documentation/themes/"><meta property="og:site_name" content="peace-of-posters"><meta property="og:title" content="Themes"><meta property="og:description" content='Themes # Themes are dictionaries with particular variables that control overall styling of the generated boxes. The dictionary is saved as a state variable and can be accessed by the update-theme and set-theme methods. Most of the time, themes are meant to be set initially without any further alteration.
+theme = ( "body-box-args": [dictionary], "body-box-args-with-title": [dictionary], "body-box-function": [function], "heading-box-args": [dictionary], "heading-box-args-with-body": [dictionary], "heading-box-function": [function], ) Argument Type Default Value Description body-box-args [dictionary] Arguments given to the body box. body-box-args-with-title [dictionary] Arguments given to the body box when a title is present. This dictionary is optional. Leaving body-box-function [function] Arguments given to the body box. body-text-args [dictionary] Text-related arguments given to the body box. heading-box-args [dictionary] Arguments given to the heading box. heading-box-args-with-body [dictionary] Arguments given to the body box. heading-box-function [function] Fuctions given to the heading box. heading-text-args [dictionary] Text-related arguments given to the heading box. heading-text-args & body-text-args # Takes arguments to alter heading or body text. for all possible arguments see: Text'><meta property="og:locale" content="en_us"><meta property="og:type" content="article"><meta property="article:section" content="documentation"><title>Themes | peace-of-posters</title>
+<link rel=icon href=/peace-of-posters/favicon.png><link rel=manifest href=/peace-of-posters/manifest.json><link rel=canonical href=https://jonaspleyer.github.io/peace-of-posters/documentation/themes/><link rel=stylesheet href=/peace-of-posters/book.min.0c4aaf27b87c00bfc634cc836da361801252a27f0965fafc3512adf839d0f34b.css integrity="sha256-DEqvJ7h8AL/GNMyDbaNhgBJSon8JZfr8NRKt+DnQ80s=" crossorigin=anonymous><script defer src=/peace-of-posters/fuse.min.js></script><script defer src=/peace-of-posters/en.search.min.aa9985c81f6b234941b9688983fdb07ffbb4d14e1a365dab8963328b8d44f9e4.js integrity="sha256-qpmFyB9rI0lBuWiJg/2wf/u00U4aNl2riWMyi41E+eQ=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/peace-of-posters/><img src=/peace-of-posters/favicon.svg alt=Logo class=book-icon><span>peace-of-posters</span></a></h2><div class="book-search hidden"><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/peace-of-posters/svg/menu.svg class=book-icon alt=Menu></label><h3>Themes</h3><label for=toc-control><img src=/peace-of-posters/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><ul><li><a href=#heading-text-args--body-text-args><code>heading-text-args</code> & <code>body-text-args</code></a></li></ul></li><li><a href=#updating-a-theme>Updating a Theme</a><ul><li><a href=#note-updating-in-the-middle-of-the-document>Note: Updating in the middle of the document</a></li></ul></li><li><a href=#setting-a-new-theme>Setting a new Theme</a></li><li><a href=#example-themes>Example Themes</a><ul><li><a href=#default>Default</a></li><li><a href=#uni-freiburg>Uni Freiburg</a></li></ul></li></ul></nav></aside></header><h1 id=themes>Themes
 <a class=anchor href=#themes>#</a></h1><p>Themes are dictionaries with particular variables that control overall styling of the generated boxes.
 The dictionary is saved as a <a href=https://typst.app/docs/reference/meta/state/>state</a> variable and can be accessed by the <code>update-theme</code> and <code>set-theme</code> methods.
-Most of the time, themes are meant to be set initially without any further alteration.</p><pre tabindex=0><code class=language-typst data-lang=typst>theme = (
-    &#34;body-box-args&#34;: <a href=https://typst.app/docs/reference/foundations/dictionary/ class="code-type-dictionary code-type-block">dictionary</a>,
-    &#34;body-box-args-with-title&#34;: <a href=https://typst.app/docs/reference/foundations/dictionary/ class="code-type-dictionary code-type-block">dictionary</a>,
-    &#34;body-box-function&#34;: <a href=https://typst.app/docs/reference/foundations/function/ class="code-type-function code-type-block">function</a>,
-    &#34;heading-box-args&#34;: <a href=https://typst.app/docs/reference/foundations/dictionary/ class="code-type-dictionary code-type-block">dictionary</a>,
-    &#34;heading-box-args-with-body&#34;: <a href=https://typst.app/docs/reference/foundations/dictionary/ class="code-type-dictionary code-type-block">dictionary</a>,
-    &#34;heading-box-function&#34;: <a href=https://typst.app/docs/reference/foundations/function/ class="code-type-function code-type-block">function</a>,
-)
-</code></pre><table><thead><tr><th>Argument</th><th>Type</th><th>Default Value</th><th>Description</th></tr></thead><tbody><tr><td><code>body-box-args</code></td><td><a href=https://typst.app/docs/reference/foundations/dictionary/ class="code-type-dictionary code-type-block">dictionary</a></td><td></td><td>Arguments given to the body box.</td></tr><tr><td><code>body-box-args-with-title</code></td><td><a href=https://typst.app/docs/reference/foundations/dictionary/ class="code-type-dictionary code-type-block">dictionary</a></td><td></td><td>Arguments given to the body box when a title is present. This dictionary is optional. Leaving</td></tr><tr><td><code>body-box-function</code></td><td><a href=https://typst.app/docs/reference/foundations/function/ class="code-type-function code-type-block">function</a></td><td></td><td>Arguments given to the body box.</td></tr><tr><td><code>body-text-args</code></td><td><a href=https://typst.app/docs/reference/foundations/dictionary/ class="code-type-dictionary code-type-block">dictionary</a></td><td></td><td>Text-related arguments given to the body box.</td></tr><tr><td><code>heading-box-args</code></td><td><a href=https://typst.app/docs/reference/foundations/dictionary/ class="code-type-dictionary code-type-block">dictionary</a></td><td></td><td>Arguments given to the heading box.</td></tr><tr><td><code>heading-box-args-with-body</code></td><td><a href=https://typst.app/docs/reference/foundations/dictionary/ class="code-type-dictionary code-type-block">dictionary</a></td><td></td><td>Arguments given to the body box.</td></tr><tr><td><code>heading-box-function</code></td><td><a href=https://typst.app/docs/reference/foundations/function/ class="code-type-function code-type-block">function</a></td><td></td><td>Fuctions given to the heading box.</td></tr><tr><td><code>heading-text-args</code></td><td><a href=https://typst.app/docs/reference/foundations/dictionary/ class="code-type-dictionary code-type-block">dictionary</a></td><td></td><td>Text-related arguments given to the heading box.</td></tr></tbody></table><h3 id=heading-text-args--body-text-args><code>heading-text-args</code> & <code>body-text-args</code>
-<a class=anchor href=#heading-text-args--body-text-args>#</a></h3><p>Takes arguments to alter heading or body text. for all possible arguments see: <a href=https://typst.app/docs/reference/text/text/>Text</a></p><pre tabindex=0><code class=language-typst data-lang=typst>&#34;heading-text-args&#34;: (
-    fill: rgb(&#34;#FFFFFF&#34;),
-    font: &#34;Lora&#34;,
-)
-</code></pre><p>This would ensure the heading text color is white (#FFFFFF) and the font family is set to &lsquo;Lora&rsquo;.</p><pre tabindex=0><code class=language-typst data-lang=typst>&#34;body-text-args&#34;: (
-    font: (&#34;Ubuntu&#34;, &#34;Source Han Sans&#34;),
-)
-</code></pre><p>This would set body font family to <code>Ubuntu</code> with <code>Source Han Sans</code> as fallback.</p><h2 id=updating-a-theme>Updating a Theme
-<a class=anchor href=#updating-a-theme>#</a></h2><pre tabindex=0><code class=language-typst data-lang=typst>update-theme(
-    ..args
-)
-</code></pre><p>All arguments coincide with the values of the ones of <code>theme</code> shown above.</p><h3 id=note-updating-in-the-middle-of-the-document>Note: Updating in the middle of the document
+Most of the time, themes are meant to be set initially without any further alteration.</p><div class=highlight><pre tabindex=0 style=color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-typst data-lang=typst><span style=display:flex><span>theme = (
+</span></span><span style=display:flex><span>    &#34;body-box-args&#34;: <a href=https://typst.app/docs/reference/foundations/dictionary/ class="code-type-dictionary code-type-block">dictionary</a>,
+</span></span><span style=display:flex><span>    &#34;body-box-args-with-title&#34;: <a href=https://typst.app/docs/reference/foundations/dictionary/ class="code-type-dictionary code-type-block">dictionary</a>,
+</span></span><span style=display:flex><span>    &#34;body-box-function&#34;: <a href=https://typst.app/docs/reference/foundations/function/ class="code-type-function code-type-block">function</a>,
+</span></span><span style=display:flex><span>    &#34;heading-box-args&#34;: <a href=https://typst.app/docs/reference/foundations/dictionary/ class="code-type-dictionary code-type-block">dictionary</a>,
+</span></span><span style=display:flex><span>    &#34;heading-box-args-with-body&#34;: <a href=https://typst.app/docs/reference/foundations/dictionary/ class="code-type-dictionary code-type-block">dictionary</a>,
+</span></span><span style=display:flex><span>    &#34;heading-box-function&#34;: <a href=https://typst.app/docs/reference/foundations/function/ class="code-type-function code-type-block">function</a>,
+</span></span><span style=display:flex><span>)
+</span></span></code></pre></div><table><thead><tr><th>Argument</th><th>Type</th><th>Default Value</th><th>Description</th></tr></thead><tbody><tr><td><code>body-box-args</code></td><td><a href=https://typst.app/docs/reference/foundations/dictionary/ class="code-type-dictionary code-type-block">dictionary</a></td><td></td><td>Arguments given to the body box.</td></tr><tr><td><code>body-box-args-with-title</code></td><td><a href=https://typst.app/docs/reference/foundations/dictionary/ class="code-type-dictionary code-type-block">dictionary</a></td><td></td><td>Arguments given to the body box when a title is present. This dictionary is optional. Leaving</td></tr><tr><td><code>body-box-function</code></td><td><a href=https://typst.app/docs/reference/foundations/function/ class="code-type-function code-type-block">function</a></td><td></td><td>Arguments given to the body box.</td></tr><tr><td><code>body-text-args</code></td><td><a href=https://typst.app/docs/reference/foundations/dictionary/ class="code-type-dictionary code-type-block">dictionary</a></td><td></td><td>Text-related arguments given to the body box.</td></tr><tr><td><code>heading-box-args</code></td><td><a href=https://typst.app/docs/reference/foundations/dictionary/ class="code-type-dictionary code-type-block">dictionary</a></td><td></td><td>Arguments given to the heading box.</td></tr><tr><td><code>heading-box-args-with-body</code></td><td><a href=https://typst.app/docs/reference/foundations/dictionary/ class="code-type-dictionary code-type-block">dictionary</a></td><td></td><td>Arguments given to the body box.</td></tr><tr><td><code>heading-box-function</code></td><td><a href=https://typst.app/docs/reference/foundations/function/ class="code-type-function code-type-block">function</a></td><td></td><td>Fuctions given to the heading box.</td></tr><tr><td><code>heading-text-args</code></td><td><a href=https://typst.app/docs/reference/foundations/dictionary/ class="code-type-dictionary code-type-block">dictionary</a></td><td></td><td>Text-related arguments given to the heading box.</td></tr></tbody></table><h3 id=heading-text-args--body-text-args><code>heading-text-args</code> & <code>body-text-args</code>
+<a class=anchor href=#heading-text-args--body-text-args>#</a></h3><p>Takes arguments to alter heading or body text. for all possible arguments see: <a href=https://typst.app/docs/reference/text/text/>Text</a></p><div class=highlight><pre tabindex=0 style=color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-typst data-lang=typst><span style=display:flex><span>&#34;heading-text-args&#34;: (
+</span></span><span style=display:flex><span>    fill: rgb(&#34;<span style=color:#f2d5cf>#FFFFFF</span>&#34;),
+</span></span><span style=display:flex><span>    font: &#34;Lora&#34;,
+</span></span><span style=display:flex><span>)
+</span></span></code></pre></div><p>This would ensure the heading text color is white (#FFFFFF) and the font family is set to &lsquo;Lora&rsquo;.</p><div class=highlight><pre tabindex=0 style=color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-typst data-lang=typst><span style=display:flex><span>&#34;body-text-args&#34;: (
+</span></span><span style=display:flex><span>    font: (&#34;Ubuntu&#34;, &#34;Source Han Sans&#34;),
+</span></span><span style=display:flex><span>)
+</span></span></code></pre></div><p>This would set body font family to <code>Ubuntu</code> with <code>Source Han Sans</code> as fallback.</p><h2 id=updating-a-theme>Updating a Theme
+<a class=anchor href=#updating-a-theme>#</a></h2><div class=highlight><pre tabindex=0 style=color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-typst data-lang=typst><span style=display:flex><span>update-theme(
+</span></span><span style=display:flex><span>    ..args
+</span></span><span style=display:flex><span>)
+</span></span></code></pre></div><p>All arguments coincide with the values of the ones of <code>theme</code> shown above.</p><h3 id=note-updating-in-the-middle-of-the-document>Note: Updating in the middle of the document
 <a class=anchor href=#note-updating-in-the-middle-of-the-document>#</a></h3><p>The user can also update the theme in the middle of the document.
 This will alter all following boxes but should not touch preceding ones.</p><h2 id=setting-a-new-theme>Setting a new Theme
 <a class=anchor href=#setting-a-new-theme>#</a></h2><p>To entirely change the theme of a document, one can use this method and set the new theme.
 It is not checked that all keys and values are properly populated.
 Thus the user is responsible for defining them.
-It is often easier to instead take an existing theme and modify its entries.</p><pre tabindex=0><code class=language-typst data-lang=typst>set-theme(
-    theme: <a href=https://typst.app/docs/reference/foundations/dictionary/ class="code-type-dictionary code-type-block">dictionary</a>
-)
-</code></pre><h2 id=example-themes>Example Themes
+It is often easier to instead take an existing theme and modify its entries.</p><div class=highlight><pre tabindex=0 style=color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-typst data-lang=typst><span style=display:flex><span>set-theme(
+</span></span><span style=display:flex><span>    theme: <a href=https://typst.app/docs/reference/foundations/dictionary/ class="code-type-dictionary code-type-block">dictionary</a>
+</span></span><span style=display:flex><span>)
+</span></span></code></pre></div><h2 id=example-themes>Example Themes
 <a class=anchor href=#example-themes>#</a></h2><h3 id=default>Default
-<a class=anchor href=#default>#</a></h3><p>The default values of the theme. If nothing is specified by the user, these values will be chosen.</p><pre tabindex=0><code class=language-typst data-lang=typst>default = (
-    &#34;body-box-args&#34;: (
-        inset: 0.6em,
-        width: 100%,
-    ),
-    &#34;body-text-args&#34;: (:),
-    &#34;heading-box-args&#34;: (
-        inset: 0.6em,
-        width: 100%,
-        fill: rgb(50, 50, 50),
-        stroke: rgb(25, 25, 25),
-    ),
-    &#34;heading-text-args&#34;: (
-        fill: white,
-    )
-)
-</code></pre><h3 id=uni-freiburg>Uni Freiburg
-<a class=anchor href=#uni-freiburg>#</a></h3><p>A theme surrounding colors specifically chosen in complience with the corporate design of the University of Freiburg.</p><pre tabindex=0><code class=language-typst data-lang=typst>#let uni-fr = (
-    &#34;body-box-args&#34;: (
-        inset: 0.6em,
-        width: 100%,
-    ),
-    &#34;body-text-args&#34;: (:),
-    &#34;heading-box-args&#34;: (
-        inset: 0.6em,
-        width: 100%,
-        fill: rgb(&#34;#1d154d&#34;),
-        stroke: rgb(&#34;#1d154d&#34;),
-    ),
-    &#34;heading-text-args&#34;: (
-        fill: white,
-    ),
-)
-</code></pre><footer class=book-footer><div class="flex flex-wrap justify-between"></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><ul><li><a href=#heading-text-args--body-text-args><code>heading-text-args</code> & <code>body-text-args</code></a></li></ul></li><li><a href=#updating-a-theme>Updating a Theme</a><ul><li><a href=#note-updating-in-the-middle-of-the-document>Note: Updating in the middle of the document</a></li></ul></li><li><a href=#setting-a-new-theme>Setting a new Theme</a></li><li><a href=#example-themes>Example Themes</a><ul><li><a href=#default>Default</a></li><li><a href=#uni-freiburg>Uni Freiburg</a></li></ul></li></ul></nav></div></aside></main></body></html>
+<a class=anchor href=#default>#</a></h3><p>The default values of the theme. If nothing is specified by the user, these values will be chosen.</p><div class=highlight><pre tabindex=0 style=color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-typst data-lang=typst><span style=display:flex><span>default = (
+</span></span><span style=display:flex><span>    &#34;body-box-args&#34;: (
+</span></span><span style=display:flex><span>        inset: 0.6em,
+</span></span><span style=display:flex><span>        width: 100%,
+</span></span><span style=display:flex><span>    ),
+</span></span><span style=display:flex><span>    &#34;body-text-args&#34;: (:),
+</span></span><span style=display:flex><span>    &#34;heading-box-args&#34;: (
+</span></span><span style=display:flex><span>        inset: 0.6em,
+</span></span><span style=display:flex><span>        width: 100%,
+</span></span><span style=display:flex><span>        fill: rgb(50, 50, 50),
+</span></span><span style=display:flex><span>        stroke: rgb(25, 25, 25),
+</span></span><span style=display:flex><span>    ),
+</span></span><span style=display:flex><span>    &#34;heading-text-args&#34;: (
+</span></span><span style=display:flex><span>        fill: white,
+</span></span><span style=display:flex><span>    )
+</span></span><span style=display:flex><span>)
+</span></span></code></pre></div><h3 id=uni-freiburg>Uni Freiburg
+<a class=anchor href=#uni-freiburg>#</a></h3><p>A theme surrounding colors specifically chosen in complience with the corporate design of the University of Freiburg.</p><div class=highlight><pre tabindex=0 style=color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-typst data-lang=typst><span style=display:flex><span><span style=color:#e78284>#let</span> <span style=color:#f2d5cf>uni-fr</span> <span style=color:#99d1db;font-weight:700>=</span> (
+</span></span><span style=display:flex><span>    <span style=color:#a6d189>&#34;body-box-args&#34;</span>: (
+</span></span><span style=display:flex><span>        <span style=color:#f2d5cf>inset</span>: <span style=color:#ef9f76>0.6</span><span style=color:#ca9ee6>em</span>,
+</span></span><span style=display:flex><span>        <span style=color:#f2d5cf>width</span>: <span style=color:#ef9f76>100</span><span style=color:#ca9ee6>%</span>,
+</span></span><span style=display:flex><span>    ),
+</span></span><span style=display:flex><span>    <span style=color:#a6d189>&#34;body-text-args&#34;</span>: (:),
+</span></span><span style=display:flex><span>    <span style=color:#a6d189>&#34;heading-box-args&#34;</span>: (
+</span></span><span style=display:flex><span>        <span style=color:#f2d5cf>inset</span>: <span style=color:#ef9f76>0.6</span><span style=color:#ca9ee6>em</span>,
+</span></span><span style=display:flex><span>        <span style=color:#f2d5cf>width</span>: <span style=color:#ef9f76>100</span><span style=color:#ca9ee6>%</span>,
+</span></span><span style=display:flex><span>        <span style=color:#f2d5cf>fill</span>: <span style=color:#8caaee>rgb</span>(<span style=color:#a6d189>&#34;#1d154d&#34;</span>),
+</span></span><span style=display:flex><span>        <span style=color:#f2d5cf>stroke</span>: <span style=color:#8caaee>rgb</span>(<span style=color:#a6d189>&#34;#1d154d&#34;</span>),
+</span></span><span style=display:flex><span>    ),
+</span></span><span style=display:flex><span>    <span style=color:#a6d189>&#34;heading-text-args&#34;</span>: (
+</span></span><span style=display:flex><span>        <span style=color:#f2d5cf>fill</span>: <span style=color:#f2d5cf>white</span>,
+</span></span><span style=display:flex><span>    ),
+</span></span><span style=display:flex><span>)
+</span></span></code></pre></div><footer class=book-footer><div class="flex flex-wrap justify-between"></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><ul><li><a href=#heading-text-args--body-text-args><code>heading-text-args</code> & <code>body-text-args</code></a></li></ul></li><li><a href=#updating-a-theme>Updating a Theme</a><ul><li><a href=#note-updating-in-the-middle-of-the-document>Note: Updating in the middle of the document</a></li></ul></li><li><a href=#setting-a-new-theme>Setting a new Theme</a></li><li><a href=#example-themes>Example Themes</a><ul><li><a href=#default>Default</a></li><li><a href=#uni-freiburg>Uni Freiburg</a></li></ul></li></ul></nav></div></aside></main></body></html>
