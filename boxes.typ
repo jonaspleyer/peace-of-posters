@@ -14,7 +14,8 @@
   // calculate distance
   let bottom-y = p.y
   let without-spacing = p.y - current-position.y
-  let dist = p.y - current - position.y - spacing(dist, without - spacing)
+  let dist = p.y - current-position.y - spacing
+  (dist, without-spacing)
 }
 
 #let _calculate-vertical-distance-to-page-end(m-loc, spacing) = {
@@ -27,10 +28,10 @@
 // intersect if we increase the vertical size of box b1 while
 // leaving the beginning position intact.
 #let _boxes-would-intersect(b1-left, b1-right, b2-left, b2-right) = {
-  let b1l = b1 - left.location().position()
-  let b1r = b1 - right.location().position()
-  let b2l = b2 - left.location().position()
-  let b2r = b2 - right.location().position()
+  let b1l = b1-left.location().position()
+  let b1r = b1-right.location().position()
+  let b2l = b2-left.location().position()
+  let b2r = b2-right.location().position()
 
   // If the intervals [b1-left.x, b1-right.x] and [b2-left.x, b2-right.x]
   // do not intersect, they will never intersect when stretching the box
@@ -41,32 +42,32 @@
     return true
   }
 
-  let p = b1 - right.location().position()
-  let q = b2 - left.location().position()
+  let p = b1-right.location().position()
+  let q = b2-left.location().position()
   let filt1 = p.at("x") > q.at("x")
   let filt2 = p.at("y") < q.at("y")
-  let filt3 = b1 - right.location().page() == b2 - left.location().page()
+  let filt3 = b1-right.location().page() == b2-left.location().page()
   filt1 and filt2
 }
 
 #let stretch-box-to-next(box-function, location-heading-box, spacing: 1.2em, ..r) = locate(loc => {
   // Get current y location
   let m-loc = loc.position()
-  let b1 = query(<COLUMN - BOX > ,, loc)
-  let b2 = query(<COLUMN - BOX - RIGHT > ,, loc)
+  let b1 = query(<COLUMN-BOX>, loc)
+  let b2 = query(<COLUMN-BOX-RIGHT>, loc)
 
   // Find current box in all these queries
   let cb = b1.zip(b2).filter(b => {
-    let (c - box, c - box - end) = b
+    let (c-box, c-box-end) = b
     c-box.location().position() == location-heading-box.position()
   }).first()
 
   let target = b1
     .zip(b2)
     .map(b => {
-      let (c - box, c - box - end) = b
+      let (c-box, c-box-end) = b
       let c-loc = c-box.location().position()
-      let filt = _boxes - would - intersect(cb.at(0), cb.at(1), c - box, c - box - end)
+      let filt = _boxes-would-intersect(cb.at(0), cb.at(1), c-box, c-box-end)
       let (dist, dist-without-spacing) = _calculate-vertical-distance(m-loc, c-box, spacing)
       (dist, filt, dist-without-spacing)
       })
@@ -79,9 +80,9 @@
     box-function(..r, height: dist)
   // Else determine the end of the page
   } else {
-    let pl = _state - poster - layout.at(loc)
+    let pl = _state-poster-layout.at(loc)
     let (_, height) = pl.at("size")
-    let dist = height - m - loc.y - spacing
+    let dist = height - m-loc.y - spacing
     box-function(..r, height: dist)
   }
 })
@@ -103,8 +104,8 @@
   bottom-box: false,
 ) = {
   context {
-    let pt = _state - poster - theme.at(here())
-    let pl = _state - poster - layout.at(here())
+    let pt = _state-poster-theme.at(here())
+    let pl = _state-poster-layout.at(here())
 
     let spacing = if spacing==none {pl.at("spacing")} else {spacing}
 
@@ -266,7 +267,7 @@
   context {
     let text-relative-width = text-relative-width
     /// Get theme and layout state
-    let pl = _state - poster - layout.at(here())
+    let pl = _state-poster-layout.at(here())
 
     /// Layout specific options
     let title-size = if title-size==none {pl.at("title-size")} else {title-size}
@@ -325,7 +326,7 @@
       )
     }
   ]
-  let r = common - box(heading,: body, bottom - box,: true, .. args)
+  let r = common-box(heading: body, bottom-box: true, ..args)
   align(bottom, r)
 }
 
