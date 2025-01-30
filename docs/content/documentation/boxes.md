@@ -13,7 +13,7 @@ The `common-box` method creates two rectangles, one for the heading and one for 
 Both are optional and can be left out.
 This box also automatically considers the currently defined [theme](themes) and styles the box accordingly.
 ```typst
-common-box(
+#common-box(
     body: [none] [content],
     heading: [none] [content],
     heading-size: [none] [length],
@@ -57,7 +57,7 @@ common-box(
 
 ## Column Box
 ```typst
-column-box(
+#column-box(
     body: [content],
     ..args
 ) --> [content]
@@ -68,7 +68,7 @@ All arguments align with `common-box` but the `column-box` requires at least a b
 A box that will be placed at the bottom of the page.
 It is also possible to specify a logo and text-width of the remaining content.
 ```typst
-bottom-box(
+#bottom-box(
     body: [content],
     text-relative-width: [relative],
     logo: [none] [content],
@@ -90,7 +90,7 @@ bottom-box(
 </div>
 
 ```typst
-bibliography-box(
+#bibliography-box(
     bib-file: [str],
     text-size: [length],
     title: [none] [content],
