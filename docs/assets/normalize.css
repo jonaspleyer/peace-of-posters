@@ -24,17 +24,6 @@ a {
   text-decoration: none;
 }
 
-.book-page pre {
-  padding:1rem;
-  background:var(--gray-100);
-  border-radius:.25rem;
-  overflow-x:auto
-}
-.book-page pre code {
-  padding:0;
-  background:0 0
-}
-
 .showcase-grid {
   margin: 1em;
   display: grid;
