@@ -9,6 +9,9 @@ author_mail = "jonas.sci@pleyer.org"
 BookSection = '.'
 BookLogo = 'favicon.svg'
 
+[markup.highlight]
+style = "catppuccin-frappe"
+
 [markup.goldmark.renderer]
 unsafe = true
 
