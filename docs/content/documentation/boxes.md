@@ -55,6 +55,54 @@ This box also automatically considers the currently defined [theme](themes) and 
 )
 ```
 
+## Title Box
+The title box is the main heading of the poster.
+It can be customized and adjusted with many parameters and offers some level of flexibility by
+pre-designing it within a [theme](../themes).
+```typst
+#title-box(
+    title: [content],
+    subtitle: [none] [content],
+    authors: [none] [content],
+    institutes: [none] [content],
+    keywords: [none] [content],
+    logo: [none] [content],
+    background: [none] [content],
+    text-relative-width: [relative],
+    spacing: [relative],
+    title-size: [none] [length],
+    subtitle-size: [none] [length],
+    authors-size: [none] [length],
+    institutes-size: [none] [length],
+    keywords-size: [none] [length],
+)
+```
+
+| Argument | Type | Default Value | Description |
+| --- | --- | --- | --- |
+| `title` | [content] | | Title of the poster. |
+| `subtitle` | [none] [content] | [none] | Subtitle of the poster. |
+| `authors` | [none] [content] | [none] | Authors contributing to this poster. |
+| `institutes` | [none] [content] | [none] | Institutes to which the authors are related. |
+| `keywords` | [none] [content] | [none] | Keywords describing the contents of this poster. |
+| `logo` | [none] [content] | [none] | A logo (such as a university sigil) which will be displayed on the right of title, subtitle, authors, etc. |
+| `background` | [none] [content] | [none] | Background image of the title box. This will be stretched over the entire box and any text will be displayed on top. Can be used together with a logo. |
+| `text-relative-width` | [relative] | 80% | The width of the text next to the logo. |
+| `spacing` | [relative] [length] | `5%` | Spacing to the next box. |
+| `title-size` | [none] [length] | [none] | Size of the title. |
+| `subtitle-size` | [none] [length] | [none] | Size of the subtitle section. |
+| `authors-size` | [none] [length] | [none] | Size of the authors section. |
+| `institutes-size` | [none] [length] | [none] | Size of the institutes section. |
+| `keywords-size` | [none] [length] | [none] | Size of the keywords section. |
+
+### Example
+```typst
+#title-box(
+    "Creating nice posters with peace of mind ...",
+    subtitle: "... is a piece of cake.",
+)
+```
+
 ## Column Box
 ```typst
 #column-box(
