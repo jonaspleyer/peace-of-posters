@@ -60,6 +60,10 @@ td {
   border-bottom: 1px solid rgb(200, 200, 200);
 }
 
+pre {
+    padding: 1em;
+}
+
 /* CODE STYLING */
 .code-type-block {
   display: inline-block;
