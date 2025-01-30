@@ -34,12 +34,9 @@
         #super("4")Theory and Simulation of Materials, École Polytechnique Fédérale de Lausanne,
             Switzerland"
     ],
-  // logo: ,
   background: box(image("pink-yellow.png", height: 16cm, width: 100%), inset: -2cm, outset: 0pt),
-  // banner-height: 20%
   authors-size: 27pt,
   institutes-size: 19pt,
-  // heading-text-args: (fill: white, weight: "bold"),
 )
 
 #columns(2,[
