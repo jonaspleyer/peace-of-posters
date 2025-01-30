@@ -4,7 +4,7 @@ weight: 10
 ---
 
 # Boxes
-Please note that most values which have default values [none] are probably specified either by a [theme](/themes) or [layout](/documentation/layouts).
+Please note that most values which have default values [none] are probably specified either by a [theme](../themes) or [layout](../layouts).
 ## Common Box
 This box is mostly meant as a shared template for other functions to be calling.
 While it can be used individually, users should strongly consider relying on other functions.
