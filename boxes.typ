@@ -216,7 +216,7 @@
       if body!=none {
         body-box = stretch-box-to-next(
           body-box-function,
-          loc,
+          here(),
           spacing: spacing,
           body,
           ..body-box-args,
@@ -224,7 +224,7 @@
       } else {
         heading-box = stretch-box-to-next(
           heading-box-function,
-          loc,
+          here(),
           spacing: spacing,
           heading,
           ..heading-box-args,
