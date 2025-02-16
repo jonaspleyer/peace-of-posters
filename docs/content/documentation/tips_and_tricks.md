@@ -28,6 +28,30 @@ Last but not least, we need to tell `peace-of-posters` to use the new value when
 )
 ```
 
+## Variable width of columns
+To create a document with different widths of columns, we can use two instances of a wrapper
+[`box`](https://typst.app/docs/reference/layout/box/).
+View the output of this code [here](../../examples/variable-width-columns/main.pdf).
+
+```typst
+#grid(
+    gutter: pop.layout-a4.spacing,
+    columns: (2fr, 3fr),
+    box(width: 100%)[
+        #pop.column-box(heading: "Left Column")[This is a box on the left]
+    ],
+    box(width: 100%)[
+        #pop.column-box(heading: "Right Column")[This is a bit bigger on the right]
+    ],
+    box(width: 100%)[
+        #pop.column-box(heading: "Stretch it", stretch-to-next: true)[
+            This stretches all the way to the bottom of the page
+        ]
+    ],
+)
+#pop.bottom-box()[At the bottom]
+```
+
 <!-- TODO add screenshots of before and after -->
 ## Deeply modify Heading and Body Boxes
 In order to deeply modify heading and body boxes, we are able to change the function itself which draws the box.
