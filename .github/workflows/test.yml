@@ -13,13 +13,13 @@ jobs:
         run: typst compile lib.typ
 
       - name: Create local package folder
-        run: mkdir -p ~/.local/share/typst/packages/local/peace-of-posters/0.5.0
+        run: mkdir -p ~/.local/share/typst/packages/local/peace-of-posters/0.5.1
       - name: Copy files into package folder
-        run: cp -r . ~/.local/share/typst/packages/local/peace-of-posters/0.5.0
+        run: cp -r . ~/.local/share/typst/packages/local/peace-of-posters/0.5.1
 
       # Create file which imports locally installed package
       - name: Create testfile
-        run: echo '#import "@local/peace-of-posters:0.5.0" as pop' >> testfile.typ
+        run: echo '#import "@local/peace-of-posters:0.5.1" as pop' >> testfile.typ
       - name: Compile testfile
         run: typst compile testfile.typ
 
