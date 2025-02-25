@@ -50,11 +50,11 @@
   filt1 and filt2
 }
 
-#let stretch-box-to-next(box-function, location-heading-box, spacing: 1.2em, ..r) = locate(loc => {
+#let stretch-box-to-next(box-function, location-heading-box, spacing: 1.2em, ..r) = context {
   // Get current y location
-  let m-loc = loc.position()
-  let b1 = query(<COLUMN-BOX>, loc)
-  let b2 = query(<COLUMN-BOX-RIGHT>, loc)
+  let m-loc = here().position()
+  let b1 = query(<COLUMN-BOX>)
+  let b2 = query(<COLUMN-BOX-RIGHT>)
 
   // Find current box in all these queries
   let cb = b1.zip(b2).filter(b => {
@@ -85,7 +85,7 @@
     let dist = height - m-loc.y - spacing
     box-function(..r, height: dist)
   }
-})
+}
 
 // A common box that makes up all other boxes
 #let common-box(
