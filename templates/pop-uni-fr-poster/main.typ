@@ -14,7 +14,7 @@
   authors: "Jonas Pleyer¹",
   institutes: "¹Freiburg Center for Data-Analysis and Modelling",
   keywords: "Peace, Dove, Poster, Science",
-  image: circle(image("peace-dove.png"), fill: white, inset: -10pt),
+  logo: circle(image("peace-dove.png"), fill: white, inset: -10pt),
 )
 
 #columns(2,[
