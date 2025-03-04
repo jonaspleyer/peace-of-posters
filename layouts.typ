@@ -11,6 +11,7 @@
     "title-size":       75pt,
     "subtitle-size":    60pt,
     "authors-size":     50pt,
+    "institutes-size":  45pt,
     "keywords-size":    40pt,
 )
 
@@ -23,6 +24,7 @@
     "title-size":       61pt,
     "subtitle-size":    49pt,
     "authors-size":     41pt,
+    "institutes-size":  37pt,
     "keywords-size":    33pt,
 )
 
@@ -35,6 +37,7 @@
     "title-size":       47pt,
     "subtitle-size":    38pt,
     "authors-size":     31pt,
+    "institutes-size":  28pt,
     "keywords-size":    25pt,
 )
 
@@ -47,6 +50,7 @@
     "title-size":       32pt,
     "subtitle-size":    26pt,
     "authors-size":     22pt,
+    "institutes-size":  20pt,
     "keywords-size":    18pt,
 )
 
@@ -59,6 +63,7 @@
     "title-size":       18pt,
     "subtitle-size":    15pt,
     "authors-size":     12pt,
+    "institutes-size":  11pt,
     "keywords-size":    10pt,
 )
 
