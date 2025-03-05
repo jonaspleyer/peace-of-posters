@@ -273,6 +273,9 @@
     let title-size = if title-size==none {pl.at("title-size")} else {title-size}
     let subtitle-size = if subtitle-size==none {pl.at("subtitle-size")} else {subtitle-size}
     let authors-size = if authors-size==none {pl.at("authors-size")} else {authors-size}
+    let institutes-size = if institutes-size==none {pl.at("institutes-size")} else {
+        institutes-size
+    }
     let keywords-size = if keywords-size==none {pl.at("keywords-size")} else {keywords-size}
 
     /// Generate body of box
@@ -285,9 +288,8 @@
       #set text(size: authors-size)
       #if authors!=none {[#authors\ ]}
       #if institutes!=none {[
-        #if institutes-size!=none {
-          set text(size: institutes-size)
-        [#institutes]}
+        #set text(size: institutes-size)
+        #institutes
       ]}
       #if keywords!=none {[
         #v(1em, weak: true)
