@@ -3,13 +3,15 @@ import argparse
 import zipfile
 import glob
 
+
 class Writer:
     def __init__(self, zip_filename="package.zip"):
-        self.zip_file = zipfile.ZipFile(Path("package.zip"), mode='w')
+        self.zip_file = zipfile.ZipFile(Path("package.zip"), mode="w")
 
     def write_to_zip_file(self, entries):
         for p in entries:
             self.zip_file.write(p)
+
 
 def zip_package(writer):
     # Get all files which should be included
@@ -19,6 +21,7 @@ def zip_package(writer):
     typst_files.append("./README.md")
     writer.write_to_zip_file(typst_files)
 
+
 def zip_templates(writer):
     folders = glob.glob("./templates/*")
     files = list(glob.glob("./templates/*"))
@@ -26,24 +29,25 @@ def zip_templates(writer):
         files.extend(glob.glob("{}/*".format(folder)))
     writer.write_to_zip_file(files)
 
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         prog="Releaser",
         description="Generate release files for the package and templates",
     )
     parser.add_argument(
-        '-p',
-        '--package',
+        "-p",
+        "--package",
         help="Do not zip peace-of-posters package files.",
         default=True,
-        action='store_false',
+        action="store_false",
     )
     parser.add_argument(
-        '-t',
-        '--templates',
+        "-t",
+        "--templates",
         help="Do not zip template files.",
         default=True,
-        action='store_false',
+        action="store_false",
     )
 
     args = parser.parse_args()
@@ -53,4 +57,3 @@ if __name__ == "__main__":
         zip_package(writer)
     if args.templates:
         zip_templates(writer)
-
