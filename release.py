@@ -23,10 +23,11 @@ def zip_package(writer):
 
 
 def zip_templates(writer):
-    folders = glob.glob("./templates/*")
-    files = list(glob.glob("./templates/*"))
-    for folder in folders:
-        files.extend(glob.glob("{}/*".format(folder)))
+    path = Path("./templates/pop-uni-fr-poster/")
+    files = list(path.rglob("*.typ"))
+    files.extend(path.rglob("*.jpg"))
+    files.extend(path.rglob("*.png"))
+    files.extend(path.rglob("*.bib"))
     writer.write_to_zip_file(files)
 
 
