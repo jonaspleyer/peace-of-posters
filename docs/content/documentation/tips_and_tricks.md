@@ -23,7 +23,7 @@ Thus we modify the `gutter` argument of the [`columns` function](https://typst.a
 ```
 Last but not least, we need to tell `peace-of-posters` to use the new value when calculating how large boxes need to be in order to stretch them to the nearest endpoint.
 ```typst
-#update-layout(
+#update-poster-layout(
     spacing: box-spacing,
 )
 ```
@@ -73,7 +73,7 @@ Let's begin by simply making a smaller centered box.
 
 Afterwards, we need to supply the new behaviour to `peace-of-posters` by setting the corresponding option in the [layout](/documentation/layout).
 ```typst
-#update-layout(
+#update-poster-layout(
     heading-box-function: my-custom-heading,
 )
 ```
