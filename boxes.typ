@@ -312,6 +312,10 @@
         "title-text-args",
         default: pt.at("heading-text-args", default: ())
     )
+    let title-box-function = pt.at(
+        "title-box-function",
+        default: rect,
+    )
 
     /// Finally construct the main rectangle
     common-box(heading:
@@ -325,6 +329,7 @@
       ],
       heading-box-args: title-box-args,
       heading-text-args: title-text-args,
+      heading-box-function: title-box-function,
     )
   }
 }
