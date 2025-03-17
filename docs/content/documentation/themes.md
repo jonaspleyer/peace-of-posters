@@ -33,7 +33,8 @@ theme = (
 
 
 ### `heading-text-args` & `body-text-args`
-Takes arguments to alter heading or body text. for all possible arguments see: [Text](https://typst.app/docs/reference/text/text/)
+Takes arguments to alter heading or body text.
+For all possible arguments see: [Text](https://typst.app/docs/reference/text/text/)
 
 ```typst
 "heading-text-args": (
@@ -85,7 +86,7 @@ set-theme(
 ### Default
 The default values of the theme. If nothing is specified by the user, these values will be chosen.
 ```typst
-default = (
+#let default = (
     "body-box-args": (
         inset: 0.6em,
         width: 100%,
@@ -99,7 +100,7 @@ default = (
     ),
     "heading-text-args": (
         fill: white,
-    )
+    ),
 )
 ```
 
