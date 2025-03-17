@@ -42,6 +42,9 @@ Most of the time, themes are meant to be set initially without any further alter
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;heading-box-args&amp;#34;: [dictionary],
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;heading-box-args-with-body&amp;#34;: [dictionary],
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;heading-box-function&amp;#34;: [function],
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#737994;font-style:italic">// Optional&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;title-box-args&amp;#34;: [dictionary]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;title-text-args&amp;#34;: [dictionary]
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>)
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;table>
  &lt;thead>
@@ -107,7 +110,8 @@ Most of the time, themes are meant to be set initially without any further alter
  &lt;code>heading-text-args&lt;/code> &amp;amp; &lt;code>body-text-args&lt;/code>
  &lt;a class="anchor" href="#heading-text-args--body-text-args">#&lt;/a>
 &lt;/h3>
-&lt;p>Takes arguments to alter heading or body text. for all possible arguments see: &lt;a href="https://typst.app/docs/reference/text/text/">Text&lt;/a>&lt;/p></description></item><item><title>Tips and Tricks</title><link>https://jonaspleyer.github.io/peace-of-posters/documentation/tips_and_tricks/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jonaspleyer.github.io/peace-of-posters/documentation/tips_and_tricks/</guid><description>&lt;h1 id="tips-and-tricks">
+&lt;p>Takes arguments to alter heading or body text.
+For all possible arguments see: &lt;a href="https://typst.app/docs/reference/text/text/">Text&lt;/a>&lt;/p></description></item><item><title>Tips and Tricks</title><link>https://jonaspleyer.github.io/peace-of-posters/documentation/tips_and_tricks/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jonaspleyer.github.io/peace-of-posters/documentation/tips_and_tricks/</guid><description>&lt;h1 id="tips-and-tricks">
  Tips and Tricks
  &lt;a class="anchor" href="#tips-and-tricks">#&lt;/a>
 &lt;/h1>
