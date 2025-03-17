@@ -6,15 +6,20 @@
 #set-poster-layout(layout-a3)
 #set text(font: "Arial", size: layout-a3.at("body-size"))
 
-#let box-spacing = 1.2em
-#set columns(gutter: box-spacing)
-#set block(spacing: box-spacing)
-
 // Here we can redefine the title box and headings of our regular column boxes
-#update-poster-layout(spacing: box-spacing)
+#let title_box_func(body, ..args) = {
+    rect(fill: black, inset: 1em)[#rect(body, ..args)]
+}
 #update-theme(
-    title-box-args: (fill: rgb(150, 0, 150), inset: 1.2em),
-    heading-box-args: (fill: rgb(120, 0, 200), inset: 0.6em, width: 100%)
+    title-box-args: (
+        fill: rgb(150, 0, 150),
+        inset: 1.2em
+    ),
+    title-box-function: title_box_func,
+    heading-box-args: (
+        fill: rgb(120, 0, 200),
+        inset: 0.6em, width: 100%
+    )
 )
 
 #title-box(
@@ -30,10 +35,21 @@
 
     #column-box(heading: [Code used to modify title and heading separately])[
         ```typst
-        #update-poster-layout(spacing: box-spacing)
+        #let title_box_func(body, ..args) = {
+            rect(fill: black, inset: 1em)[
+                #rect(body, ..args)
+            ]
+        }
         #update-theme(
-            title-box-args: (fill: rgb(150, 0, 150), inset: 1.2em),
-            heading-box-args: (fill: rgb(120, 0, 200), inset: 0.6em, width: 100%)
+            title-box-args: (
+                fill: rgb(150, 0, 150),
+                inset: 1.2em
+            ),
+            title-box-function: title_box_func,
+            heading-box-args: (
+                fill: rgb(120, 0, 200),
+                inset: 0.6em, width: 100%
+            )
         )
         ```
     ]
