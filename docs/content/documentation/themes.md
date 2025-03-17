@@ -15,6 +15,9 @@ theme = (
     "heading-box-args": [dictionary],
     "heading-box-args-with-body": [dictionary],
     "heading-box-function": [function],
+    // Optional
+    "title-box-args": [dictionary]
+    "title-text-args": [dictionary]
 )
 ```
 | Argument | Type | Default Value | Description |
@@ -46,6 +49,14 @@ This would ensure the heading text color is white (#FFFFFF) and the font family 
 )
 ```
 This would set body font family to `Ubuntu` with `Source Han Sans` as fallback.
+
+### Title Boxes
+
+Arguments for title boxes by default use arguments from the `heading-box-...` family.
+To alter this behaviour, we can set the `title-box-args`, `title-text-args` and `title-box-function`
+arguments in our theme.
+If left undefined, the previously mentioned values will be used.
+See [title-box](../../examples/title-box/main.pdf).
 
 ## Updating a Theme
 ```typst
