@@ -267,6 +267,7 @@
   context {
     let text-relative-width = text-relative-width
     /// Get theme and layout state
+    let pt = _state-poster-theme.at(here())
     let pl = _state-poster-layout.at(here())
 
     /// Layout specific options
@@ -303,6 +304,15 @@
       text-relative-width=100%
     }
 
+    let title-box-args = pt.at(
+        "title-box-args",
+        default: pt.at("heading-box-args", default: ())
+    )
+    let title-text-args = pt.at(
+        "title-text-args",
+        default: pt.at("heading-text-args", default: ())
+    )
+
     /// Finally construct the main rectangle
     common-box(heading:
       [
@@ -312,7 +322,10 @@
           box(text-content, width: text-relative-width),
           align(right, box(logo, width: 100% - spacing - text-relative-width))
         )
-      ])
+      ],
+      heading-box-args: title-box-args,
+      heading-text-args: title-text-args,
+    )
   }
 }
 
