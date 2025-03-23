@@ -71,9 +71,9 @@ Let's begin by simply making a smaller centered box.
 }
 ```
 
-Afterwards, we need to supply the new behaviour to `peace-of-posters` by setting the corresponding option in the [layout](/documentation/layout).
+Afterwards, we need to supply the new behaviour to `peace-of-posters` by setting the corresponding option in the [theme](/documentation/theme).
 ```typst
-#update-poster-layout(
+#update-theme(
     heading-box-function: my-custom-heading,
 )
 ```
