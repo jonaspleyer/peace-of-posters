@@ -248,9 +248,10 @@
     box([#box()[#stack(dir: ltr, [#stack(dir:ttb,
       heading-box,
       body-box,
-    )], [#box()[#box(width: 0pt, height: 0pt)#label(label-right)]<COLUMN-BOX-RIGHT>
-    ])#label(label-left)]<COLUMN-BOX-LEFT>])
-  }
+    )], [#box(width: 0pt, height: 0pt)[#box(width: 0pt, height: 0pt)#label-right]<COLUMN-BOX-RIGHT>
+    ])#label-left]<COLUMN-BOX-LEFT>])
+
+    _state-box-counter.update(count => count + 1)
 }
 
 
