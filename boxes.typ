@@ -37,16 +37,19 @@
 
   // If the intervals [b1-left.x, b1-right.x] and [b2-left.x, b2-right.x]
   // do not intersect, they will never intersect when stretching the box
+  // [-----]
+  //         [-----]
   if not ((b1l.at("x") <= b2r.at("x")) and (b2l.at("x") <= b1r.at("x"))) {
     return false
-  } else {
-  // If the x-intervals do intersect, 
-    return true
   }
 
   let p = b1-right.location().position()
   let q = b2-left.location().position()
+  ///  ---]
+  //    [---
   let filt1 = p.at("x") > q.at("x")
+  ///  [----]
+  //      [----]
   let filt2 = p.at("y") < q.at("y")
   let filt3 = b1-right.location().page() == b2-left.location().page()
   filt1 and filt2
