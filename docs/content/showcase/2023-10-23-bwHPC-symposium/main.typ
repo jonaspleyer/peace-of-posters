@@ -1,5 +1,5 @@
 /// IMPORT THE POSTERS PACKAGE
-#import "@preview/peace-of-posters:0.4.3" as pop
+#import "@preview/peace-of-posters:0.5.5" as pop
 
 // Define overall formatting defaults for the document.
 // These settings can be overwritten later on.
@@ -23,7 +23,7 @@
   [#box(inset: (bottom: -0.3em), image(height: 1.2em, "images/cellular_raza_dark_mode.svg")) - Novel Flexibility in Design of Agent-Based Models in Cellular Systems],
   authors: "Jonas Pleyer¹, Christian Fleck¹",
   institutes: "¹Freiburg Center for Data-Analysis and Modeling",
-  image: image("/UFR-Siegel-white.png"),
+  logo: image("UFR-Siegel-white.png"),
 )
 
 #pop.column-box()[
@@ -174,7 +174,7 @@
 
 	#pop.column-box(heading: "Sources", stretch-to-next: true)[
           #set text(size: 24pt)
-          #bibliography("/cellular_raza.bib", title: none)
+          #bibliography("cellular_raza.bib", title: none)
         ]
 ]
 
