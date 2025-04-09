@@ -109,14 +109,16 @@
     The English dialectal word culver appears to derive from Latin columba
     #cite(<wiki:Online_Etymology_Dictionary>).
     A group of doves is called a "dule", taken from the French word deuil ('mourning')
-    #cite(<Lipton1991-qa>).
+    @Lipton1991-qa.
+  ]
+
+  #pop.column-box()[
+    #bibliography("bibliography.bib")
   ]
 
   #pop.column-box(heading: "Fill space with a box", stretch-to-next: true)[
     Notice that this box would not fill the entire space up to the bottom of the page but we
     can stretch it such that it does so anyway.
-
-    #bibliography("bibliography.bib")
   ]
 ])
 
