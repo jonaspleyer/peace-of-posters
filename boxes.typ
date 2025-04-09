@@ -87,16 +87,15 @@
     .sorted(key: dist-filt => {dist-filt.at(2)})
 
   // If we found a target, expand towards this target
-  if target.len() > 0 {
-    let (dist, _, _) = target.first()
-    box-function(..r, height: dist)
+  let dist = if target.len() > 0 {
+    target.first().at(0)
   // Else determine the end of the page
   } else {
     let pl = _state-poster-layout.at(here())
     let (_, height) = pl.at("size")
-    let dist = height - m-loc.y - spacing
-    box-function(..r, height: dist)
+    height - m-loc.y - spacing
   }
+  box-function(..r, height: dist)
 }
 
 // A common box that makes up all other boxes
@@ -114,8 +113,7 @@
   stretch-to-next: false,
   spacing: none,
   bottom-box: false,
-) = {
-  context {
+) = context {
     let pt = _state-poster-theme.at(here())
     let pl = _state-poster-layout.at(here())
 
@@ -280,12 +278,11 @@
   authors-size: none,
   institutes-size: none,
   keywords-size: none,
-) = {
-  context {
+) = context {
     let text-relative-width = text-relative-width
     /// Get theme and layout state
-    let pt = _state-poster-theme.at(here())
-    let pl = _state-poster-layout.at(here())
+    let pt = _state-poster-theme.get()
+    let pl = _state-poster-layout.get()
 
     /// Layout specific options
     let title-size = if title-size==none {pl.at("title-size")} else {title-size}
@@ -348,7 +345,6 @@
       heading-text-args: title-text-args,
       heading-box-function: title-box-function,
     )
-  }
 }
 
 #let bottom-box(body, text-relative-width: 70%, logo: none, ..args) = {
