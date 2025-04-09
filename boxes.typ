@@ -55,6 +55,9 @@
   filt1 and filt2
 }
 
+#let gen-label-left(box-counter) = label("COLUMN-BOX-LEFT-" + str(box-counter))
+#let gen-label-right(box-counter) = label("COLUMN-BOX-RIGHT-" + str(box-counter))
+
 #let stretch-box-to-next(
   label-left,
   label-right,
@@ -69,8 +72,8 @@
   let b2 = query(label("COLUMN-BOX-RIGHT"))
 
   let cb = (
-    query(label(label-left)).first(),
-    query(label(label-right)).first()
+    query(gen-label-left(box-counter)).first(),
+    query(gen-label-right(box-counter)).first()
   )
 
   let target = b1
@@ -219,10 +222,9 @@
       )[#body]
     }
 
-    let box-counter = _state-box-counter.at(here())
-    let label-left = "COLUMN-BOX-RIGHT-" + str(box-counter)
-    let label-right = "COLUMN-BOX-LEFT-" + str(box-counter)
-    _state-box-counter.update(count => count + 1)
+    let box-counter = _state-box-counter.get()
+    let label-left = gen-label-left(box-counter)
+    let label-right = gen-label-right(box-counter)
 
     /// #####################################################
     /// ##################### COMBINE #######################
