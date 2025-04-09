@@ -1,6 +1,8 @@
 #import "themes.typ": *
 #import "layouts.typ": *
 
+#let _state-box-counter = state("box-counter", 0)
+
 #let _calculate-width(b1, b2) = {
   // Get positions and width of box
   let p1 = b1.location().position()
@@ -208,6 +210,11 @@
       )[#body]
     }
 
+    let box-counter = _state-box-counter.at(here())
+    let label-left = "COLUMN-BOX-RIGHT-" + str(box-counter)
+    let label-right = "COLUMN-BOX-LEFT-" + str(box-counter)
+    _state-box-counter.update(count => count + 1)
+
     /// #####################################################
     /// ##################### COMBINE #######################
     /// #####################################################
@@ -231,10 +238,11 @@
         )
       }
     }
-    box([#stack(dir: ltr, [#stack(dir:ttb,
+    box([#box()[#stack(dir: ltr, [#stack(dir:ttb,
       heading-box,
       body-box,
-    )], [#box(width: 0pt, height: 0pt)<COLUMN-BOX-RIGHT>])<COLUMN-BOX>])
+    )], [#box()[#box(width: 0pt, height: 0pt)#label(label-right)]<COLUMN-BOX-RIGHT>
+    ])#label(label-left)]<COLUMN-BOX-LEFT>])
   }
 }
 
