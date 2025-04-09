@@ -59,10 +59,8 @@
 #let gen-label-right(box-counter) = label("COLUMN-BOX-RIGHT-" + str(box-counter))
 
 #let stretch-box-to-next(
-  label-left,
-  label-right,
+  box-counter,
   box-function,
-  location-heading-box,
   spacing: 1.2em,
   ..r
 ) = context {
@@ -233,20 +231,16 @@
     if stretch-to-next==true {
       if body!=none {
         body-box = stretch-box-to-next(
-          label-left,
-          label-right,
+          box-counter,
           body-box-function,
-          here(),
           spacing: spacing,
           body,
           ..body-box-args,
         )
       } else {
         heading-box = stretch-box-to-next(
-          label-left,
-          label-right,
+          box-counter,
           heading-box-function,
-          here(),
           spacing: spacing,
           heading,
           ..heading-box-args,
