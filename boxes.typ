@@ -52,17 +52,23 @@
   filt1 and filt2
 }
 
-#let stretch-box-to-next(box-function, location-heading-box, spacing: 1.2em, ..r) = context {
+#let stretch-box-to-next(
+  label-left,
+  label-right,
+  box-function,
+  location-heading-box,
+  spacing: 1.2em,
+  ..r
+) = context {
   // Get current y location
   let m-loc = here().position()
-  let b1 = query(<COLUMN-BOX>)
-  let b2 = query(<COLUMN-BOX-RIGHT>)
+  let b1 = query(label("COLUMN-BOX-LEFT"))
+  let b2 = query(label("COLUMN-BOX-RIGHT"))
 
-  // Find current box in all these queries
-  let cb = b1.zip(b2).filter(b => {
-    let (c-box, c-box-end) = b
-    c-box.location().position() == location-heading-box.position()
-  }).first()
+  let cb = (
+    query(label(label-left)).first(),
+    query(label(label-right)).first()
+  )
 
   let target = b1
     .zip(b2)
@@ -222,6 +228,8 @@
     if stretch-to-next==true {
       if body!=none {
         body-box = stretch-box-to-next(
+          label-left,
+          label-right,
           body-box-function,
           here(),
           spacing: spacing,
@@ -230,6 +238,8 @@
         )
       } else {
         heading-box = stretch-box-to-next(
+          label-left,
+          label-right,
           heading-box-function,
           here(),
           spacing: spacing,
