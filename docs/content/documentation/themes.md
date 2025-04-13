@@ -82,7 +82,7 @@ set-theme(
 )
 ```
 
-## Example Themes
+## List of Themes
 ### Default
 The default values of the theme. If nothing is specified by the user, these values will be chosen.
 ```typst
@@ -121,6 +121,29 @@ A theme surrounding colors specifically chosen in complience with the corporate 
     ),
     "heading-text-args": (
         fill: white,
+    ),
+)
+```
+
+### Paul Scherrer Institute
+A theme for the [Paul Scherrer Institute](https://www.psi.ch/en).
+See also [this PR](https://github.com/jonaspleyer/peace-of-posters/pull/3).
+```typst
+#let psi-ch = (
+    "body-box-args": (
+        inset: (x: 0.0em, y: 0.6em),
+        width: 100%,
+        stroke: none,
+    ),
+    "body-text-args": (:),
+    "heading-box-args": (
+        inset: 0em,
+        width: 100%,
+        stroke: none,
+    ),
+    "heading-text-args": (
+        fill: rgb("#dc005a"),
+        weight: "bold",
     ),
 )
 ```
