@@ -147,3 +147,29 @@ See also [this PR](https://github.com/jonaspleyer/peace-of-posters/pull/3).
     ),
 )
 ```
+
+### University of Queensland
+A theme for the [University of Queensland](https://uq.edu.au/). Based on the EECS [thesis poster template](https://eecs.uq.edu.au/current-students/thesis-coursework-information/assessment).
+
+```typst
+#let uq = (
+    "body-box-args": (
+        inset: 0.6em,
+        width: 100%,
+        stroke: none,
+        fill: rgb("#efedea")
+    ),
+    "body-text-args": (:),
+    "heading-box-args": (
+        inset: 0.6em,
+        width: 100%,
+        fill: rgb("#e6e2e0"),
+    ),
+    "heading-text-args": (
+        fill: gradient.linear(rgb("#51247a"), rgb("#962a8b")),
+    ),
+    "title-text-args": (
+        fill: gradient.linear(rgb("#51247a"), rgb("#962a8b")),
+    )
+)
+```
