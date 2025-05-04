@@ -50,6 +50,27 @@
     ),
 )
 
+#let uq = (
+    "body-box-args": (
+        inset: 0.6em,
+        width: 100%,
+        stroke: none,
+        fill: rgb("#efedea")
+    ),
+    "body-text-args": (:),
+    "heading-box-args": (
+        inset: 0.6em,
+        width: 100%,
+        fill: rgb("#e6e2e0"),
+    ),
+    "heading-text-args": (
+        fill: gradient.linear(rgb("#51247a"), rgb("#962a8b")),
+    ),
+    "title-text-args": (
+        fill: gradient.linear(rgb("#51247a"), rgb("#962a8b")),
+    )
+)
+
 #let update-theme(..args) = {
     for (arg, val) in args.named() {
         _state-poster-theme.update(pt => {
