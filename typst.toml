@@ -12,4 +12,4 @@ categories = ["poster"]
 [template]
 path = "templates/pop-uni-fr-poster"
 entrypoint = "main.typ"
-thumbnail = "templates/pop-uni-fr-poster/thumbnail.png"
+thumbnail = "templates/pop-uni-fr-poster/pop-thumbnail.png"
