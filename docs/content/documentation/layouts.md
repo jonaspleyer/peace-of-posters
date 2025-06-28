@@ -28,6 +28,7 @@ You can easily change this by using the `set-layout` function below.
 | `title-size` | [length] |`75pt` | Size of the title. |
 | `subtitle-size` | [length] |`60pt` | Size of the subtitle. |
 | `authors-size` | [length] |`50pt` | Size of the authors. |
+| `institutes-size` | [length] |`45pt` | Size of the institutes. |
 | `keywords-size` | [length] |`40pt` | Size of the keywords. |
 
 
@@ -49,13 +50,13 @@ set-poster-layout(
 ## Example Layouts
 ### Default
 ```typst
-#let default-layout = (
+#let _default-layout = (
     "spacing": 1.2em,
 )
 ```
 ### A0
 ```typst
-#let layout-a0 = default-layout + (
+#let layout-a0 = _default-layout + (
     "paper":            "a0",
     "size":             (841mm, 1188mm),
     "body-size":        33pt,
@@ -63,12 +64,13 @@ set-poster-layout(
     "title-size":       75pt,
     "subtitle-size":    60pt,
     "authors-size":     50pt,
+    "institutes-size":  45pt,
     "keywords-size":    40pt,
 )
 ```
 ### A1
 ```typst
-#let layout-a1 = default-layout + (
+#let layout-a1 = _default-layout + (
     "paper":            "a1",
     "size":             (594mm, 841mm),
     "body-size":        27pt,
@@ -76,12 +78,13 @@ set-poster-layout(
     "title-size":       61pt,
     "subtitle-size":    49pt,
     "authors-size":     41pt,
+    "institutes-size":  37pt,
     "keywords-size":    33pt,
 )
 ```
 ### A2
 ```typst
-#let layout-a2 = default-layout + (
+#let layout-a2 = _default-layout + (
     "paper":            "a2",
     "size":             (420mm, 594mm),
     "body-size":        20pt,
@@ -89,12 +92,13 @@ set-poster-layout(
     "title-size":       47pt,
     "subtitle-size":    38pt,
     "authors-size":     31pt,
+    "institutes-size":  28pt,
     "keywords-size":    25pt,
 )
 ```
 ### A3
 ```typst
-#let layout-a3 = default-layout + (
+#let layout-a3 = _default-layout + (
     "paper":            "a3",
     "size":             (297mm, 420mm),
     "body-size":        14pt,
@@ -102,12 +106,13 @@ set-poster-layout(
     "title-size":       32pt,
     "subtitle-size":    26pt,
     "authors-size":     22pt,
+    "institutes-size":  20pt,
     "keywords-size":    18pt,
 )
 ```
 ### A4
 ```typst
-#let layout-a4 = default-layout + (
+#let layout-a4 = _default-layout + (
     "paper":            "a4",
     "size":             (210mm, 297mm),
     "body-size":        8pt,
@@ -115,6 +120,7 @@ set-poster-layout(
     "title-size":       18pt,
     "subtitle-size":    15pt,
     "authors-size":     12pt,
+    "institutes-size":  11pt,
     "keywords-size":    10pt,
 )
 ```
