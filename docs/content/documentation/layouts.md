@@ -49,13 +49,13 @@ set-poster-layout(
 ## Example Layouts
 ### Default
 ```typst
-#let -default-layout = (
+#let default-layout = (
     "spacing": 1.2em,
 )
 ```
 ### A0
 ```typst
-#let layout-a0 = -default-layout + (
+#let layout-a0 = default-layout + (
     "paper":            "a0",
     "size":             (841mm, 1188mm),
     "body-size":        33pt,
@@ -68,7 +68,7 @@ set-poster-layout(
 ```
 ### A1
 ```typst
-#let layout-a1 = -default-layout + (
+#let layout-a1 = default-layout + (
     "paper":            "a1",
     "size":             (594mm, 841mm),
     "body-size":        27pt,
@@ -81,7 +81,7 @@ set-poster-layout(
 ```
 ### A2
 ```typst
-#let layout-a2 = -default-layout + (
+#let layout-a2 = default-layout + (
     "paper":            "a2",
     "size":             (420mm, 594mm),
     "body-size":        20pt,
@@ -94,7 +94,7 @@ set-poster-layout(
 ```
 ### A3
 ```typst
-#let layout-a3 = -default-layout + (
+#let layout-a3 = default-layout + (
     "paper":            "a3",
     "size":             (297mm, 420mm),
     "body-size":        14pt,
@@ -107,7 +107,7 @@ set-poster-layout(
 ```
 ### A4
 ```typst
-#let layout-a4 = -default-layout + (
+#let layout-a4 = default-layout + (
     "paper":            "a4",
     "size":             (210mm, 297mm),
     "body-size":        8pt,
