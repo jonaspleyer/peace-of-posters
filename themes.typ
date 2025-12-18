@@ -71,7 +71,7 @@
     )
 )
 
-#let tug = (
+#let tu-graz = (
   "body-box-args": (
     inset: 1em,
     width: 100%,
