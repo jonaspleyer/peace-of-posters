@@ -12,7 +12,7 @@ To see what is possible, have a look at the [showcase](https://jonaspleyer.githu
 
 ## Documentation
 Use the external [documentation](https://jonaspleyer.github.io/peace-of-posters/) built with [HUGO](https://gohugo.io/).
-If would like to contribute and showcase your own poster, feel free to open a [PR](https://github.com/jonaspleyer/peace-of-posters/compare).
+If you would like to contribute and showcase your own poster, feel free to open a [PR](https://github.com/jonaspleyer/peace-of-posters/compare).
 
 ## License
 Download the [MIT License](https://www.mit.edu/~amini/LICENSE.md)
