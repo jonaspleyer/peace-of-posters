@@ -105,6 +105,38 @@
   ),
 )
 
+#let black-white = (
+  "body-box-args": (
+    inset: 0.6em,
+    width: 100%,
+    fill: white,
+    stroke: none,
+  ),
+  "body-text-args": (
+    fill: black,
+  ),
+  "heading-box-args": (
+    inset: 0.6em,
+    width: 100%,
+    fill: white,
+    stroke: none,
+  ),
+  "heading-text-args": (
+    fill: black,
+    weight: "bold",
+  ),
+  "title-box-args": (
+    inset: (x:2em, y:2em),
+    width: 100%,
+    fill: black,
+    stroke: none
+  ),
+  "title-text-args": (
+    fill: white,
+    weight: "bold",
+  ),
+)
+
 
 #let update-theme(..args) = {
     for (arg, val) in args.named() {
