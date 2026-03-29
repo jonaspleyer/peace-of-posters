@@ -1,5 +1,5 @@
 +++
-title = 'TODO'
+title = '2026-TULCON'
 date = 2026-03-24
 file_path = "main.pdf"
 code_path = "main.typ"
