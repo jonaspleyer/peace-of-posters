@@ -1,74 +1,74 @@
 #let _state-poster-theme = state("poster-theme", (
-    "body-box-args": (
-        inset: 0.6em,
-        width: 100%,
-    ),
-    "body-text-args": (:),
-    "heading-box-args": (
-        inset: 0.6em,
-        width: 100%,
-        fill: rgb(50, 50, 50),
-        stroke: rgb(25, 25, 25),
-    ),
-    "heading-text-args": (
-        fill: white,
-    ),
+  "body-box-args": (
+    inset: 0.6em,
+    width: 100%,
+  ),
+  "body-text-args": (:),
+  "heading-box-args": (
+    inset: 0.6em,
+    width: 100%,
+    fill: rgb(50, 50, 50),
+    stroke: rgb(25, 25, 25),
+  ),
+  "heading-text-args": (
+    fill: white,
+  ),
 ))
 
 #let uni-fr = (
-    "body-box-args": (
-        inset: 0.6em,
-        width: 100%,
-    ),
-    "body-text-args": (:),
-    "heading-box-args": (
-        inset: 0.6em,
-        width: 100%,
-        fill: rgb("#1d154d"),
-        stroke: rgb("#1d154d"),
-    ),
-    "heading-text-args": (
-        fill: white,
-    ),
+  "body-box-args": (
+    inset: 0.6em,
+    width: 100%,
+  ),
+  "body-text-args": (:),
+  "heading-box-args": (
+    inset: 0.6em,
+    width: 100%,
+    fill: rgb("#1d154d"),
+    stroke: rgb("#1d154d"),
+  ),
+  "heading-text-args": (
+    fill: white,
+  ),
 )
 
 #let psi-ch = (
-    "body-box-args": (
-        inset: (x: 0.0em, y: 0.6em),
-        width: 100%,
-        stroke: none,
-    ),
-    "body-text-args": (:),
-    "heading-box-args": (
-        inset: 0em,
-        width: 100%,
-        stroke: none,
-    ),
-    "heading-text-args": (
-        fill: rgb("#dc005a"),
-        weight: "bold",
-    ),
+  "body-box-args": (
+    inset: (x: 0.0em, y: 0.6em),
+    width: 100%,
+    stroke: none,
+  ),
+  "body-text-args": (:),
+  "heading-box-args": (
+    inset: 0em,
+    width: 100%,
+    stroke: none,
+  ),
+  "heading-text-args": (
+    fill: rgb("#dc005a"),
+    weight: "bold",
+  ),
 )
 
 #let uq = (
-    "body-box-args": (
-        inset: 0.6em,
-        width: 100%,
-        stroke: none,
-        fill: rgb("#efedea")
-    ),
-    "body-text-args": (:),
-    "heading-box-args": (
-        inset: 0.6em,
-        width: 100%,
-        fill: rgb("#e6e2e0"),
-    ),
-    "heading-text-args": (
-        fill: gradient.linear(rgb("#51247a"), rgb("#962a8b")),
-    ),
-    "title-text-args": (
-        fill: gradient.linear(rgb("#51247a"), rgb("#962a8b")),
-    )
+  "body-box-args": (
+    inset: 0.6em,
+    width: 100%,
+    stroke: none,
+    fill: rgb("#efedea"),
+  ),
+  "body-text-args": (:),
+  "heading-box-args": (
+    inset: 0.6em,
+    width: 100%,
+    fill: rgb("#e6e2e0"),
+  ),
+  "heading-text-args": (
+    fill: gradient.linear(rgb("#51247a"), rgb("#962a8b")),
+  ),
+  "title-text-args": (
+    fill: gradient.linear(rgb("#51247a"), rgb("#962a8b")),
+  ),
 )
 
 #let tu-graz = (
@@ -126,10 +126,10 @@
     weight: "bold",
   ),
   "title-box-args": (
-    inset: (x:2em, y:2em),
+    inset: (x: 2em, y: 2em),
     width: 100%,
     fill: black,
-    stroke: none
+    stroke: none,
   ),
   "title-text-args": (
     fill: white,
@@ -139,17 +139,17 @@
 
 
 #let update-theme(..args) = {
-    for (arg, val) in args.named() {
-        _state-poster-theme.update(pt => {
-            pt.insert(arg, val)
-            pt
-        })
-    }
+  for (arg, val) in args.named() {
+    _state-poster-theme.update(pt => {
+      pt.insert(arg, val)
+      pt
+    })
+  }
 }
 
 #let set-theme(theme) = {
-    _state-poster-theme.update(pt => {
-        pt=theme
-        pt
-    })
+  _state-poster-theme.update(pt => {
+    pt = theme
+    pt
+  })
 }

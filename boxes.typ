@@ -62,7 +62,7 @@
   box-counter,
   box-function,
   spacing: 1.2em,
-  ..r
+  ..r,
 ) = context {
   // Get current y location
   let m-loc = here().position()
@@ -71,7 +71,7 @@
 
   let cb = (
     query(gen-label-left(box-counter)).first(),
-    query(gen-label-right(box-counter)).first()
+    query(gen-label-right(box-counter)).first(),
   )
 
   let target = b1
@@ -82,14 +82,14 @@
       let filt = _boxes-would-intersect(cb.at(0), cb.at(1), c-box, c-box-end)
       let (dist, dist-without-spacing) = _calculate-vertical-distance(m-loc, c-box, spacing)
       (dist, filt, dist-without-spacing)
-      })
-    .filter(dist-filt => {dist-filt.at(1) and dist-filt.at(2) > 0.0mm})
-    .sorted(key: dist-filt => {dist-filt.at(2)})
+    })
+    .filter(dist-filt => { dist-filt.at(1) and dist-filt.at(2) > 0.0mm })
+    .sorted(key: dist-filt => { dist-filt.at(2) })
 
   // If we found a target, expand towards this target
   let dist = if target.len() > 0 {
     target.first().at(0)
-  // Else determine the end of the page
+    // Else determine the end of the page
   } else {
     let pl = _state-poster-layout.at(here())
     let (_, height) = pl.at("size")
@@ -114,151 +114,151 @@
   spacing: none,
   bottom-box: false,
 ) = context {
-    let pt = _state-poster-theme.at(here())
-    let pl = _state-poster-layout.at(here())
+  let pt = _state-poster-theme.at(here())
+  let pl = _state-poster-layout.at(here())
 
-    let spacing = if spacing==none {pl.at("spacing")} else {spacing}
+  let spacing = if spacing == none { pl.at("spacing") } else { spacing }
 
-    /// #####################################################
-    /// ###################### HEADING ######################
-    /// #####################################################
-    // Sort out arguments for heading box
-    let heading-box-args = heading-box-args
-    if heading-box-args==none {
-      heading-box-args = pt.at("heading-box-args", default: (:))
-      if body!=none {
-        heading-box-args = pt.at("heading-box-args-with-body", default: heading-box-args)
-      }
+  /// #####################################################
+  /// ###################### HEADING ######################
+  /// #####################################################
+  // Sort out arguments for heading box
+  let heading-box-args = heading-box-args
+  if heading-box-args == none {
+    heading-box-args = pt.at("heading-box-args", default: (:))
+    if body != none {
+      heading-box-args = pt.at("heading-box-args-with-body", default: heading-box-args)
     }
+  }
 
-    // Sort out arguments for heading text
-    let heading-text-args = heading-text-args
-    if heading-text-args==none {
-      heading-text-args = pt.at("heading-text-args", default: (:))
-      if body!=none {
-        heading-text-args = pt.at("heading-text-args-with-body", default: heading-text-args)
-      }
+  // Sort out arguments for heading text
+  let heading-text-args = heading-text-args
+  if heading-text-args == none {
+    heading-text-args = pt.at("heading-text-args", default: (:))
+    if body != none {
+      heading-text-args = pt.at("heading-text-args-with-body", default: heading-text-args)
     }
+  }
 
-    // Define which function to use for heading box
-    let heading-box-function = heading-box-function
-    if heading-box-function==none {
-      heading-box-function = pt.at("heading-box-function", default: rect)
-    }
+  // Define which function to use for heading box
+  let heading-box-function = heading-box-function
+  if heading-box-function == none {
+    heading-box-function = pt.at("heading-box-function", default: rect)
+  }
 
-    // Determine the size of the heading
-    let heading-size = pl.at("heading-size", default: heading-size)
-    if heading-size!=none {
-      heading-text-args.insert("size", heading-size)
-    }
+  // Determine the size of the heading
+  let heading-size = pl.at("heading-size", default: heading-size)
+  if heading-size != none {
+    heading-text-args.insert("size", heading-size)
+  }
 
-    /// CONSTRUCT HEADING IF NOT EMPTY
-    let heading-box = box(width: 0%, height: 0%)
-    let heading = if heading!=none {
-      [
-        #set text(..heading-text-args)
-        #heading
-      ]
-    } else {
-      none
-    }
+  /// CONSTRUCT HEADING IF NOT EMPTY
+  let heading-box = box(width: 0%, height: 0%)
+  let heading = if heading != none {
+    [
+      #set text(..heading-text-args)
+      #heading
+    ]
+  } else {
+    none
+  }
 
-    if heading!=none {
-      heading-box = heading-box-function(
-        ..heading-box-args,
-      )[#heading]
-    }
+  if heading != none {
+    heading-box = heading-box-function(
+      ..heading-box-args,
+    )[#heading]
+  }
 
-    /// #####################################################
-    /// ####################### BODY ########################
-    /// #####################################################
-    // Sort out arguments for body box
-    let body-box-args = body-box-args
-    if body-box-args==none {
-      body-box-args = pt.at("body-box-args", default: (:))
-      if heading==none {
-        body-box-args = pt.at("body-box-args-with-heading", default: body-box-args)
-      }
+  /// #####################################################
+  /// ####################### BODY ########################
+  /// #####################################################
+  // Sort out arguments for body box
+  let body-box-args = body-box-args
+  if body-box-args == none {
+    body-box-args = pt.at("body-box-args", default: (:))
+    if heading == none {
+      body-box-args = pt.at("body-box-args-with-heading", default: body-box-args)
     }
+  }
 
-    // Sort out arguments for body text
-    let body-text-args = body-text-args
-    if body-text-args==none {
-      body-text-args = pt.at("body-text-args", default: (:))
-      if heading==none {
-        body-text-args = pt.at("body-text-args-with-heading", default: body-text-args)
-      }
+  // Sort out arguments for body text
+  let body-text-args = body-text-args
+  if body-text-args == none {
+    body-text-args = pt.at("body-text-args", default: (:))
+    if heading == none {
+      body-text-args = pt.at("body-text-args-with-heading", default: body-text-args)
     }
+  }
 
-    // Define which function to use for body box
-    let body-box-function = body-box-function
-    if body-box-function==none {
-      body-box-function = pt.at("body-box-function", default: rect)
-    }
+  // Define which function to use for body box
+  let body-box-function = body-box-function
+  if body-box-function == none {
+    body-box-function = pt.at("body-box-function", default: rect)
+  }
 
-    // Determine the size of the body
-    let body-size = pl.at("body-size", default: body-size)
-    if body-size!=none {
-      body-text-args.insert("size", body-size)
-    }
+  // Determine the size of the body
+  let body-size = pl.at("body-size", default: body-size)
+  if body-size != none {
+    body-text-args.insert("size", body-size)
+  }
 
-    /// CONSTRUCT BODY IF NOT EMPTY
-    let body-box = box(width: 0%, height: 0%)
-    let body = if body!=none {
-      [
-        #set text(..body-text-args)
-        #body
-      ]
-    } else {
-      none
-    }
-    if body!=none {
-      body-box = body-box-function(
+  /// CONSTRUCT BODY IF NOT EMPTY
+  let body-box = box(width: 0%, height: 0%)
+  let body = if body != none {
+    [
+      #set text(..body-text-args)
+      #body
+    ]
+  } else {
+    none
+  }
+  if body != none {
+    body-box = body-box-function(
+      ..body-box-args,
+    )[#body]
+  }
+
+  let box-counter = _state-box-counter.get()
+  let label-left = gen-label-left(box-counter)
+  let label-right = gen-label-right(box-counter)
+
+  /// #####################################################
+  /// ##################### COMBINE #######################
+  /// #####################################################
+  /// IF THIS BOX SHOULD BE STRETCHED TO THE NEXT POSSIBLE POINT WE HAVE TO ADJUST ITS SIZE
+  if stretch-to-next == true {
+    if body != none {
+      body-box = stretch-box-to-next(
+        box-counter,
+        body-box-function,
+        spacing: spacing,
+        body,
         ..body-box-args,
-      )[#body]
+      )
+    } else {
+      heading-box = stretch-box-to-next(
+        box-counter,
+        heading-box-function,
+        spacing: spacing,
+        heading,
+        ..heading-box-args,
+      )
     }
-
-    let box-counter = _state-box-counter.get()
-    let label-left = gen-label-left(box-counter)
-    let label-right = gen-label-right(box-counter)
-
-    /// #####################################################
-    /// ##################### COMBINE #######################
-    /// #####################################################
-    /// IF THIS BOX SHOULD BE STRETCHED TO THE NEXT POSSIBLE POINT WE HAVE TO ADJUST ITS SIZE
-    if stretch-to-next==true {
-      if body!=none {
-        body-box = stretch-box-to-next(
-          box-counter,
-          body-box-function,
-          spacing: spacing,
-          body,
-          ..body-box-args,
-        )
-      } else {
-        heading-box = stretch-box-to-next(
-          box-counter,
-          heading-box-function,
-          spacing: spacing,
-          heading,
-          ..heading-box-args,
-        )
-      }
-    }
-    box([#box()[#stack(dir: ltr, [#stack(dir:ttb,
-      heading-box,
-      body-box,
-    )], [#box(width: 0pt, height: 0pt)[#box(width: 0pt, height: 0pt)#label-right]<COLUMN-BOX-RIGHT>
+  }
+  box([#box()[#stack(dir: ltr, [#stack(dir: ttb, heading-box, body-box)], [#box(
+        width: 0pt,
+        height: 0pt,
+      )[#box(width: 0pt, height: 0pt)#label-right]<COLUMN-BOX-RIGHT>
     ])#label-left]<COLUMN-BOX-LEFT>])
 
-    _state-box-counter.update(count => count + 1)
+  _state-box-counter.update(count => count + 1)
 }
 
 
 // Write a function to creata a box with heading
 #let column-box(
   body,
-  ..args
+  ..args,
 ) = {
   common-box(body: body, ..args)
 }
@@ -280,84 +280,85 @@
   institutes-size: none,
   keywords-size: none,
 ) = context {
-    let text-relative-width = text-relative-width
-    /// Get theme and layout state
-    let pt = _state-poster-theme.get()
-    let pl = _state-poster-layout.get()
+  let text-relative-width = text-relative-width
+  /// Get theme and layout state
+  let pt = _state-poster-theme.get()
+  let pl = _state-poster-layout.get()
 
-    /// Layout specific options
-    let title-size = if title-size==none {pl.at("title-size")} else {title-size}
-    let subtitle-size = if subtitle-size==none {pl.at("subtitle-size")} else {subtitle-size}
-    let authors-size = if authors-size==none {pl.at("authors-size")} else {authors-size}
-    let institutes-size = if institutes-size==none {pl.at("institutes-size")} else {
-        institutes-size
-    }
-    let keywords-size = if keywords-size==none {pl.at("keywords-size")} else {keywords-size}
+  /// Layout specific options
+  let title-size = if title-size == none { pl.at("title-size") } else { title-size }
+  let subtitle-size = if subtitle-size == none { pl.at("subtitle-size") } else { subtitle-size }
+  let authors-size = if authors-size == none { pl.at("authors-size") } else { authors-size }
+  let institutes-size = if institutes-size == none { pl.at("institutes-size") } else {
+    institutes-size
+  }
+  let keywords-size = if keywords-size == none { pl.at("keywords-size") } else { keywords-size }
 
-    /// Generate body of box
-    let text-content = [
-      #set text(size: title-size)
-      #title\
-      #set text(size: subtitle-size)
-      #if subtitle!=none {[#subtitle\ ]}
-      #v(1.25em, weak: true)
-      #set text(size: authors-size)
-      #if authors!=none {[#authors\ ]}
-      #if institutes!=none {[
+  /// Generate body of box
+  let text-content = [
+    #set text(size: title-size)
+    #title\
+    #set text(size: subtitle-size)
+    #if subtitle != none { [#subtitle\ ] }
+    #v(1.25em, weak: true)
+    #set text(size: authors-size)
+    #if authors != none { [#authors\ ] }
+    #if institutes != none {
+      [
         #set text(size: institutes-size)
         #institutes
-      ]}
-      #if keywords!=none {[
+      ]
+    }
+    #if keywords != none {
+      [
         #v(1em, weak: true)
         #set text(size: keywords-size)
         #keywords
-      ]}
-    ]
-
-    /// Expand to full width of no image is specified
-    if logo==none {
-      text-relative-width=100%
+      ]
     }
+  ]
 
-    let title-box-args = pt.at(
-        "title-box-args",
-        default: pt.at("heading-box-args", default: ())
-    )
-    let title-text-args = pt.at(
-        "title-text-args",
-        default: pt.at("heading-text-args", default: ())
-    )
-    let title-box-function = pt.at(
-        "title-box-function",
-        default: rect,
-    )
+  /// Expand to full width of no image is specified
+  if logo == none {
+    text-relative-width = 100%
+  }
 
-    /// Finally construct the main rectangle
-    common-box(heading:
-      [
-        #background
-        #v(-measure(background).height)
-        #stack(dir: ltr,
-          box(text-content, width: text-relative-width),
-          align(right, box(logo, width: 100% - spacing - text-relative-width))
-        )
-      ],
-      heading-box-args: title-box-args,
-      heading-text-args: title-text-args,
-      heading-box-function: title-box-function,
-    )
+  let title-box-args = pt.at(
+    "title-box-args",
+    default: pt.at("heading-box-args", default: ()),
+  )
+  let title-text-args = pt.at(
+    "title-text-args",
+    default: pt.at("heading-text-args", default: ()),
+  )
+  let title-box-function = pt.at(
+    "title-box-function",
+    default: rect,
+  )
+
+  /// Finally construct the main rectangle
+  common-box(
+    heading: [
+      #background
+      #v(-measure(background).height)
+      #stack(dir: ltr, box(text-content, width: text-relative-width), align(right, box(
+        logo,
+        width: 100% - spacing - text-relative-width,
+      )))
+    ],
+    heading-box-args: title-box-args,
+    heading-text-args: title-text-args,
+    heading-box-function: title-box-function,
+  )
 }
 
 #let bottom-box(body, text-relative-width: 70%, logo: none, ..args) = {
   let body = [
-    #set align(top+left)
-    #if logo==none {
+    #set align(top + left)
+    #if logo == none {
       box(width: 100%, body)
     } else {
-      stack(dir: ltr,
-        box(width: text-relative-width, body),
-        align(right+horizon, logo),
-      )
+      stack(dir: ltr, box(width: text-relative-width, body), align(right + horizon, logo))
     }
   ]
   let r = common-box(heading: body, bottom-box: true, ..args)
@@ -365,8 +366,14 @@
 }
 
 /// TODO
-#let bibliography-box(bib-file, body-size: 24pt, title: none, style: "ieee", stretch-to-next: false) = {
-  if title==none {
+#let bibliography-box(
+  bib-file,
+  body-size: 24pt,
+  title: none,
+  style: "ieee",
+  stretch-to-next: false,
+) = {
+  if title == none {
     title = "References"
   }
   column-box(heading: title, stretch-to-next: stretch-to-next)[
