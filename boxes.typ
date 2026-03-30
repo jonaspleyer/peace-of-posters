@@ -92,7 +92,7 @@
     // Else determine the end of the page
   } else {
     let pl = _state-poster-layout.at(here())
-    let (_, height) = pl.at("size")
+    let height = page.height
     height - m-loc.y - spacing
   }
   box-function(..r, height: dist)

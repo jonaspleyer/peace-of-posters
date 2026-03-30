@@ -7,7 +7,6 @@
   _default-layout
     + (
       "paper": "a0",
-      "size": (841mm, 1188mm),
       "body-size": 33pt,
       "heading-size": 50pt,
       "title-size": 75pt,
@@ -23,7 +22,6 @@
   _default-layout
     + (
       "paper": "a1",
-      "size": (594mm, 841mm),
       "body-size": 27pt,
       "heading-size": 41pt,
       "title-size": 61pt,
@@ -39,7 +37,6 @@
   _default-layout
     + (
       "paper": "a2",
-      "size": (420mm, 594mm),
       "body-size": 20pt,
       "heading-size": 31pt,
       "title-size": 47pt,
@@ -55,7 +52,6 @@
   _default-layout
     + (
       "paper": "a3",
-      "size": (297mm, 420mm),
       "body-size": 14pt,
       "heading-size": 22pt,
       "title-size": 32pt,
@@ -71,7 +67,6 @@
   _default-layout
     + (
       "paper": "a4",
-      "size": (210mm, 297mm),
       "body-size": 8pt,
       "heading-size": 12pt,
       "title-size": 18pt,
