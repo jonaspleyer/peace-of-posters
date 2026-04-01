@@ -1,7 +1,7 @@
 ---
 title: Showcase
 type: docs
-weight: 30
+weight: 10
 ---
 
 # Showcase
