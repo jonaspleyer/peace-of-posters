@@ -17,7 +17,7 @@
   logo: circle(image("peace-dove.png"), fill: white, inset: -10pt),
 )
 
-#columns(2,[
+#columns(2, [
   #pop.column-box(heading: "Columbidae")[
     'Columbidae is a bird family consisting of doves and pigeons.
     It is the only family in the order Columbiformes.'
@@ -47,15 +47,15 @@
     #table(
       columns: (auto, 1fr),
       inset: 0.5cm,
-      stroke: (x, y) => if y >= 0 {(bottom: 0.2pt + black)},
-      [Domain],[Eukaryota],
-      [Kingdom],[Animalia],
-      [Phylum],[Chordata],
-      [Class],[Aves],
-      [Clade],[Columbimorphae],
-      [Order],[Columbiformes],
-      [Family],[Columbidae],
-      [Type genus],[Columba],
+      stroke: (x, y) => if y >= 0 { (bottom: 0.2pt + black) },
+      [Domain], [Eukaryota],
+      [Kingdom], [Animalia],
+      [Phylum], [Chordata],
+      [Class], [Aves],
+      [Clade], [Columbimorphae],
+      [Order], [Columbiformes],
+      [Family], [Columbidae],
+      [Type genus], [Columba],
     )
 
     This box is styled differently compared to the others.
