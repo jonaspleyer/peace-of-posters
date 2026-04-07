@@ -37,7 +37,6 @@ The dictionary is saved as a &lt;a href="https://typst.app/docs/reference/meta/s
 Most of the time, themes are meant to be set initially without any further alteration.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-typst" data-lang="typst">&lt;span style="display:flex;">&lt;span>theme = (
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;body-box-args&amp;#34;: [dictionary],
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;body-box-args-with-title&amp;#34;: [dictionary],
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;body-box-function&amp;#34;: [function],
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;heading-box-args&amp;#34;: [dictionary],
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;heading-box-args-with-body&amp;#34;: [dictionary],
@@ -61,12 +60,6 @@ Most of the time, themes are meant to be set initially without any further alter
  &lt;td>[dictionary]&lt;/td>
  &lt;td>&lt;/td>
  &lt;td>Arguments given to the body box.&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>body-box-args-with-title&lt;/code>&lt;/td>
- &lt;td>[dictionary]&lt;/td>
- &lt;td>&lt;/td>
- &lt;td>Arguments given to the body box when a title is present. This dictionary is optional. Leaving&lt;/td>
  &lt;/tr>
  &lt;tr>
  &lt;td>&lt;code>body-box-function&lt;/code>&lt;/td>
