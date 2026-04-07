@@ -19,6 +19,7 @@ def zip_package(writer):
     typst_files.append("./typst.toml")
     typst_files.append("./LICENSE")
     typst_files.append("./README.md")
+    typst_files.append("./thumbnail.png")
     writer.write_to_zip_file(typst_files)
 
 
