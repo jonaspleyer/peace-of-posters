@@ -73,14 +73,6 @@
         jonaspleyer.github.io/peace-of-posters/
       ]
     ].
-
-    #figure(caption: [
-      The poster from the thumbnail can be viewed at the documentation website as well.
-    ])[
-      #link("https://jonaspleyer.github.io/peace-of-posters/")[
-        #image("thumbnail.png", width: 50%)
-      ]
-    ]
   ]
 
   #colbreak()
