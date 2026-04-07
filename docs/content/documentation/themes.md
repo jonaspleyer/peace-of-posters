@@ -10,7 +10,6 @@ Most of the time, themes are meant to be set initially without any further alter
 ```typst
 theme = (
     "body-box-args": [dictionary],
-    "body-box-args-with-title": [dictionary],
     "body-box-function": [function],
     "heading-box-args": [dictionary],
     "heading-box-args-with-body": [dictionary],
@@ -23,7 +22,6 @@ theme = (
 | Argument | Type | Default Value | Description |
 | --- | --- | --- | --- |
 | `body-box-args` | [dictionary] | | Arguments given to the body box. |
-| `body-box-args-with-title` | [dictionary] | | Arguments given to the body box when a title is present. This dictionary is optional. Leaving  |
 | `body-box-function` | [function] | | Arguments given to the body box. |
 | `body-text-args` | [dictionary] | | Text-related arguments given to the body box. |
 | `heading-box-args` | [dictionary] | | Arguments given to the heading box. |
