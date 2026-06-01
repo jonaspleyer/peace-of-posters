@@ -198,7 +198,8 @@
 
   // Determine the size of the body
   let body-size = pl.at("body-size", default: body-size)
-  if body-size != none {
+  let body-text-args-keys = body-text-args.keys()
+  if body-size != none and not body-text-args-keys.contains("size") {
     body-text-args.insert("size", body-size)
   }
 
