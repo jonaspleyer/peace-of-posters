@@ -147,7 +147,10 @@
   }
 
   // Determine the size of the heading
-  let heading-size = pl.at("heading-size", default: heading-size)
+  let heading-size = heading-size
+  if heading-size == none {
+    heading-size = pl.at("heading-size", default: heading-size)
+  }
   if heading-size != none {
     heading-text-args.insert("size", heading-size)
   }
@@ -197,7 +200,10 @@
   }
 
   // Determine the size of the body
-  let body-size = pl.at("body-size", default: body-size)
+  let body-size = body-size
+  if body-size == none {
+    body-size = pl.at("body-size", default: body-size)
+  }
   if body-size != none {
     body-text-args.insert("size", body-size)
   }
