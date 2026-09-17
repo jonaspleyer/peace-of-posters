@@ -86,13 +86,27 @@
     .filter(dist-filt => { dist-filt.at(1) and dist-filt.at(2) > 0.0mm })
     .sorted(key: dist-filt => { dist-filt.at(2) })
 
+  let bottom-margin = {
+    if type(page.margin) == dictionary {
+      page.margin.at("bottom", 
+      default: page.margin.at("y", 
+        default: page.margin.at("rest", default: 0pt)
+        )
+      )
+    } else if type(page.margin) == relative {
+      page.margin
+    } else { // page.margin == auto
+       2.5/21 * calc.min(page.height, page.width) // according to docs
+    }
+  }
+
   // If we found a target, expand towards this target
   let dist = if target.len() > 0 {
     target.first().at(0)
     // Else determine the end of the page
   } else {
     let pl = _state-poster-layout.at(here())
-    let height = page.height - page.margin.bottom
+    let height = page.height - bottom-margin
     height - m-loc.y
   }
   box-function(..r, height: dist)
